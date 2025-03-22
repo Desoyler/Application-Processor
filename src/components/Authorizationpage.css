@@ -1,0 +1,27 @@
+.authtext
+{
+    font-weight: bold;
+}
+.login
+{
+    margin: 10px;
+}
+.password
+{
+    margin: 10px;
+}
+.send
+{
+    margin: 10px;
+}
+.loginconteiner
+{
+    border: 1px solid #b92121; 
+    display: flex;
+    width: 800px;
+    height: 600px;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    margin: 0 auto; 
+}

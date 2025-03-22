@@ -1,0 +1,16 @@
+.headerbutton
+{
+ margin: 25px;
+}
+.headerconteiner
+{
+    background: linear-gradient(to bottom, #051eff, #0084ff);
+    border: 3px solid #1eff00; 
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: row; 
+    margin: 0 auto; 
+}
