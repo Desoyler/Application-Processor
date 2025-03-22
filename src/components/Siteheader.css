@@ -1,14 +1,21 @@
 .headerbutton
 {
  margin: 25px;
+ padding: 17px;
+ border:none;
+ border-radius: 5px;
+}
+.headerbutton:hover
+{
+    cursor:pointer ;
+    background: rgb(209, 208, 208);
 }
 .headerconteiner
 {
     background: linear-gradient(to bottom, #051eff, #0084ff);
-    border: 3px solid #1eff00; 
     display: flex;
-    width: 100%;
-    height: 50px;
+    width: 100vw;
+    height: 75px;
     justify-content: center; 
     align-items: center; 
     flex-direction: row; 

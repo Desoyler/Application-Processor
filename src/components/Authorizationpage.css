@@ -1,25 +1,32 @@
 .authtext
 {
     font-weight: bold;
+    font-size: 20px;
 }
 .login
 {
     margin: 10px;
+    padding: 20px;
 }
 .password
 {
     margin: 10px;
+    padding: 20px;
 }
 .send
 {
     margin: 10px;
+    padding: 30px;
 }
 .loginconteiner
 {
-    border: 1px solid #b92121; 
+    background: linear-gradient(to bottom,rgb(255, 255, 255), #d8d8dd); 
     display: flex;
-    width: 800px;
-    height: 600px;
+    border-radius: 15px;
+    border-top: 3px solid #051eff;
+    display: flex;
+    width: 500px;
+    height: 400px;
     justify-content: center; 
     align-items: center; 
     flex-direction: column; 

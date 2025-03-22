@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import Authorizationpage from './components/Authorizationpage.jsx'
 import Siteheader from './components/Siteheader.jsx';
+import Spacecomponent from './components/spacecomponent.jsx';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   return (
     <div class="mainconteiner">
       <Siteheader />
+      <Spacecomponent />
       <Authorizationpage />
     </div>
   );
