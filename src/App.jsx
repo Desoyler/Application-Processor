@@ -7,6 +7,9 @@ import Authorizationpage from './components/Authorizationpage.jsx'
 import Siteheader from './components/Siteheader.jsx';
 import Spacecomponent from './components/Spacecomponent.jsx';
 import Cabinetpage from './components/Cabinetpage.jsx';
+import Sendpage from './components/Sendpage.jsx';
+import Historypage from './components/Historypage.jsx';
+import Watchpage from './components/Watchpage.jsx';
 
 const users = [
   { username: 'user1', password: 'pass1', profession: 'boss', workername: 'Иван Иванов Иванович'},
@@ -77,6 +80,9 @@ function App()
           path="/cabinet"
           element={isAuthentificated ? <Cabinetpage workername={currentUser.workername} profession={currentUser.profession} /> : <Authorizationpage handleLogin={handleLogin} />}
         />
+      <Route path="/history" element={<Historypage/>}/>
+      <Route path="/" element={<Sendpage/>}/>
+      <Route path="/" element={<Watchpage/>}/>
       </Routes>
     </div>
   );
