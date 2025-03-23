@@ -84,7 +84,7 @@ function App()
         />
       <Route path="/history" element={<Historypage/>}/>
       <Route path="/send" element={isAuthentificated ? <Sendpage navigate={navigate} setFormData={setFormData} name={currentUser.workername}/> : <Authorizationpage handleLogin={handleLogin}/>}/>
-      <Route path="/watch" element={isAuthentificated ? <Watchpage navigate={navigate} formData={formData} /> : <Authorizationpage handleLogin={handleLogin}/>}/>
+      <Route path="/watch" element={isAuthentificated ? <Watchpage navigate={navigate} formData={formData}  /> : <Authorizationpage handleLogin={handleLogin}/>}/>
       </Routes>
     </div>
   );

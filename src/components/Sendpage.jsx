@@ -4,10 +4,10 @@ import './Sendpage.css';
 import Siteheader from './Siteheader.jsx';
 import Spacecomponent from './Spacecomponent.jsx';
 
-const Sendpage = ({navigate, setFormData}) =>{
+const Sendpage = ({navigate, setFormData, workername}) =>{
     const [text, setText] = useState('');
     const [image, setImage] = useState(null)
-    
+
     const goback = () => {
         navigate("/cabinet");
     };
@@ -24,7 +24,7 @@ const Sendpage = ({navigate, setFormData}) =>{
         const formData = {
             text,
             image,
-            senderName: "Имя отправителя" // Замените на реальное имя из вашего массива
+            senderName: workername // Замените на реальное имя из вашего массива
         };
 
         // Передаем данные в родительский компонент
@@ -36,6 +36,8 @@ const Sendpage = ({navigate, setFormData}) =>{
         // Очистка формы после отправки
         setText('');
         setImage(null);
+        console.log('Image type:', typeof image);
+        console.log('Image data:', image);
     };
 
     return(
