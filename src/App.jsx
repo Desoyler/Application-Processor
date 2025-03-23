@@ -9,9 +9,9 @@ import Spacecomponent from './components/Spacecomponent.jsx';
 import Cabinetpage from './components/Cabinetpage.jsx';
 
 const users = [
-  { username: 'user1', password: 'pass1', profession: 'boss'},
-  { username: 'user2', password: 'pass2', profession: 'worker'},
-  { username: 'user3', password: 'pass3', profession: 'admin'},
+  { username: 'user1', password: 'pass1', profession: 'boss', workername: 'Иван Иванов Иванович'},
+  { username: 'user2', password: 'pass2', profession: 'worker', workername: 'Иван Иванов Иванович'},
+  { username: 'user3', password: 'pass3', profession: 'admin', workername: 'Иван Иванов Иванович'},
 ];
 
 function App() 
@@ -24,6 +24,7 @@ function App()
 
   const navigate = useNavigate(); // Хук для навигации
   
+
   const handleLogout = () => 
     {
     setIsAutheticated(false); //не авторизован
@@ -33,6 +34,8 @@ function App()
     setProfession(''); 
     alert('Вы вышли из системы.');
   };
+
+
   const handleLogin = () => 
     {
     const user = users.find(u => u.username === username);
@@ -47,16 +50,34 @@ function App()
     return;
   }
   setIsAutheticated(true); // Пользователь авторизован
-  setCurrentUser(user); 
-  setProfession(user.profession); 
+  setCurrentUser(user);  
   navigate("/cabinet");
 };
+
+
   return (
     <div className="mainconteiner">
         <Routes>
-        <Route path="/" element={<Authorizationpage setIsAutheticated={setIsAutheticated} username={username} password={password} profession={profession} setUsername={setUsername} setPassword={setPassword} setProfession={setProfession} handleLogin={handleLogin}/>}/>
-        <Route path="/cabinet" element={<Cabinetpage  />}/>
-        </Routes>
+        <Route
+          path="/"
+          element={
+            <Authorizationpage
+              setIsAutheticated={setIsAutheticated}
+              username={username}
+              password={password}
+              profession={profession}
+              setUsername={setUsername}
+              setPassword={setPassword}
+              setProfession={setProfession}
+              handleLogin={handleLogin}
+            />
+          }
+        />
+        <Route
+          path="/cabinet"
+          element={isAuthentificated ? <Cabinetpage workername={currentUser.workername} profession={currentUser.profession} /> : <Authorizationpage handleLogin={handleLogin} />}
+        />
+      </Routes>
     </div>
   );
 };
