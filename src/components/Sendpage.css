@@ -12,3 +12,25 @@
     flex-direction: column; 
     margin: 0 auto; 
 }
+.firstText
+{
+    margin-top: 45px;
+}
+.sh
+{
+    font-weight: bold;
+}
+.lastText
+{
+    margin-bottom: 5px;
+}
+.imageUpload
+{
+    margin-bottom: 15px;
+}
+.return
+{
+    position: relative;
+    left: 230px;
+    top:-45px;
+}
