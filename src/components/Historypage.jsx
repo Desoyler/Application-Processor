@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cabinetpage.css';
+import './Historypage.css';
 
 import Siteheader from './Siteheader.jsx';
 import Spacecomponent from './Spacecomponent.jsx';
@@ -7,7 +7,13 @@ import Spacecomponent from './Spacecomponent.jsx';
 const Historypage = ({}) =>{
 
     return(
-       dsadsad 
+        <div>
+            <Siteheader />
+            <Spacecomponent />
+        <div className="hconteiner">
+            <span>Просмотр истории заявок</span>
+        </div>
+        </div>
     );
 };
 

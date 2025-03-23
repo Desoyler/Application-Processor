@@ -78,11 +78,11 @@ function App()
         />
         <Route
           path="/cabinet"
-          element={isAuthentificated ? <Cabinetpage workername={currentUser.workername} profession={currentUser.profession} /> : <Authorizationpage handleLogin={handleLogin} />}
+          element={isAuthentificated ? <Cabinetpage workername={currentUser.workername} profession={currentUser.profession} navigate={navigate} /> : <Authorizationpage handleLogin={handleLogin} />}
         />
       <Route path="/history" element={<Historypage/>}/>
-      <Route path="/" element={<Sendpage/>}/>
-      <Route path="/" element={<Watchpage/>}/>
+      <Route path="/send" element={<Sendpage/>}/>
+      <Route path="/watch" element={<Watchpage/>}/>
       </Routes>
     </div>
   );

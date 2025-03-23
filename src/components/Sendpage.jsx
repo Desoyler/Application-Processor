@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cabinetpage.css';
+import './Sendpage.css';
 
 import Siteheader from './Siteheader.jsx';
 import Spacecomponent from './Spacecomponent.jsx';
@@ -7,7 +7,13 @@ import Spacecomponent from './Spacecomponent.jsx';
 const Sendpage = ({}) =>{
 
     return(
-       dsadsad 
+        <div>
+        <Siteheader />
+        <Spacecomponent />
+        <div className="sconteiner">
+            <span>Отправить заявку</span>
+        </div>
+        </div>
     );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cabinetpage.css';
+import './Watchpage.css';
 
 import Siteheader from './Siteheader.jsx';
 import Spacecomponent from './Spacecomponent.jsx';
@@ -7,7 +7,13 @@ import Spacecomponent from './Spacecomponent.jsx';
 const Watchpage = ({}) =>{
 
     return(
-       dsadsad 
+        <div>
+        <Siteheader />
+        <Spacecomponent />
+        <div className="wconteiner">
+            <span>Просмотр активных заявок</span>
+        </div> 
+        </div>
     );
 };
 
