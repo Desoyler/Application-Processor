@@ -8,9 +8,6 @@ const Siteheader = () =>{
             <picture>
             <img src={icon} width="200px" height="200px"></img>
             </picture>
-            <button className="headerbutton">История Заявок</button>
-            <button className="headerbutton">Подать заявку</button>
-            <button className="headerbutton">Просмотр активных заявок</button>
         </div>
     );
 };

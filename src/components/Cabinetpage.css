@@ -12,3 +12,30 @@
     flex-direction: column; 
     margin: 0 auto; 
 }
+.buttonConteiner
+{
+    margin-top: 90px;
+    display: flex;
+    width: 500px;
+    height: 100px;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: row;
+}
+.cbutton
+{
+ margin: 15px;
+ padding: 17px;
+ border:none;
+ border-radius: 5px;
+}
+.cbutton:hover
+{
+    cursor:pointer ;
+    background: rgb(209, 208, 208);
+}
+.cabinetText
+{
+    font-weight: bold;
+    font-size: 20px;
+}

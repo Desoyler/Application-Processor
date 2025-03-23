@@ -11,7 +11,13 @@ const Cabinetpage = ({workername, profession}) =>{
         <Siteheader />
         <Spacecomponent />
         <div className="cabinetConteiner">
-        <span className="cabinetText">Добро пожаловать в личный кабинет {profession} {workername}</span>
+        <span className="cabinetText">Добро пожаловать в личный кабинет {profession} </span>
+        <span className="cabinetText">{workername}</span>
+        <div className="buttonConteiner">
+        <button className="cbutton firstcbutton">История Заявок</button>
+        <button className="cbutton">Подать заявку</button>
+        <button className="cbutton">Просмотр активных заявок</button>
+        </div>
         </div>
         </div>
     );
