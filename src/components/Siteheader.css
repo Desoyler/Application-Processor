@@ -12,7 +12,8 @@
 }
 .headerconteiner
 {
-    background: linear-gradient(to bottom, #051eff, #0084ff);
+    background: linear-gradient(to bottom,rgb(255, 255, 255), #d8d8dd);
+    border-bottom: 2px solid #051eff; 
     display: flex;
     width: 100vw;
     height: 75px;
