@@ -25,6 +25,8 @@ function App()
   const [profession, setProfession] = useState(''); //Профессия
   const [currentUser, setCurrentUser] = useState(null); //тек. данные
 
+  const [formData, setFormData] = useState(null); //данные с юзформы send
+
   const navigate = useNavigate(); // Хук для навигации
   
 
@@ -81,8 +83,8 @@ function App()
           element={isAuthentificated ? <Cabinetpage workername={currentUser.workername} profession={currentUser.profession} navigate={navigate} /> : <Authorizationpage handleLogin={handleLogin} />}
         />
       <Route path="/history" element={<Historypage/>}/>
-      <Route path="/send" element={<Sendpage navigate={navigate}/>}/>
-      <Route path="/watch" element={<Watchpage/>}/>
+      <Route path="/send" element={isAuthentificated ? <Sendpage navigate={navigate} setFormData={setFormData} name={currentUser.workername}/> : <Authorizationpage handleLogin={handleLogin}/>}/>
+      <Route path="/watch" element={isAuthentificated ? <Watchpage navigate={navigate} formData={formData} /> : <Authorizationpage handleLogin={handleLogin}/>}/>
       </Routes>
     </div>
   );

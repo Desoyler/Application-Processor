@@ -4,7 +4,7 @@ import './Watchpage.css';
 import Siteheader from './Siteheader.jsx';
 import Spacecomponent from './Spacecomponent.jsx';
 
-const Watchpage = ({}) =>{
+const Watchpage = ({navigate, formData}) =>{
 
     return(
         <div>

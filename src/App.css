@@ -4,7 +4,7 @@ body {
     min-height: 100vh;
     min-width: 100vh;
     margin: 0; 
-    background-image: url('./components/assets/background.jpg');
+    background-color: #EDF0F4;
     background-size: cover;
     background-attachment: fixed;
 }
