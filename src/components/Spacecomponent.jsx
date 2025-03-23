@@ -3,7 +3,7 @@ import './Spacecomponent.css'
 
 const Spacecomponent = () =>{
     return(
-        <div class="conteiner">
+        <div className="conteiner">
         </div>
     );
 };

@@ -1,14 +1,24 @@
 import React from 'react';
 import './Authorizationpage.css'
 
-const Authorizationpage = () =>{
+const Authorizationpage = ({
+    setIsAutheticated, 
+    username, 
+    password, 
+    profession,
+    setPassword, 
+    setUsername, 
+    setProfession,
+    handleLogin, 
+    handleLogout 
+    })=>{
     return(
-        <div class="loginconteiner">
-            <span class= "authtext">Введите ваш логин</span>
-            <input type="text" placeholder="Введите логин" class="login"></input>
-            <span class= "authtext">Введите ваш код</span>
-            <input type="password" class="password"></input>
-            <button class="send">Отправить</button>
+        <div className="loginconteiner">
+            <span className= "authtext">Введите ваш логин</span>
+            <input type="text" placeholder="Введите логин" className="login" onChange={(e) => setUsername(e.target.value)}></input>
+            <span className= "authtext">Введите ваш код</span>
+            <input type="password" className="password" onChange={(e) => setPassword(e.target.value)}></input>
+            <button className="send" onClick={handleLogin}>Отправить</button>
         </div>
     );
 };
