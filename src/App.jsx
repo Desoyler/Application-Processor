@@ -32,6 +32,9 @@ function App()
   const [image, setImage] = useState(null);
   const [Sender, setSender] = useState();
 
+  // useState для состояния заявки
+  const [status, setStatus] = useState('')
+
   const navigate = useNavigate(); // Хук для навигации
 
 
@@ -113,13 +116,17 @@ function App()
              setImage = {setImage}
              Sender={Sender} 
              setSender={setSender}
+             status={status}
+             setStatus={setStatus}
+
             /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       <Route path="/watch"
        element={
         isAuthentificated ? 
         <Watchpage 
-          navigate={navigate}   
+          navigate={navigate}
+          text={text}   
         /> : <Authorizationpage handleLogin={handleLogin}/>}
       />
       </Routes>

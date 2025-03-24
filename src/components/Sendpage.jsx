@@ -4,7 +4,7 @@ import './Sendpage.css';
 import Siteheader from './Siteheader.jsx';
 import Spacecomponent from './Spacecomponent.jsx';
 
-const Sendpage = ({navigate, workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender }) =>
+const Sendpage = ({navigate, workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus}) =>
     {
     const goback = () => 
     {
@@ -34,6 +34,7 @@ const Sendpage = ({navigate, workername, text, setText, shorttext, setshorttext,
 
     const handleSubmit = (event) =>
     {
+        setStatus('Не выполнена')
         //тут должна быть отправка данных на сервер
     };
 
