@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Sendpage.css';
 
 import Siteheader from './Siteheader.jsx';
 import Spacecomponent from './Spacecomponent.jsx';
 
-const Sendpage = ({navigate, setFormData, workername}) =>
+const Sendpage = ({navigate, workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender }) =>
     {
-    const [text, setText] = useState('');
-    const [shorttext, setshorttext] = useState('');
-    const [image, setImage] = useState(null)
-
-
     const goback = () => 
     {
         navigate("/cabinet");
@@ -39,9 +34,7 @@ const Sendpage = ({navigate, setFormData, workername}) =>
 
     const handleSubmit = (event) =>
     {
-        console.log(text);
-        console.log(shorttext);
-        console.log(image);
+        //тут должна быть отправка данных на сервер
     };
 
     return(

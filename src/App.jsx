@@ -23,9 +23,14 @@ function App()
   const [username, setUsername] = useState(''); //Логин
   const [password, setPassword] = useState(''); //пороль
   const [profession, setProfession] = useState(''); //Профессия
-  const [workerName, setWorkerName] = useState(''); //Имя работника
+  const [workername, setWorkerName] = useState(''); //Имя работника
   const [currentUser, setCurrentUser] = useState(null); //тек. данные
 
+  // useState для sendPage
+  const [text, setText] = useState('');
+  const [shorttext, setshorttext] = useState('');
+  const [image, setImage] = useState(null);
+  const [Sender, setSender] = useState();
 
   const navigate = useNavigate(); // Хук для навигации
 
@@ -39,7 +44,7 @@ function App()
     {
     setIsAutheticated(false); //не авторизован
     setCurrentUser(null);  // Чистка данных что хранятся в текущем пользователе
-    setUsername(''); // Очищаем 
+    setUsername(''); 
     setPassword(''); 
     setProfession('');
     setWorkerName('');
@@ -99,7 +104,15 @@ function App()
             <Sendpage 
              navigate={navigate} 
              setFormData={setFormData} 
-              workername={currentUser.workername} 
+             workername={currentUser.workername} 
+             text = {text} 
+             setText = {setText}
+             shorttext = {shorttext}
+             setshorttext = {setshorttext}
+             image = {image}
+             setImage = {setImage}
+             Sender={Sender} 
+             setSender={setSender}
             /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       <Route path="/watch"
