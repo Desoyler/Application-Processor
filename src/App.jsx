@@ -23,11 +23,16 @@ function App()
   const [username, setUsername] = useState(''); //Логин
   const [password, setPassword] = useState(''); //пороль
   const [profession, setProfession] = useState(''); //Профессия
+  const [workerName, setWorkerName] = useState(''); //Имя работника
   const [currentUser, setCurrentUser] = useState(null); //тек. данные
+
+
+  const navigate = useNavigate(); // Хук для навигации
+
 
   const [formData, setFormData] = useState(null); //данные с юзформы send
 
-  const navigate = useNavigate(); // Хук для навигации
+  
   
 
   const handleLogout = () => 
@@ -36,7 +41,8 @@ function App()
     setCurrentUser(null);  // Чистка данных что хранятся в текущем пользователе
     setUsername(''); // Очищаем 
     setPassword(''); 
-    setProfession(''); 
+    setProfession('');
+    setWorkerName('');
     alert('Вы вышли из системы.');
   };
 
@@ -44,20 +50,16 @@ function App()
   const handleLogin = () => 
     {
     const user = users.find(u => u.username === username);
-  if (!user) 
-    {
-    alert('Пользователь с таким логином не найден!');
-    return;
-  }
-  if (user.password !== password) 
-    {
-    alert('Неверный пароль!');
-    return;
-  }
-  setIsAutheticated(true); // Пользователь авторизован
-  setCurrentUser(user);  
-  navigate("/cabinet");
-};
+
+      if (!user || user.password !== password) 
+      {
+      alert('Данные не коректны!');
+      return;
+      }
+    setIsAutheticated(true); // Пользователь авторизован
+    setCurrentUser(user);  
+    navigate("/cabinet");
+    };
 
 
   return (
@@ -78,13 +80,35 @@ function App()
             />
           }
         />
-        <Route
-          path="/cabinet"
-          element={isAuthentificated ? <Cabinetpage workername={currentUser.workername} profession={currentUser.profession} navigate={navigate} /> : <Authorizationpage handleLogin={handleLogin} />}
+        <Route path="/cabinet"
+          element={
+            isAuthentificated ? 
+            <Cabinetpage 
+              workername={currentUser.workername} 
+              profession={currentUser.profession} 
+              navigate={navigate} 
+            /> : <Authorizationpage handleLogin={handleLogin} />}
         />
-      <Route path="/history" element={<Historypage/>}/>
-      <Route path="/send" element={isAuthentificated ? <Sendpage navigate={navigate} setFormData={setFormData} workername={currentUser.workername} /> : <Authorizationpage handleLogin={handleLogin}/>}/>
-      <Route path="/watch" element={isAuthentificated ? <Watchpage navigate={navigate} formData={formData}  /> : <Authorizationpage handleLogin={handleLogin}/>}/>
+        <Route path="/history"
+        element={
+        <Historypage/>}
+        />
+        <Route path="/send" 
+        element={
+          isAuthentificated ? 
+            <Sendpage 
+             navigate={navigate} 
+             setFormData={setFormData} 
+              workername={currentUser.workername} 
+            /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
+      <Route path="/watch"
+       element={
+        isAuthentificated ? 
+        <Watchpage 
+          navigate={navigate}   
+        /> : <Authorizationpage handleLogin={handleLogin}/>}
+      />
       </Routes>
     </div>
   );
