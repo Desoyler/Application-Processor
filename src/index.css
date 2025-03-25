@@ -1,0 +1,6 @@
+@layer base {
+    input[type="password"]::-webkit-reveal,
+    input[type="password"]::-ms-reveal {
+    display: none !important;
+}
+  }
