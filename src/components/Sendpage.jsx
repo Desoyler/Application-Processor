@@ -34,7 +34,7 @@ const Sendpage = ({navigate, workername, text, setText, shorttext, setshorttext,
 
     const handleSubmit = (event) =>
     {
-        setStatus('Не выполнена')
+        setStatus('Не выполнена') // в базе данных отправить notcomplited для дальнейшей логики
         //тут должна быть отправка данных на сервер
     };
 
