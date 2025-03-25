@@ -38,7 +38,6 @@ function App()
   const navigate = useNavigate(); // Хук для навигации
 
 
-  const [formData, setFormData] = useState(null); //данные с юзформы send
 
   
   
@@ -106,7 +105,6 @@ function App()
           isAuthentificated ? 
             <Sendpage 
              navigate={navigate} 
-             setFormData={setFormData} 
              workername={currentUser.workername} 
              text = {text} 
              setText = {setText}
