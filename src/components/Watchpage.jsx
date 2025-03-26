@@ -6,11 +6,11 @@ import Spacecomponent from './Spacecomponent.jsx';
 
 const Watchpage = ({ text, navigate }) => {
     const [messages, setMessages] = useState([
-        { id: 1, shortpage: "Вышел из строя рабочий компьютер", text: "Привет!", sender: "Иван", location: "Цех 1", type: "Поломка оборудования" },
-        { id: 2, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования" },
-        { id: 3, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования" },
-        { id: 4, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования" },
-        { id: 5, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования" },
+        { id: 1, shortpage: "Вышел из строя рабочий компьютер", text: "Привет!", sender: "Иван", location: "Цех 1", type: "Поломка оборудования", status:"Выполнена" },
+        { id: 2, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
+        { id: 3, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
+        { id: 4, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
+        { id: 5, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
     ]);
 
     const goback = () => {
@@ -24,7 +24,9 @@ const Watchpage = ({ text, navigate }) => {
             <div className="wconteiner"> 
                 <h2>Список активных заявок</h2>
                 <button className="wreturn" onClick={goback}>X</button>
-                {messages.map((msg, index) => (
+                {messages
+                .filter(msg => msg.status === "Не выполнена")
+                .map((msg, index) => (
                     <div key={index} className="message">
                         <h3 className="wshortpage">{msg.shortpage}</h3>
                         <span className="wType">{msg.type} </span>
