@@ -98,7 +98,7 @@ function App()
         />
         <Route path="/history"
         element={
-        <Historypage/>}
+        <Historypage navigate={navigate}/>}
         />
         <Route path="/send" 
         element={

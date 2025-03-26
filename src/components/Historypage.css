@@ -6,9 +6,15 @@
     border-top: 2px solid #051eff;
     display: flex;
     width: 500px;
-    height: 400px;
-    justify-content: center; 
+    height: auto;
+    justify-content: flex-start; 
     align-items: center; 
     flex-direction: column; 
     margin: 0 auto; 
+}
+.hreturn 
+{
+    position: relative;
+    left: 230px;
+    top: 0px;
 }
