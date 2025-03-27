@@ -17,6 +17,11 @@ const Watchpage = ({ navigate }) => {
         navigate("/cabinet");
     };
 
+    const goToAplication = (id) => {
+        navigate(`/watch/${id}`);
+    };
+    
+
     return (
         <div>
             <Siteheader />
@@ -32,7 +37,7 @@ const Watchpage = ({ navigate }) => {
                         <span className="wType">{msg.type} </span>
                         <span className="wtLocation">{msg.location} </span>
                         <p className="wsender"><strong>{msg.sender}</strong></p>
-                        <button className="wgo">Перейти к заявке</button>
+                        <button className="wgo" onClick = {() => goToAplication(msg.id)}>Перейти к заявке</button>
                     </div>
                 ))}
             </div>

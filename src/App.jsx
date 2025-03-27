@@ -10,6 +10,7 @@ import Cabinetpage from './components/Cabinetpage.jsx';
 import Sendpage from './components/Sendpage.jsx';
 import Historypage from './components/Historypage.jsx';
 import Watchpage from './components/Watchpage.jsx';
+import ApplicationPage from './components/ApplicationPage.jsx';
 
 const users = [
   { username: 'user1', password: 'pass1', profession: 'boss', workername: 'Иван Иванов Иванович'},
@@ -127,6 +128,12 @@ function App()
           text={text}   
         /> : <Authorizationpage handleLogin={handleLogin}/>}
       />
+       <Route path="/watch/:id"
+        element={
+          isAuthentificated ?
+          <ApplicationPage 
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
       </Routes>
     </div>
   );
