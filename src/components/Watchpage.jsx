@@ -25,7 +25,7 @@ const Watchpage = ({ navigate }) => {
     return (
         <div>
             <Siteheader />
-            <Spacecomponent />
+    
             <div className="wconteiner"> 
                 <h2>Список активных заявок</h2>
                 <button className="wreturn" onClick={goback}>X</button>

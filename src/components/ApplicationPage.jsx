@@ -36,7 +36,7 @@ const ApplicationPage = () => {
     return (
         <div>
             <Siteheader />
-            <Spacecomponent />
+            
             <div className='acontainer'>
                 <h2>Заявка {message.id}</h2>
                 <p><strong>Краткое описание:</strong> {message.shortpage}</p>

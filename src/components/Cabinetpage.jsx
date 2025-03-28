@@ -20,7 +20,7 @@ const Cabinetpage = ({workername, profession, navigate}) =>{
     return(
         <div>
         <Siteheader />
-        <Spacecomponent />
+        
         <div className="cabinetConteiner">
         <span className="cabinetText">Добро пожаловать в личный кабинет {profession} </span>
         <span className="cabinetText">{workername}</span>

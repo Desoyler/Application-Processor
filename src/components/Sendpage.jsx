@@ -41,7 +41,7 @@ const Sendpage = ({navigate, workername, text, setText, shorttext, setshorttext,
     return(
         <div>
         <Siteheader />
-        <Spacecomponent />
+        
         <div className="sconteiner">
             <span className='sh'>Отправить заявку</span>
             <button className="sreturn" onClick={goback} >X</button>

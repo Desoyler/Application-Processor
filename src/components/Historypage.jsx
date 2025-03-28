@@ -22,7 +22,7 @@ const Historypage = ({navigate}) =>{
     return(
         <div>
             <Siteheader />
-            <Spacecomponent />
+            
         <div className="hconteiner">
             <span>Просмотр истории заявок</span>
             <button className="hreturn" onClick={goback}>X</button>

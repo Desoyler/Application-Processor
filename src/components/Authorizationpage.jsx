@@ -18,7 +18,7 @@ const Authorizationpage = ({
     return(
         <div>
         <Siteheader />
-        <Spacecomponent />
+        
         <div className="loginconteiner">
             <span className= "authtext">Введите ваш логин</span>
             <input type="text" placeholder="Введите логин" className="login" onChange={(e) => setUsername(e.target.value)}></input>
