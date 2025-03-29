@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './Cabinetpage.css';
 
 import Siteheader from './Siteheader.jsx';
-import Spacecomponent from './Spacecomponent.jsx';
 
-const Cabinetpage = ({workername, profession, navigate}) =>{
+const Cabinetpage = ({workername, profession}) =>{
     
+    const navigate = useNavigate();
+
     const goToHistory = () => {
         navigate("/history");
     };

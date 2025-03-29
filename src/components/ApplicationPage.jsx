@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; 
+import { useParams, useNavigate } from 'react-router-dom';
 import './Applicationpage.css';
 
 import Siteheader from './Siteheader.jsx';
-import Spacecomponent from './Spacecomponent.jsx';
 
 const ApplicationPage = () => {
     const { id } = useParams(); // Получаем параметр id из URL

@@ -2,7 +2,6 @@ import React from 'react';
 import './Authorizationpage.css'
 
 import Siteheader from './Siteheader.jsx';
-import Spacecomponent from './Spacecomponent.jsx';
 
 const Authorizationpage = ({
     setIsAutheticated, 

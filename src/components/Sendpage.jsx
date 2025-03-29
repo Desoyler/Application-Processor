@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Sendpage.css';
 
 import Siteheader from './Siteheader.jsx';
-import Spacecomponent from './Spacecomponent.jsx';
 
-const Sendpage = ({navigate, workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus}) =>
+const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus}) =>
     {
+
+    const navigate = useNavigate();
+
     const goback = () => 
     {
         navigate("/cabinet");
@@ -49,18 +52,18 @@ const Sendpage = ({navigate, workername, text, setText, shorttext, setshorttext,
             <input type="text" id="shortTextInput"  onChange={handleshortTextChange} ></input>
             <span className='sText Text'>Опишите вашу проблему детально в поле ниже:</span>
             <textarea id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
-            <select className="list" id="Location">
-                <option selected disabled hidden>Выбирите место где произошла поломка</option>
-                <option>Цех 1</option>
-                <option>Цех 2</option>
-                <option>Цех 3</option>
-                <option>Цех 4</option>
+            <select className="list" id="Location" defaultValue="">
+                <option value=""  disabled hidden>Выбирите место где произошла поломка</option>
+                <option value="1">Цех 1</option>
+                <option value="2">Цех 2</option>
+                <option value="3">Цех 3</option>
+                <option value="4">Цех 4</option>
             </select>
-            <select className="list" id="problemType" >
-                <option selected disabled hidden>Выбирите тип поломки</option>
-                <option>Поломка компьютерного оборудования</option>
-                <option>Перебои электроэнергии</option>
-                <option>Поломка рабочего оборудования</option>
+            <select className="list" id="problemType" defaultValue="">
+                <option value="" disabled hidden>Выбирите тип поломки</option>
+                <option value="1">Поломка компьютерного оборудования</option>
+                <option value="2">Перебои электроэнергии</option>
+                <option value="3">Поломка рабочего оборудования</option>
             </select>
             <span className='sText lastText'>Отправьте изображение при необходимости:</span>
             <input type="file" className="imageUpload" id="imageUpload" name="image" accept="image/*" onChange={handleImageChange} />

@@ -1,12 +1,15 @@
 import React , {useState}from 'react';
+import { useNavigate } from "react-router-dom";
 import './Historypage.css';
 
 import Siteheader from './Siteheader.jsx';
-import Spacecomponent from './Spacecomponent.jsx';
 
 
 
-const Historypage = ({navigate}) =>{
+const Historypage = ({}) =>{
+
+    const navigate = useNavigate();
+
     const [messages, setMessages] = useState([
             { id: 1, shortpage: "Вышел из строя рабочий компьютер", text: "Привет!", sender: "Иван", location: "Цех 1", type: "Поломка оборудования", status: "Выполнена" },
             { id: 2, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },

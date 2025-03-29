@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import './App.css'
 import Authorizationpage from './components/Authorizationpage.jsx'
 import Siteheader from './components/Siteheader.jsx';
-import Spacecomponent from './components/Spacecomponent.jsx';
 import Cabinetpage from './components/Cabinetpage.jsx';
 import Sendpage from './components/Sendpage.jsx';
 import Historypage from './components/Historypage.jsx';
@@ -94,18 +92,19 @@ function App()
             <Cabinetpage 
               workername={currentUser.workername} 
               profession={currentUser.profession} 
-              navigate={navigate} 
             /> : <Authorizationpage handleLogin={handleLogin} />}
         />
         <Route path="/history"
         element={
-        <Historypage navigate={navigate}/>}
+          isAuthentificated ? 
+          <Historypage 
+            text={text}   
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/send" 
         element={
           isAuthentificated ? 
             <Sendpage 
-             navigate={navigate} 
              workername={currentUser.workername} 
              text = {text} 
              setText = {setText}
@@ -124,7 +123,6 @@ function App()
        element={
         isAuthentificated ? 
         <Watchpage 
-          navigate={navigate}
           text={text}   
         /> : <Authorizationpage handleLogin={handleLogin}/>}
       />
