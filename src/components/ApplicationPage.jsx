@@ -9,7 +9,7 @@ const ApplicationPage = ({workername}) => {
     const navigate = useNavigate(); 
 
     const [message, setMessage] = useState(null);
-
+    
     useEffect(() => {
         
         const messages = [
@@ -31,12 +31,12 @@ const ApplicationPage = ({workername}) => {
               id: 2,
               shortpage: "ВАЗАААААААП",
               text: "Привет!",
-              sender: "Alice",
+              sender: "Иван Иванов Иванович",
               location: "Цех 1",
               type: "Поломка оборудования",
               status: "Не выполнена",
               chat: [
-                { sender: "Alice", text: "Когда сможете починить?", timestamp: 1 },
+                { sender: "Иван Иванов Иванович", text: "Когда сможете починить?", timestamp: 1 },
                 { sender: "Техподдержка", text: "Завтра утром", timestamp: 2 },
               ],
             },
@@ -48,6 +48,8 @@ const ApplicationPage = ({workername}) => {
     
     const goback = () => {
         navigate(-1) 
+        console.log(workername) 
+        console.log(message.sender)
     };
 
     if (!message) {
@@ -70,10 +72,13 @@ const ApplicationPage = ({workername}) => {
                 </div>
                 <div className='bcontainer'>
                     <h2>Чат</h2>
-                    <div className='chatcontainer'>
+                    <div className="chatcontainer">
                         {message.chat.map((msg, index) => (
-                            <div key={index} className={`p-3 rounded-lg max-w-[70%] m-1 ${msg.sender === workername ? "bg-blue-500 text-white self-end" : "bg-gray-300 text-black self-start"}`}>
-                            <strong>{msg.sender}:</strong> {msg.text}
+                            <div 
+                                key={index} 
+                                className={`message-container ${msg.sender === workername ? "user-message" : "other-message"}`}
+                            >
+                                <strong>{msg.sender}:</strong> {msg.text}
                             </div>
                         ))}
                     </div>

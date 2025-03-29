@@ -76,3 +76,17 @@
     border-radius: 3px;
     margin: 4px;
 }
+.user-message 
+{
+    background-color: blue;
+    color: white;
+    text-align: right;
+    align-self: flex-end;
+}
+.other-message 
+{
+    background-color: lightgray;
+    color: black;
+    text-align: left;
+    align-self: flex-start;
+}

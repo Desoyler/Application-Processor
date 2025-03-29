@@ -136,7 +136,7 @@ function App()
         element={
           isAuthentificated ?
           <ApplicationPage 
-          workername = {workername}
+          workername = {currentUser.workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       </Routes>
