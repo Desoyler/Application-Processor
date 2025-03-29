@@ -4,7 +4,7 @@ import './Applicationpage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const ApplicationPage = () => {
+const ApplicationPage = ({workername}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
 
@@ -13,19 +13,41 @@ const ApplicationPage = () => {
     useEffect(() => {
         
         const messages = [
-            { id: 1, shortpage: "Вышел из строя рабочий компьютер", text: "Привет!", sender: "Иван", location: "Цех 1", type: "Поломка оборудования", status:"Выполнена" },
-            { id: 2, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
-            { id: 3, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
-            { id: 4, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
-            { id: 5, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
+            {
+              id: 1,
+              shortpage: "Вышел из строя рабочий компьютер",
+              text: "Привет!",
+              sender: "Иван",
+              location: "Цех 1",
+              type: "Поломка оборудования",
+              status: "Выполнена",
+              chat: [
+                { sender: "Иван", text: "Компьютер не включается", timestamp: 1 },
+                { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
+                { sender: "Иван", text: "Да, но не помогает", timestamp: 3 },
+              ],
+            },
+            {
+              id: 2,
+              shortpage: "ВАЗАААААААП",
+              text: "Привет!",
+              sender: "Alice",
+              location: "Цех 1",
+              type: "Поломка оборудования",
+              status: "Не выполнена",
+              chat: [
+                { sender: "Alice", text: "Когда сможете починить?", timestamp: 1 },
+                { sender: "Техподдержка", text: "Завтра утром", timestamp: 2 },
+              ],
+            },
         ];
 
         const foundMessage = messages.find(msg => msg.id === parseInt(id)); // Ищем сообщение по id
         setMessage(foundMessage);
     }, [id]); // Каждый раз когда id меняется
-
+    
     const goback = () => {
-        navigate("/watch"); 
+        navigate(-1) 
     };
 
     if (!message) {
@@ -35,17 +57,32 @@ const ApplicationPage = () => {
     return (
         <div>
             <Siteheader />
-            
-            <div className='acontainer'>
-                <h2>Заявка {message.id}</h2>
-                <p><strong>Краткое описание:</strong> {message.shortpage}</p>
-                <p><strong>Текст:</strong> {message.text}</p>
-                <p><strong>Отправитель:</strong> {message.sender}</p>
-                <p><strong>Местоположение:</strong> {message.location}</p>
-                <p><strong>Тип:</strong> {message.type}</p>
-                <p><strong>Статус:</strong> {message.status}</p>
-                <button onClick={goback}>Назад</button> 
-            </div>
+            <div className='bigContainer'>
+                <div className='acontainer'>
+                    <h2>Заявка {message.id}</h2>
+                    <p><strong>Краткое описание:</strong> {message.shortpage}</p>
+                    <p><strong>Текст:</strong> {message.text}</p>
+                    <p><strong>Отправитель:</strong> {message.sender}</p>
+                    <p><strong>Местоположение:</strong> {message.location}</p>
+                    <p><strong>Тип:</strong> {message.type}</p>
+                    <p><strong>Статус:</strong> {message.status}</p>
+                    <button onClick={goback}>Назад</button> 
+                </div>
+                <div className='bcontainer'>
+                    <h2>Чат</h2>
+                    <div className='chatcontainer'>
+                        {message.chat.map((msg, index) => (
+                            <div key={index} className={`p-3 rounded-lg max-w-[70%] m-1 ${msg.sender === workername ? "bg-blue-500 text-white self-end" : "bg-gray-300 text-black self-start"}`}>
+                            <strong>{msg.sender}:</strong> {msg.text}
+                            </div>
+                        ))}
+                    </div>
+                    <div className='sendFooter'>
+                        <input type="Text" placeholder="Введите сообщение" className="aText"></input>
+                        <button className='aSend'>Отправить</button>
+                    </div>
+                </div>
+                </div>
         </div>
     );
 };

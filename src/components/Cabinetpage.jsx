@@ -4,7 +4,7 @@ import './Cabinetpage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const Cabinetpage = ({workername, profession}) =>{
+const Cabinetpage = ({workername, profession, handleLogout}) =>{
     
     const navigate = useNavigate();
 
@@ -21,17 +21,18 @@ const Cabinetpage = ({workername, profession}) =>{
     };
     return(
         <div>
-        <Siteheader />
+            <Siteheader />
         
-        <div className="cabinetConteiner">
-        <span className="cabinetText">Добро пожаловать в личный кабинет {profession} </span>
-        <span className="cabinetText">{workername}</span>
-        <div className="buttonConteiner">
-        <button className="cbutton firstcbutton" onClick={goToHistory}>История Заявок</button>
-        <button className="cbutton" onClick={goToSend}>Подать заявку</button>
-        <button className="cbutton" onClick={goToWatch}>Просмотр активных заявок</button>
-        </div>
-        </div>
+            <div className="cabinetConteiner">
+                <span className="cabinetText">Добро пожаловать в личный кабинет {profession} </span>
+                <span className="cabinetText">{workername}</span>
+                <button className = "logout" onClick={handleLogout}>Выйти из системы</button>
+                <div className="buttonConteiner">
+                    <button className="cbutton" onClick={goToHistory}>История Заявок</button>
+                    <button className="cbutton" onClick={goToSend}>Подать заявку</button>
+                    <button className="cbutton" onClick={goToWatch}>Просмотр активных заявок</button>
+                </div>
+            </div>
         </div>
     );
 };

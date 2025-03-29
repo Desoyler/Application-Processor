@@ -4,26 +4,43 @@ import './Watchpage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const Watchpage = ({}) => {
-    const [messages, setMessages] = useState([
-        { id: 1, shortpage: "Вышел из строя рабочий компьютер", text: "Привет!", sender: "Иван", location: "Цех 1", type: "Поломка оборудования", status:"Выполнена" },
-        { id: 2, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
-        { id: 3, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
-        { id: 4, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
-        { id: 5, shortpage: "ВАЗАААААААП", text: "Привет!", sender: "Alice", location: "Цех 1", type: "Поломка оборудования", status:"Не выполнена" },
-    ]);
+const Watchpage = ({goToAplication}) => {
+    const messages = [
+        {
+          id: 1,
+          shortpage: "Вышел из строя рабочий компьютер",
+          text: "Привет!",
+          sender: "Иван",
+          location: "Цех 1",
+          type: "Поломка оборудования",
+          status: "Выполнена",
+          chat: [
+            { sender: "Иван", text: "Компьютер не включается", timestamp: 1 },
+            { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
+            { sender: "Иван", text: "Да, но не помогает", timestamp: 3 },
+          ],
+        },
+        {
+          id: 2,
+          shortpage: "ВАЗАААААААП",
+          text: "Привет!",
+          sender: "Alice",
+          location: "Цех 1",
+          type: "Поломка оборудования",
+          status: "Не выполнена",
+          chat: [
+            { sender: "Alice", text: "Когда сможете починить?", timestamp: 1 },
+            { sender: "Техподдержка", text: "Завтра утром", timestamp: 2 },
+          ],
+        },
+    ];
 
     const navigate = useNavigate();
 
     const goback = () => {
         navigate("/cabinet");
     };
-
-    const goToAplication = (id) => {
-        navigate(`/watch/${id}`);
-    };
     
-
     return (
         <div>
             <Siteheader />

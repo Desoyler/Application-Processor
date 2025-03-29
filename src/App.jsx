@@ -40,6 +40,9 @@ function App()
 
   
   
+  const goToAplication = (id) => {
+    navigate(`/watch/${id}`);
+  };
 
   const handleLogout = () => 
     {
@@ -90,16 +93,10 @@ function App()
           element={
             isAuthentificated ? 
             <Cabinetpage 
+              handleLogout={handleLogout}
               workername={currentUser.workername} 
               profession={currentUser.profession} 
             /> : <Authorizationpage handleLogin={handleLogin} />}
-        />
-        <Route path="/history"
-        element={
-          isAuthentificated ? 
-          <Historypage 
-            text={text}   
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/send" 
         element={
@@ -123,13 +120,23 @@ function App()
        element={
         isAuthentificated ? 
         <Watchpage 
-          text={text}   
+          text={text}
+          goToAplication={goToAplication}
         /> : <Authorizationpage handleLogin={handleLogin}/>}
       />
+      <Route path="/history"
+        element={
+          isAuthentificated ? 
+          <Historypage 
+            text={text} 
+            goToAplication={goToAplication}  
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
        <Route path="/watch/:id"
         element={
           isAuthentificated ?
           <ApplicationPage 
+          workername = {workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       </Routes>
