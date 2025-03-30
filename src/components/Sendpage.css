@@ -3,10 +3,10 @@
     background: #FFFFFF; 
     display: flex;
     border-radius: 15px;
-    border-top: 2px solid #051eff;
+    border-top: 2px solid #e21212;
     display: flex;
     width: 500px;
-    height: 400px;
+    height: auto;
     justify-content: center; 
     align-items: center; 
     flex-direction: column; 
@@ -15,7 +15,7 @@
 }
 .firstText
 {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 .sh
 {
@@ -35,8 +35,68 @@
    position: relative;
    left: 230px;
    top: -8px;
+   border: 1px solid #FFFFFF;
+   border-radius: 50%;
+}
+.sreturn:hover
+{
+    border: 1px solid #e21212;
 }
 .list
 {
     margin: 10px;
+}
+.ssend
+{
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+.ssend:hover
+{
+    cursor:pointer;
+    border-color: #e21212;
+    transition: border-color 0.3s ease-in-out; 
+}
+.shortTextInput
+{
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    border: #000000 solid 1px;
+    outline: none;
+    width: 250px;
+}
+.shortTextInput:focus
+{
+    border-color: #e21212;
+    transition: border-color 0.3s ease-in-out;
+}
+.sbigText
+{
+    resize: none;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    border: #000000 solid 1px;
+    outline: none;
+}
+.sbigText:focus
+{
+    border-color: #e21212;
+    transition: border-color 0.3s ease-in-out;
+}
+.list
+{
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    border: #000000 solid 1px;
+}
+.list:focus
+{
+    border-color: #e21212;
+    transition: border-color 0.3s ease-in-out;
 }

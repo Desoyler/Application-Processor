@@ -24,9 +24,10 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
             <Siteheader />
         
             <div className="cabinetConteiner">
-                <span className="cabinetText">Добро пожаловать в личный кабинет {profession} </span>
-                <span className="cabinetText">{workername}</span>
                 <button className = "logout" onClick={handleLogout}>Выйти из системы</button>
+                <span className="cabinetText">Добро пожаловать в личный кабинет </span>
+                <span className="cabinetText">{profession} </span>
+                <span className="cabinetText">{workername}</span>
                 <div className="buttonConteiner">
                     <button className="cbutton" onClick={goToHistory}>История Заявок</button>
                     <button className="cbutton" onClick={goToSend}>Подать заявку</button>

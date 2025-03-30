@@ -49,9 +49,9 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
             <span className='sh'>Отправить заявку</span>
             <button className="sreturn" onClick={goback} >X</button>
             <span className='sText firstText'>Опишите кратко проблему</span>
-            <input type="text" id="shortTextInput"  onChange={handleshortTextChange} ></input>
+            <input type="text" className = "shortTextInput" id="shortTextInput"  onChange={handleshortTextChange} ></input>
             <span className='sText Text'>Опишите вашу проблему детально в поле ниже:</span>
-            <textarea id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
+            <textarea className="sbigText" id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
             <select className="list" id="Location" defaultValue="">
                 <option value=""  disabled hidden>Выбирите место где произошла поломка</option>
                 <option value="1">Цех 1</option>

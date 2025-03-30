@@ -22,7 +22,7 @@ const Authorizationpage = ({
             <span className= "authtext">Введите ваш логин</span>
             <input type="text" placeholder="Введите логин" className="login" onChange={(e) => setUsername(e.target.value)}></input>
             <span className= "authtext">Введите ваш код</span>
-            <input type="password" className="password" onChange={(e) => setPassword(e.target.value)}></input>
+            <input type="password" placeholder="Введите код" className="password" onChange={(e) => setPassword(e.target.value)}></input>
             <button className="send" onClick={handleLogin}>Отправить</button>
         </div>
         </div>
