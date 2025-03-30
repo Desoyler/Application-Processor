@@ -40,8 +40,16 @@ function App()
 
   
   
-  const goToAplication = (id) => {
-    navigate(`/watch/${id}`);
+  const goToAplication = (id) => 
+    {
+      navigate(`/watch/${id}`);
+    };
+  const goToCabinet = () => 
+    {
+      navigate("/cabinet");
+    };
+    const goback = () => {
+      navigate(-1) 
   };
 
   const handleLogout = () => 
@@ -102,6 +110,7 @@ function App()
         element={
           isAuthentificated ? 
             <Sendpage 
+             goToCabinet={goToCabinet}
              workername={currentUser.workername} 
              text = {text} 
              setText = {setText}
@@ -120,6 +129,7 @@ function App()
        element={
         isAuthentificated ? 
         <Watchpage 
+          goToCabinet={goToCabinet}
           text={text}
           goToAplication={goToAplication}
         /> : <Authorizationpage handleLogin={handleLogin}/>}
@@ -128,6 +138,7 @@ function App()
         element={
           isAuthentificated ? 
           <Historypage 
+            goToCabinet={goToCabinet}
             text={text} 
             goToAplication={goToAplication}  
           /> : <Authorizationpage handleLogin={handleLogin}/>}
@@ -137,6 +148,7 @@ function App()
           isAuthentificated ?
           <ApplicationPage 
           workername = {currentUser.workername}
+          goback = {goback}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       </Routes>

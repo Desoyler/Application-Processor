@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
-import './Sendpage.css';
 
+import './Sendpage.css';
 import Siteheader from './Siteheader.jsx';
 
-const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus}) =>
+const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus, goToCabinet}) =>
     {
-
-    const navigate = useNavigate();
-
-    const goback = () => 
-    {
-        navigate("/cabinet");
-    };
 
     const handleTextChange = (event) =>
     {
@@ -47,7 +39,7 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
         
         <div className="sconteiner">
             <span className='sh'>Отправить заявку</span>
-            <button className="sreturn" onClick={goback} >X</button>
+            <button className="sreturn" onClick={goToCabinet} >X</button>
             <span className='sText firstText'>Опишите кратко проблему</span>
             <input type="text" className = "shortTextInput" id="shortTextInput"  onChange={handleshortTextChange} ></input>
             <span className='sText Text'>Опишите вашу проблему детально в поле ниже:</span>

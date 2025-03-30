@@ -4,7 +4,7 @@ import './Applicationpage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const ApplicationPage = ({workername}) => {
+const ApplicationPage = ({workername, goback}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
 
@@ -45,12 +45,6 @@ const ApplicationPage = ({workername}) => {
         const foundMessage = messages.find(msg => msg.id === parseInt(id)); // Ищем сообщение по id
         setMessage(foundMessage);
     }, [id]); // Каждый раз когда id меняется
-    
-    const goback = () => {
-        navigate(-1) 
-        console.log(workername) 
-        console.log(message.sender)
-    };
 
     if (!message) {
         return <div>Загрузка...</div>; // Показать загрузку, пока сообщение не будет найдено

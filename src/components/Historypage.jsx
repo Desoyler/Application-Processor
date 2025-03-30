@@ -6,7 +6,7 @@ import Siteheader from './Siteheader.jsx';
 
 
 
-const Historypage = ({goToAplication}) =>{
+const Historypage = ({goToAplication, goToCabinet}) =>{
 
     const navigate = useNavigate();
 
@@ -40,17 +40,13 @@ const Historypage = ({goToAplication}) =>{
         },
     ];
 
-        const goback = () => {
-            navigate("/cabinet");
-        };
-
     return(
         <div>
             <Siteheader />
             
         <div className="hconteiner">
             <span>Просмотр истории заявок</span>
-            <button className="hreturn" onClick={goback}>X</button>
+            <button className="hreturn" onClick={goToCabinet}>X</button>
             {messages
             .filter(msg => msg.status === "Выполнена")
             .map((msg, index) => (
