@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Watchpage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const Watchpage = ({goToAplication, goToCabinet}) => {
+const Watchpage = ({goToAplication}) => {
     const messages = [
         {
           id: 1,
@@ -34,13 +35,17 @@ const Watchpage = ({goToAplication, goToCabinet}) => {
         },
     ];
 
+    const navigate = useNavigate();
+
+    const goback = () => {
+        navigate("/cabinet");
+    };
+    
     return (
         <div>
-            <Siteheader />
-    
             <div className="wconteiner"> 
                 <h2>Список активных заявок</h2>
-                <button className="wreturn" onClick={goToCabinet}>X</button>
+                <button className="wreturn" onClick={goback}>X</button>
                 {messages
                 .filter(msg => msg.status === "Не выполнена")
                 .map((msg, index) => (

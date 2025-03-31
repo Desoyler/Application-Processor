@@ -1,55 +1,66 @@
 .authtext
 {
+    position: relative;
+    bottom: 5px;
     font-weight: bold;
     font-size: 20px;
+    margin: 15px;
 }
 .login
 {
+    position: relative;
+    top: 10px;
     border-radius: 10px;
     margin: 10px;
-    padding: 20px;
-    border: #000000 solid 2px;
+    margin-bottom: 25px;
+    padding: 15px;
+    width: 250px;
+    border: #000000 solid 1px;
     outline: none;
 }
 .login:focus
 {
-    border-color: #e21212;
+    border-color: #E63946;
     transition: border-color 0.3s ease-in-out; 
 }
 .password
 {
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 10px;
-    padding: 20px;
-    border: #000000 solid 2px;
+    padding: 15px;
+    width: 250px;
+    border: #000000 solid 1px;
     outline: none;
+    margin-bottom: 25px;
 }
 .password:focus
 {
-    border-color: #e21212;
+    border-color: #E63946;
     transition: border-color 0.3s ease-in-out; 
 }
 .send
 {
+    color: #FFFFFF;
     font-weight: bold;
-    border: #000000 solid 2px;
-    border-radius: 10px;
-    margin: 10px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 25px;
     padding: 15px;
-    background: #FFFFFF;
+    background: #E63946;
+    width: 100px;
 }
 .send:hover
 {
     cursor:pointer;
-    border-color: #e21212;
+    background-color: #B71B2C;
     transition: border-color 0.3s ease-in-out; 
 }
 .loginconteiner
 {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background: #FFFFFF;
     display: flex;
-    border-radius: 15px;
-    border-top: 2px solid #e21212;
+    border-radius: 7px;
     display: flex;
     width: 500px;
     height: 400px;
@@ -58,5 +69,4 @@
     flex-direction: column; 
     margin: 0 auto; 
     margin-top: 150px;
-
 }

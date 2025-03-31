@@ -1,37 +1,35 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import './Cabinetpage.css';
 
 import Siteheader from './Siteheader.jsx';
+import workerpng from './assets/worker.png'
 
 const Cabinetpage = ({workername, profession, handleLogout}) =>{
-    
-    const navigate = useNavigate();
-
-    const goToHistory = () => {
-        navigate("/history");
-    };
-
-    const goToSend = () => {
-        navigate("/send");
-    };
-
-    const goToWatch = () => {
-        navigate("/watch");
-    };
     return(
         <div>
-            <Siteheader />
-        
             <div className="cabinetConteiner">
-                <button className = "logout" onClick={handleLogout}>Выйти из системы</button>
-                <span className="cabinetText">Добро пожаловать в личный кабинет </span>
-                <span className="cabinetText">{profession} </span>
-                <span className="cabinetText">{workername}</span>
-                <div className="buttonConteiner">
-                    <button className="cbutton" onClick={goToHistory}>История Заявок</button>
-                    <button className="cbutton" onClick={goToSend}>Подать заявку</button>
-                    <button className="cbutton" onClick={goToWatch}>Просмотр активных заявок</button>
+            <span className="welcomeText">Добро пожаловать в личный кабинет </span>
+            <img src = {workerpng} height= "150px" width="150px" className='workerpng'/>
+                <div className='infoconteiner'>
+                <span className="professionText Text">{profession} </span>
+                <span className="workerText Text">{workername}</span>
+                </div>
+                <div className='statisticContener'>
+                    <div className = "Text Zagolovok2">Ваша рабочая статистика</div><br/>
+                    <span className = "Text">Исправлено поломок рабочего оборудования:</span><br/>
+                    <span className = "Text">Отклики на заявки:</span><br/>
+                </div>
+                <div className='dockContener'>
+                    <div className = "Text Zagolovok1"> Документы </div><br/>
+                    <span className = "Text">Номер и серия паспорта: </span><br/>
+                    <span className = "Text">ИНН:</span><br/>
+                    <span className = "Text">СНИЛС:</span><br/>
+                    <span className = "Text">Мед.полис:</span><br/>
+                </div>
+                <div className='info2Contener'>
+                    <span className = "Text">Ваша зарплата: 32132131руб</span><br/>
+                    <span className = "Text">Дней до оплачиваемого отпуска: 15</span><br/>
+                    <button className='calendarbutton'>Календарь выходных</button>
                 </div>
             </div>
         </div>

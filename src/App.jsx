@@ -11,9 +11,9 @@ import Watchpage from './components/Watchpage.jsx';
 import ApplicationPage from './components/ApplicationPage.jsx';
 
 const users = [
-  { username: 'user1', password: 'pass1', profession: 'boss', workername: 'Иван Иванов Иванович'},
-  { username: 'user2', password: 'pass2', profession: 'worker', workername: 'Иван Иванов Иванович'},
-  { username: 'user3', password: 'pass3', profession: 'admin', workername: 'Иван Иванов Иванович'},
+  { username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
+  { username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Иван Иванов Иванович'},
+  { username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Иван Иванов Иванович'},
 ];
 
 function App() 
@@ -40,16 +40,8 @@ function App()
 
   
   
-  const goToAplication = (id) => 
-    {
-      navigate(`/watch/${id}`);
-    };
-  const goToCabinet = () => 
-    {
-      navigate("/cabinet");
-    };
-    const goback = () => {
-      navigate(-1) 
+  const goToAplication = (id) => {
+    navigate(`/watch/${id}`);
   };
 
   const handleLogout = () => 
@@ -81,6 +73,7 @@ function App()
 
   return (
     <div className="mainconteiner">
+        <Siteheader handleLogout={handleLogout}/>
         <Routes>
         <Route
           path="/"
@@ -110,7 +103,6 @@ function App()
         element={
           isAuthentificated ? 
             <Sendpage 
-             goToCabinet={goToCabinet}
              workername={currentUser.workername} 
              text = {text} 
              setText = {setText}
@@ -129,7 +121,6 @@ function App()
        element={
         isAuthentificated ? 
         <Watchpage 
-          goToCabinet={goToCabinet}
           text={text}
           goToAplication={goToAplication}
         /> : <Authorizationpage handleLogin={handleLogin}/>}
@@ -138,7 +129,6 @@ function App()
         element={
           isAuthentificated ? 
           <Historypage 
-            goToCabinet={goToCabinet}
             text={text} 
             goToAplication={goToAplication}  
           /> : <Authorizationpage handleLogin={handleLogin}/>}
@@ -148,7 +138,6 @@ function App()
           isAuthentificated ?
           <ApplicationPage 
           workername = {currentUser.workername}
-          goback = {goback}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       </Routes>
