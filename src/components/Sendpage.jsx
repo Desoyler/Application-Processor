@@ -43,30 +43,42 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
 
     return(
         <div>
-        
+        <div className='cab'>
+            <span className="hText">Отправка технической заявки</span>
+        </div>
         <div className="sconteiner">
-            <span className='sh'>Отправить заявку</span>
-            <button className="sreturn" onClick={goback} >X</button>
-            <span className='sText firstText'>Опишите кратко проблему</span>
-            <input type="text" className = "shortTextInput" id="shortTextInput"  onChange={handleshortTextChange} ></input>
-            <span className='sText Text'>Опишите вашу проблему детально в поле ниже:</span>
-            <textarea className="sbigText" id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
-            <select className="list" id="Location" defaultValue="">
-                <option value=""  disabled hidden>Выбирите место где произошла поломка</option>
-                <option value="1">Цех 1</option>
-                <option value="2">Цех 2</option>
-                <option value="3">Цех 3</option>
-                <option value="4">Цех 4</option>
-            </select>
-            <select className="list" id="problemType" defaultValue="">
-                <option value="" disabled hidden>Выбирите тип поломки</option>
-                <option value="1">Поломка компьютерного оборудования</option>
-                <option value="2">Перебои электроэнергии</option>
-                <option value="3">Поломка рабочего оборудования</option>
-            </select>
-            <span className='sText lastText'>Отправьте изображение при необходимости:</span>
-            <input type="file" className="imageUpload" id="imageUpload" name="image" accept="image/*" onChange={handleImageChange} />
-            <button className="ssend" onClick={handleSubmit}>Отправить</button>
+            <div>
+                <span className='ssText '>Опишите кратко проблему</span><br/>
+                <input type="text" className = "shortTextInput bottomborder" id="shortTextInput"  onChange={handleshortTextChange} ></input>
+            </div>
+            <div>
+                <span className='ssText'>Опишите вашу проблему детально в поле ниже:</span><br/>
+                <textarea className="sbigText" id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
+            </div>
+            <div>
+                <select className="list" id="Location bottomborder" defaultValue="">
+                    <option value=""  disabled hidden>Выбирите место где произошла поломка</option>
+                    <option value="1">Цех 1</option>
+                    <option value="2">Цех 2</option>
+                    <option value="3">Цех 3</option>
+                    <option value="4">Цех 4</option>
+                </select>
+            </div>
+            <div>
+                <select className="list" id="problemType bottomborder" defaultValue="">
+                    <option value="" disabled hidden>Выбирите тип поломки</option>
+                    <option value="1">Поломка компьютерного оборудования</option>
+                    <option value="2">Перебои электроэнергии</option>
+                    <option value="3">Поломка рабочего оборудования</option>
+                </select>
+            </div>
+            <div>
+                <span className='ssText'>Отправьте изображение при необходимости:</span><br/>
+                <input type="file" className="imageUpload" id="imageUpload" name="image" accept="image/*" onChange={handleImageChange} />
+            </div>
+            <div>
+            <button className="ssendbutton" onClick={handleSubmit}>Отправить</button>
+            </div>
         </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Authorizationpage.css'
+import styles from './Authorizationpage.module.css'
 
 import Siteheader from './Siteheader.jsx';
 
@@ -17,11 +17,11 @@ const Authorizationpage = ({
     return(
         <div>
         
-        <div className="loginconteiner">
-            <span className= "authtext">Авторизация</span>
-            <input type="text" placeholder="Введите логин" className="login" onChange={(e) => setUsername(e.target.value)}></input>
-            <input type="password" placeholder="Введите код" className="password" onChange={(e) => setPassword(e.target.value)}></input>
-            <button className="send" onClick={handleLogin}>Войти</button>
+        <div className={styles.loginconteiner}>
+            <span className= {styles.authtext}>Авторизация</span>
+            <input type="text" placeholder="Введите логин" className={styles.login} onChange={(e) => setUsername(e.target.value)}></input>
+            <input type="password" placeholder="Введите код" className={styles.password} onChange={(e) => setPassword(e.target.value)}></input>
+            <button className={styles.send} onClick={handleLogin}>Войти</button>
         </div>
         </div>
     );
