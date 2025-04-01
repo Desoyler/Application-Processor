@@ -16,7 +16,6 @@ const Authorizationpage = ({
     })=>{
     return(
         <div>
-        
         <div className={styles.loginconteiner}>
             <span className= {styles.authtext}>Авторизация</span>
             <input type="text" placeholder="Введите логин" className={styles.login} onChange={(e) => setUsername(e.target.value)}></input>
