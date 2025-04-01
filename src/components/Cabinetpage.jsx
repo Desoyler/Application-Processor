@@ -34,7 +34,7 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
                     <input type="text" className='input' /> 
                     </div>
                 </div>
-                <div className='infoconteiner'>
+                <div className='infoconteiner Midle'>
                     <div className='smallconteiner'>
                         <span className='Text'>E-mail</span> <br/>
                         <input type="text" className='input' />
@@ -44,16 +44,16 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
                         <input type="text" className='input' />
                     </div>
                     </div>
-                    <div className='infoconteiner infoconteiner2'>
+                    <div className='infoconteiner infoconteiner2 Midle'>
                     <div className='smallconteiner'>
                         <span className='Text'>Дата рождения</span> <br/>
-                        <input type="text" className='smallinput' />
-                        <input type="text" className='smallinput' />
-                        <input type="text" className='smallinput' />
+                        <input className='smallinput'></input>
+                        <input className='smallinput'></input>
+                        <input className='smallinput'></input>
                     </div>
                     <div className='smallconteiner'>
                         <span className='Text'>Пол</span> <br/>
-                        <input type="text" className='smallinput' />
+                        <input className='smallinput'></input>
                     </div>
                     </div>
                     <div className='Warning'>
@@ -68,7 +68,7 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
                         <span>Приложение разработано командой © РУСАЛ для удобной и эффективной работы с электронными заявками.</span>
                     </div>
                     <div className='support'>
-                        <button className='supportbutton'> <img src={support} height="50"px width="t0px"/>Написать в поддержку</button>
+                        <button className='supportbutton'> <img src={support} className='supportimg'/>Написать в поддержку</button>
                     </div>
                 </div>
                 
