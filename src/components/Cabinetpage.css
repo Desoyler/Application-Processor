@@ -1,126 +1,141 @@
+.cab
+{
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 350px;
+}
 .cabinetConteiner
 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background: #FFFFFF;
     display: flex;
+    flex-direction: column; 
     border-radius: 7px;
     width: 1000px;
     height: 575px;
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: column; 
     margin: 0 auto; 
     margin-top: 150px;
+    gap: 10px;
 }
-.welcomeText
+.hText
 {
-    position: relative;
-    top: 75px;
-    font-size: 30px;
     font-weight: bold;
+    font-size: 35px;
+    position: relative;
+    left: 470px;
+    top: 95px;
+
+}
+.infoconteiner
+{
+    display: flex;
+    width: 1000px;
+    height: 100px;
+    flex-direction: row; 
+    position: relative;
+    top: 20px;
+}
+.infoconteiner2
+{
+    gap: 30px;
+}
+.input
+{
+    border-radius: 5px;
+    margin: 2px;
+    padding: 15px;
+    width: 200px;
+    border: #000000 solid 1px;
+    outline: none;
 }
 .Text
 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
 }
-.infoconteiner
+.smallconteiner
+{
+    margin: 5px;
+}
+.side
 {
     position: relative;
-    left: 270px;
-    bottom: 60px;
+    left: 1480px;
+    top: 108px;
+}
+.sText
+{
+    padding: 2px;
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 1px;
+}
+.activesText
+{
+    border-left: 2px solid #E63946 ;
+}
+.sTextH
+{
+    display: block;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+.smallinput
+{
+    border-radius: 5px;
+    margin: 2px;
+    padding: 8px;
+    width: 40px;
+    border: #000000 solid 1px;
+    outline: none;
+}
+.pngworker
+{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    left: 1200px;
+    bottom: 50px;
+}
+.Warning
+{
+    height: auto;
+    width: 350px;
+    position: relative;
+    left: 30px;
+    top: 100px;
+}
+.wText
+{
+    color: gray;
+}
+.Copyright
+{
+    color: gray;
+    display: block;
+    position: relative;
+    top: 105px;
+    left: 255px;
+}
+.support
+{
+    position: relative;
+    left:  750px;
+    bottom: 54px;
+}
+.supportbutton
+{
+    color: #FFFFFF;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background: #E63946;
     display: flex;
-    width: 300px;
-    height: 75px;
     justify-content: center; 
     align-items: center; 
-    flex-direction: column; 
-    margin: 0 auto; 
-    border-radius: 15px;
-    border: 2px solid #E63946;
-}
-.statisticContener
-{
-    position: relative;
-    right: 200px;
-    top: 150px;
-    display: flex;
-    width: 300px;
-    height: 205px;
-    justify-content: row; 
-    align-items: row; 
-    flex-direction: column; 
-    margin: 0 auto; 
-    border-radius: 15px;
-}
-.dockContener
-{
-    position: relative;
-    right: 200px;
-    bottom: 255px;
-    display: flex;
-    width: 300px;
-    height: 205px;
-    justify-content: row; 
-    align-items: row; 
-    flex-direction: column; 
-    margin: 0 auto; 
-    border-radius: 15px;
-}
-.workerpng
-{
-    position: relative;
-    left: 275px;
-    top: 160px;
-}
-.info2Contener
-{
-    position: relative;
-    right: -270px;
-    bottom: 200px;
-    display: flex;
-    width: 300px;
-    height: 205px;
-    justify-content: row; 
-    align-items: row; 
-    flex-direction: column; 
-    margin: 0 auto; 
-    border-radius: 15px;
-}
-.Zagolovok1
-{
-    width: 105px;
-    display: inline-block;
-    position: relative;
-    left: 75px;
-    border: #E63946 2px solid;
-    border-radius: 15px;
-}
-.Zagolovok2
-{
-    width: 240px;
-    display: inline-block;
-    position: relative;
-    left: 15px;
-    border: #E63946 2px solid;
-    border-radius: 15px;
-}
-.calendarbutton
-{
-    border: none;
-    background-color: #E63946;
-    color: #FFFFFF;
-    position: relative;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    display: flex;
-    width: 170px;
-    height: 50px;
-}
-.calendarbutton:hover
-{
-    cursor:pointer;
-    background-color: #B71B2C;
-    transition: border-color 0.3s ease-in-out; 
+    flex-direction: row; 
+    box-shadow: 4px 4px 10px #E63946
 }

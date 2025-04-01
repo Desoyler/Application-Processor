@@ -3,36 +3,76 @@ import './Cabinetpage.css';
 
 import Siteheader from './Siteheader.jsx';
 import workerpng from './assets/worker.png'
+import support from './assets/support.svg'
 
 const Cabinetpage = ({workername, profession, handleLogout}) =>{
     return(
         <div>
-            <div className="cabinetConteiner">
-            <span className="welcomeText">Добро пожаловать в личный кабинет </span>
-            <img src = {workerpng} height= "150px" width="150px" className='workerpng'/>
-                <div className='infoconteiner'>
-                <span className="professionText Text">{profession} </span>
-                <span className="workerText Text">{workername}</span>
-                </div>
-                <div className='statisticContener'>
-                    <div className = "Text Zagolovok2">Ваша рабочая статистика</div><br/>
-                    <span className = "Text">Исправлено поломок рабочего оборудования:</span><br/>
-                    <span className = "Text">Отклики на заявки:</span><br/>
-                </div>
-                <div className='dockContener'>
-                    <div className = "Text Zagolovok1"> Документы </div><br/>
-                    <span className = "Text">Номер и серия паспорта: </span><br/>
-                    <span className = "Text">ИНН:</span><br/>
-                    <span className = "Text">СНИЛС:</span><br/>
-                    <span className = "Text">Мед.полис:</span><br/>
-                </div>
-                <div className='info2Contener'>
-                    <span className = "Text">Ваша зарплата: 32132131руб</span><br/>
-                    <span className = "Text">Дней до оплачиваемого отпуска: 15</span><br/>
-                    <button className='calendarbutton'>Календарь выходных</button>
-                </div>
+            <div className='cab'>
+            <span className="hText">Личные данные</span>
+            <div className='side'>
+                <span className='sTextH'>Личный кабинет</span><br/>
+                <span className='sText activesText'> Личные данные</span><br/>
+                <span className='sText'>Документы</span><br/>
+                <span className='sText'>Информация по работе</span><br/>
             </div>
-        </div>
+            <img src={workerpng} className='pngworker'/>
+            </div>
+            <div className="cabinetConteiner">
+
+                <div className='infoconteiner'>
+                    <div className='smallconteiner'>
+                    <span className='Text'>Имя</span><br/>
+                    <input type="text" className='input' />
+                    </div>
+                    <div className='smallconteiner'>
+                    <span className='Text'>Отчество</span> <br/>
+                    <input type="text" className='input' /> 
+                    </div>
+                    <div className='smallconteiner'>
+                    <span className='Text'>Фамилия</span> <br/>
+                    <input type="text" className='input' /> 
+                    </div>
+                </div>
+                <div className='infoconteiner'>
+                    <div className='smallconteiner'>
+                        <span className='Text'>E-mail</span> <br/>
+                        <input type="text" className='input' />
+                    </div>
+                    <div className='smallconteiner'>
+                        <span className='Text'>Телефон</span> <br/>
+                        <input type="text" className='input' />
+                    </div>
+                    </div>
+                    <div className='infoconteiner infoconteiner2'>
+                    <div className='smallconteiner'>
+                        <span className='Text'>Дата рождения</span> <br/>
+                        <input type="text" className='smallinput' />
+                        <input type="text" className='smallinput' />
+                        <input type="text" className='smallinput' />
+                    </div>
+                    <div className='smallconteiner'>
+                        <span className='Text'>Пол</span> <br/>
+                        <input type="text" className='smallinput' />
+                    </div>
+                    </div>
+                    <div className='Warning'>
+                        <span className='wText'>
+                            Никогда и никому не сообщайте код входа в ваш 
+                            рабочий аккаунт веб-приложения РУСАЛ, даже если запрос поступил от якобы официальных лиц. 
+                            Это может привести к компрометации ваших 
+                            данных и утрате доступа к системе. Будьте бдительны и защищайте свою учетную запись!
+                        </span>
+                    </div>
+                    <div className='Copyright'>
+                        <span>Приложение разработано командой © РУСАЛ для удобной и эффективной работы с электронными заявками.</span>
+                    </div>
+                    <div className='support'>
+                        <button className='supportbutton'> <img src={support} height="50"px width="t0px"/>Написать в поддержку</button>
+                    </div>
+                </div>
+                
+            </div>
     );
 };
 
