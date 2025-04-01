@@ -5,6 +5,14 @@
     height: 1px;
     width: 550px;
 }
+.hText
+{
+    font-weight: bold;
+    font-size: 35px;
+    position: relative;
+    left: 470px;
+    top: 95px;
+}
 .sconteiner
 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
@@ -17,7 +25,20 @@
     height: 575px;
     margin: 0 auto; 
     margin-top: 150px;
-    gap: 10px;
+    gap: 1px;
+}
+.shortconteiner
+{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    height: 100px;
+}
+.scheight
+{
+    height:40px;
 }
 .bottomborder
 {
@@ -27,6 +48,8 @@
 }
 .ssendbutton
 {
+    position: relative;
+    bottom: 20px;
     color: #FFFFFF;
     font-weight: bold;
     border: none;
@@ -37,6 +60,7 @@
 }
 .list
 {
+    font-size: 18px;
     border:none;
     border-bottom: #000 1px solid;
     outline: none;
@@ -45,4 +69,29 @@
 {
     font-weight: bold;
     font-size: 23px;
+    display: block;
+    margin-bottom: 1px ;
+}
+.shortTextInput
+{
+    font-size: 18px;
+    width: 470px;
+    height: 40px;
+}
+.bigtextconteiner
+{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    height: 200px;
+}
+.sbigText
+{
+    outline: none;
+    font-size: 16px;
+    width: 740px;
+    height: 170px;
+    resize: none;
 }

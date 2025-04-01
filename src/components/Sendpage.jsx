@@ -47,15 +47,15 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
             <span className="hText">Отправка технической заявки</span>
         </div>
         <div className="sconteiner">
-            <div>
+            <div className='shortconteiner'>
                 <span className='ssText '>Опишите кратко проблему</span><br/>
                 <input type="text" className = "shortTextInput bottomborder" id="shortTextInput"  onChange={handleshortTextChange} ></input>
             </div>
-            <div>
+            <div className='bigtextconteiner'>
                 <span className='ssText'>Опишите вашу проблему детально в поле ниже:</span><br/>
                 <textarea className="sbigText" id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
             </div>
-            <div>
+            <div className='shortconteiner scheight'>
                 <select className="list" id="Location bottomborder" defaultValue="">
                     <option value=""  disabled hidden>Выбирите место где произошла поломка</option>
                     <option value="1">Цех 1</option>
@@ -64,7 +64,7 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
                     <option value="4">Цех 4</option>
                 </select>
             </div>
-            <div>
+            <div className='shortconteiner scheight'>
                 <select className="list" id="problemType bottomborder" defaultValue="">
                     <option value="" disabled hidden>Выбирите тип поломки</option>
                     <option value="1">Поломка компьютерного оборудования</option>
@@ -72,11 +72,11 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
                     <option value="3">Поломка рабочего оборудования</option>
                 </select>
             </div>
-            <div>
+            <div className='shortconteiner'>
                 <span className='ssText'>Отправьте изображение при необходимости:</span><br/>
                 <input type="file" className="imageUpload" id="imageUpload" name="image" accept="image/*" onChange={handleImageChange} />
             </div>
-            <div>
+            <div className='shortconteiner'>
             <button className="ssendbutton" onClick={handleSubmit}>Отправить</button>
             </div>
         </div>
