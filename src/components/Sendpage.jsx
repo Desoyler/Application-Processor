@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import './Sendpage.css';
 
+import styles from './Sendpage.module.css';
+import classNames from 'classnames';
 import Siteheader from './Siteheader.jsx';
 
 const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus}) =>
@@ -43,20 +44,20 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
 
     return(
         <div>
-        <div className='cab'>
-            <span className="hText">Отправка технической заявки</span>
+        <div className={styles.cab}>
+            <span className={styles.hText}>Отправка технической заявки</span>
         </div>
-        <div className="sconteiner">
-            <div className='shortconteiner'>
-                <span className='ssText '>Опишите кратко проблему</span><br/>
-                <input type="text" className = "shortTextInput bottomborder" id="shortTextInput"  onChange={handleshortTextChange} ></input>
+        <div className={styles.sconteiner}>
+            <div className={styles.shortconteiner}>
+                <span className={styles.ssText}>Опишите кратко проблему</span><br/>
+                <input type="text" className = {classNames(styles.shortTextInput, styles.bottomborder)} id="shortTextInput"  onChange={handleshortTextChange} ></input>
             </div>
-            <div className='bigtextconteiner'>
-                <span className='ssText'>Опишите вашу проблему детально в поле ниже:</span><br/>
-                <textarea className="sbigText" id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
+            <div className={styles.bigtextconteiner}>
+                <span className={styles.ssText}>Опишите вашу проблему детально в поле ниже:</span><br/>
+                <textarea className={styles.sbigText} id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
             </div>
-            <div className='shortconteiner scheight'>
-                <select className="list" id="Location bottomborder" defaultValue="">
+            <div className={classNames(styles.shortconteiner, styles.scheight)}>
+                <select className={classNames(styles.list, styles.bottomborder)} id="Location" defaultValue="">
                     <option value=""  disabled hidden>Выбирите место где произошла поломка</option>
                     <option value="1">Цех 1</option>
                     <option value="2">Цех 2</option>
@@ -64,20 +65,20 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
                     <option value="4">Цех 4</option>
                 </select>
             </div>
-            <div className='shortconteiner scheight'>
-                <select className="list" id="problemType bottomborder" defaultValue="">
+            <div className={classNames(styles.shortconteiner, styles.scheight)}>
+                <select className={classNames(styles.list, styles.bottomborder)} id="problemType " defaultValue="">
                     <option value="" disabled hidden>Выбирите тип поломки</option>
                     <option value="1">Поломка компьютерного оборудования</option>
                     <option value="2">Перебои электроэнергии</option>
                     <option value="3">Поломка рабочего оборудования</option>
                 </select>
             </div>
-            <div className='shortconteiner'>
-                <span className='ssText'>Отправьте изображение при необходимости:</span><br/>
-                <input type="file" className="imageUpload" id="imageUpload" name="image" accept="image/*" onChange={handleImageChange} />
+            <div className={styles.shortconteiner}>
+                <span className={styles.ssText}>Отправьте изображение при необходимости:</span><br/>
+                <input type="file" className={styles.imageUpload} id="imageUpload" name="image" accept="image/*" onChange={handleImageChange} />
             </div>
-            <div className='shortconteiner'>
-            <button className="ssendbutton" onClick={handleSubmit}>Отправить</button>
+            <div className={styles.shortconteiner}>
+            <button className={styles.ssendbutton} onClick={handleSubmit}>Отправить</button>
             </div>
         </div>
         </div>

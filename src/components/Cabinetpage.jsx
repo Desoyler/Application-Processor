@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Cabinetpage.module.css';
 import classNames from 'classnames';
 import Siteheader from './Siteheader.jsx';
+
+
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 
@@ -20,7 +22,7 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
             </div>
             <div className={styles.cabinetConteiner}>
 
-                <div className={styles.infoconteiner}>
+                <div className={classNames(styles.infoconteiner)}>
                     <div className={styles.smallconteiner}>
                     <span className={styles.Text}>Имя</span><br/>
                     <input type="text" className={styles.input} />
@@ -34,7 +36,7 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
                     <input type="text" className={styles.input} /> 
                     </div>
                 </div>
-                <div className={classNames(styles.infoconteiner, styles.Midle)}>
+                <div className={classNames(styles.infoconteiner2 )}>
                     <div className={styles.smallconteiner}>
                         <span className={styles.Text}>E-mail</span> <br/>
                         <input type="text" className={styles.input} />
@@ -44,7 +46,7 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
                         <input type="text" className={styles.input} />
                     </div>
                     </div>
-                    <div className={classNames(styles.infoconteiner, styles.infoconteiner2, styles.Midle)}>
+                    <div className={classNames(styles.infoconteiner3)}>
                     <div className={styles.smallconteiner}>
                         <span className={styles.Text}>Дата рождения</span> <br/>
                         <input className={styles.smallinput}></input>
