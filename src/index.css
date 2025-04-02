@@ -1,6 +1,23 @@
 @layer base {
     input[type="password"]::-webkit-reveal,
-    input[type="password"]::-ms-reveal {
-    display: none !important;
+    input[type="password"]::-ms-reveal 
+    {
+      display: none !important;
+    }
 }
-  }
+html, body 
+{
+    overflow: auto;
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar
+{
+    display: none;
+}
+
+/* Firefox */
+html 
+{
+    scrollbar-width: none;
+}
