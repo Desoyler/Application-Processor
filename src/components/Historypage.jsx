@@ -46,10 +46,10 @@ const Historypage = ({goToAplication}) =>{
 
     return(
         <div>
-            
+            <div className="cab">
+              <span className="hText">История заявок</span>
+            </div>
         <div className="hconteiner">
-            <span>Просмотр истории заявок</span>
-            <button className="hreturn" onClick={goback}>X</button>
             {messages
             .filter(msg => msg.status === "Выполнена")
             .map((msg, index) => (
