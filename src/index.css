@@ -7,17 +7,24 @@
 }
 html, body 
 {
-    overflow: auto;
+  overflow: hidden;
 }
-
-/* Chrome, Safari, Edge */
-::-webkit-scrollbar
+.wconteiner 
 {
-    display: none;
+  overflow-y: auto; 
 }
-
+/* Chrome, Safari */
+.wconteiner::-webkit-scrollbar 
+{
+  width: 8px; 
+}
+.wconteiner::-webkit-scrollbar-thumb 
+{
+  background-color: #ccc; 
+  border-radius: 4px;
+}
 /* Firefox */
-html 
-{
-    scrollbar-width: none;
+.wconteiner {
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent; 
 }

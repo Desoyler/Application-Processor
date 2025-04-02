@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 
-const Cabinetpage = ({workername, profession, handleLogout}) =>{
+const Cabinetpagedocuments = ({workername, profession, handleLogout}) =>{
     const navigate = useNavigate();
 
         const goToDock = () => 
@@ -16,7 +16,7 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
         };
         const goToCabinet = () => 
         {
-            navigate("/cabinet/");
+            navigate("/cabinet");
         };
         const goToWork = () => 
         {
@@ -27,9 +27,9 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
             <div className={styles.cab}>
             <span className={styles.hText}>Личные данные</span>
             <div className={styles.side}>
-                <span className={styles.sTextH}>Личный кабинет</span><br/>
+                <span className={styles.sTextH} onClick={goToCabinet}>Личный кабинет</span><br/>
                 <span className={classNames(styles.sText, styles.activesText)}> Личные данные</span><br/>
-                <span className={styles.sText} onClick={goToDock}>Документы</span><br/>
+                <span className={styles.sText} >Документы</span><br/>
                 <span className={styles.sText} onClick={goToWork}>Информация по работе</span><br/>
             </div>
             <img src={workerpng} className={styles.pngworker}/>
@@ -38,38 +38,28 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
 
                 <div className={classNames(styles.infoconteiner)}>
                     <div className={styles.smallconteiner}>
-                    <span className={styles.Text}>Имя</span><br/>
+                    <span className={styles.Text}>Паспорт</span><br/>
                     <input type="text" className={styles.input} />
                     </div>
                     <div className={styles.smallconteiner}>
-                    <span className={styles.Text}>Отчество</span> <br/>
+                    <span className={styles.Text}>ИНН</span> <br/>
                     <input type="text" className={styles.input} /> 
                     </div>
                     <div className={styles.smallconteiner}>
-                    <span className={styles.Text}>Фамилия</span> <br/>
+                    <span className={styles.Text}>СНИЛС</span> <br/>
                     <input type="text" className={styles.input} /> 
                     </div>
                 </div>
                 <div className={classNames(styles.infoconteiner2 )}>
                     <div className={styles.smallconteiner}>
-                        <span className={styles.Text}>E-mail</span> <br/>
-                        <input type="text" className={styles.input} />
                     </div>
                     <div className={styles.smallconteiner}>
-                        <span className={styles.Text}>Телефон</span> <br/>
-                        <input type="text" className={styles.input} />
                     </div>
                     </div>
                     <div className={classNames(styles.infoconteiner3)}>
                     <div className={styles.smallconteiner}>
-                        <span className={styles.Text}>Дата рождения</span> <br/>
-                        <input className={styles.smallinput}></input>
-                        <input className={styles.smallinput}></input>
-                        <input className={styles.smallinput}></input>
                     </div>
                     <div className={styles.smallconteiner}>
-                        <span className={styles.Text}>Пол</span> <br/>
-                        <input className={styles.smallinput}></input>
                     </div>
                     </div>
                     <div className={styles.Warning}>
@@ -92,4 +82,4 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
     );
 };
 
-export default Cabinetpage;
+export default Cabinetpagedocuments;

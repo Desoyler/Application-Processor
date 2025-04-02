@@ -9,6 +9,8 @@ import Sendpage from './components/Sendpage.jsx';
 import Historypage from './components/Historypage.jsx';
 import Watchpage from './components/Watchpage.jsx';
 import ApplicationPage from './components/ApplicationPage.jsx';
+import Cabinetpagedocuments from './components/Cabinetpagedocuments.jsx';
+import Cabinetpagework from './components/Cabinetpagework.jsx';
 
 const users = [
   { username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
@@ -94,6 +96,24 @@ function App()
           element={
             isAuthentificated ? 
             <Cabinetpage 
+              handleLogout={handleLogout}
+              workername={currentUser.workername} 
+              profession={currentUser.profession} 
+            /> : <Authorizationpage handleLogin={handleLogin} />}
+        />
+        <Route path="/cabinet/dockuments"
+          element={
+            isAuthentificated ? 
+            <Cabinetpagedocuments 
+              handleLogout={handleLogout}
+              workername={currentUser.workername} 
+              profession={currentUser.profession} 
+            /> : <Authorizationpage handleLogin={handleLogin} />}
+        />
+        <Route path="/cabinet/work"
+          element={
+            isAuthentificated ? 
+            <Cabinetpagework 
               handleLogout={handleLogout}
               workername={currentUser.workername} 
               profession={currentUser.profession} 
