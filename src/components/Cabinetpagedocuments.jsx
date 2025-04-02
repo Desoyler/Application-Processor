@@ -25,11 +25,11 @@ const Cabinetpagedocuments = ({workername, profession, handleLogout}) =>{
     return(
         <div>
             <div className={styles.cab}>
-            <span className={styles.hText}>Личные данные</span>
+            <span className={styles.hText}>Документы</span>
             <div className={styles.side}>
-                <span className={styles.sTextH} onClick={goToCabinet}>Личный кабинет</span><br/>
-                <span className={classNames(styles.sText, styles.activesText)}> Личные данные</span><br/>
-                <span className={styles.sText} >Документы</span><br/>
+                <span className={styles.sTextH}>Личный кабинет</span><br/>
+                <span className={styles.sText} onClick={goToCabinet}> Личные данные</span><br/>
+                <span className={classNames(styles.sText, styles.activesText)} >Документы</span><br/>
                 <span className={styles.sText} onClick={goToWork}>Информация по работе</span><br/>
             </div>
             <img src={workerpng} className={styles.pngworker}/>
