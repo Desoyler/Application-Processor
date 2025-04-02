@@ -1,6 +1,6 @@
 import React , {useState}from 'react';
 import { useNavigate } from "react-router-dom";
-import './Historypage.css';
+import styles from './Historypage.module.css';
 
 import Siteheader from './Siteheader.jsx';
 import hammer from './assets/hammer.svg';
@@ -33,7 +33,7 @@ const Historypage = ({goToAplication}) =>{
         },
         {
           id: 2,
-          shortpage: "ВАЗАААААААП",
+          shortpage: "Принтер не печатает",
           text: "Привет!",
           sender: "Alice",
           location: "Цех 1",
@@ -51,86 +51,86 @@ const Historypage = ({goToAplication}) =>{
         };
 
     return(
-          <div className='wpage'>
-                      <div className="cab">
-                        <span className="hText">История заявок</span>
-                        <div className='side'>
-                          <span className='shText'>Фильтр</span>
-                          <span className='shtText'>По поломке</span>
+          <div className={styles.wpage}>
+                      <div className={styles.cab}>
+                        <span className={styles.hText}>История заявок</span>
+                        <div className={styles.side}>
+                          <span className={styles.shText}>Фильтр</span>
+                          <span className={styles.shtText}>По поломке</span>
                             <div>
                               <picture>
                                 <img src={hammer} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className='scheck'></input>
-                                <span className='sText'>Ошибка в работе программы/системы</span>
+                                <input type="checkbox" className={styles.scheck}></input>
+                                <span className={styles.sText}>Ошибка в работе программы/системы</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={computer} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className='scheck'></input>
-                                <span className='sText'>Поломка компьютерного оборудования</span>
+                                <input type="checkbox" className={styles.scheck}></input>
+                                <span className={styles.sText}>Поломка компьютерного оборудования</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={zap} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className='scheck'></input>
-                                <span className='sText'>Перепад электроэнергии</span>
+                                <input type="checkbox" className={styles.scheck}></input>
+                                <span className={styles.sText}>Перепад электроэнергии</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={cable} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className='scheck'></input>
-                                <span className='sText'>Поломка рабочего компьютера</span>
+                                <input type="checkbox" className={styles.scheck}></input>
+                                <span className={styles.sText}>Поломка рабочего компьютера</span>
                             </div>
-                          <span className='shtText'>По итогу</span>
+                          <span className={styles.shtText}>Статус</span>
                           <div>
                                 <picture>
                                 <img src={done} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className='scheck'></input>
-                                <span className='sText'>Выполненна</span>
+                                <input type="checkbox" className={styles.scheck}></input>
+                                <span className={styles.sText}>Выполненна</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={check} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className='scheck'></input>
-                                <span className='sText'>Необходимо дополнительное решение</span>
+                                <input type="checkbox" className={styles.scheck}></input>
+                                <span className={styles.sText}>Необходимо дополнительное решение</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={x} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className='scheck'></input>
-                                <span className='sText'>Не выполненна</span>
+                                <input type="checkbox" className={styles.scheck}></input>
+                                <span className={styles.sText}>Не выполненна</span>
                             </div>
                         </div>
                       </div>
-                      <div className="wconteiner"> 
+                      <div className={styles.wconteiner}> 
                           {messages.length === 0 ? (
-                             <div className="nomessages">
+                             <div className={styles.nomessages}>
                               Ошибка: заявок нет
                             </div>
                           ) :
                           messages
                           .filter(msg => msg.status === "Выполнена")
                           .map((msg, index) => (
-                              <div key={index} className="message">
-                                  <div className='wShortPage'>
-                                  <h3 className="wShortPageText">{msg.shortpage}</h3>
+                              <div key={index} className={styles.message}>
+                                  <div className={styles.wShortPage}>
+                                  <h3 className={styles.wShortPageText}>{msg.shortpage}</h3>
                                   </div>
-                                  <div className='lists'>
-                                  <span className="wType">Тип поломки: {msg.type} </span> <br/>
-                                  <span className="wtLocation">Место проишествия: {msg.location} </span>
+                                  <div className={styles.lists}>
+                                  <span className={styles.wType}>Тип поломки: {msg.type} </span> <br/>
+                                  <span className={styles.wtLocation}>Место проишествия: {msg.location} </span>
                                   </div>
-                                  <div className='wsender'>
+                                  <div className={styles.wsender}>
                                   <p><strong>Отправитель: {msg.sender}</strong></p>
                                   </div>
-                                  <div className='wgo'>
-                                  <button className="goToApplication" onClick = {() => goToAplication(msg.id)}>Перейти к заявке</button>
+                                  <div className={styles.wgo}>
+                                  <button className={styles.goToApplication} onClick = {() => goToAplication(msg.id)}>Перейти к заявке</button>
                                   </div>
                               </div>
                           ))}
