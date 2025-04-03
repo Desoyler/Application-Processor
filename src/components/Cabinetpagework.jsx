@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
+import calendar from "./assets/calendar.svg"
 
 const Cabinetpagework = ({workername, profession, handleLogout}) =>{
     const navigate = useNavigate();
@@ -36,16 +37,19 @@ const Cabinetpagework = ({workername, profession, handleLogout}) =>{
             </div>
             <div className={styles.cabinetConteiner}>
 
-                <div className={classNames(styles.infoconteiner)}>
+                <div className={classNames(styles.infoconteiner2)}>
                     <div className={styles.smallconteiner}>
+                        <span className={styles.Text}>Заработная плата</span> <br/>
+                        <input type="text" className={styles.input} /> 
                     </div>
                     <div className={styles.smallconteiner}> 
-                    </div>
-                    <div className={styles.smallconteiner}>
+                    <span className={styles.Text}>Дней до оплачиваемого отпуска</span> <br/>
+                    <input type="text" className={styles.input} /> 
                     </div>
                 </div>
-                <div className={classNames(styles.infoconteiner2 )}>
+                <div className={classNames(styles.infoconteiner3 )}>
                     <div className={styles.smallconteiner}>
+                    <button className={styles.supportbutton}> <img src={calendar} className={styles.supportimg}/>Рабочий календарь</button>
                     </div>
                     <div className={styles.smallconteiner}>
                     </div>

@@ -52,8 +52,12 @@ const Cabinetpagedocuments = ({workername, profession, handleLogout}) =>{
                 </div>
                 <div className={classNames(styles.infoconteiner2 )}>
                     <div className={styles.smallconteiner}>
+                    <span className={styles.Text}>Полис ОМС</span> <br/>
+                    <input type="text" className={styles.input} /> 
                     </div>
                     <div className={styles.smallconteiner}>
+                    <span className={styles.Text}>Водительские права</span> <br/>
+                    <input type="text" className={styles.input} /> 
                     </div>
                     </div>
                     <div className={classNames(styles.infoconteiner3)}>
