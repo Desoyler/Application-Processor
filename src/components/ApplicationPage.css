@@ -1,92 +1,131 @@
-.acontainer
-{
-    background: #f3f1f1; 
-    display: flex;
-    width: 500px;
-    height: 400px;
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: column; 
-    border-radius: 15px;
-    margin-left: 5px;
-}
-.bcontainer
-{
-    background: #f3f1f1; 
-    display: flex;
-    width: 500px;
-    height: 400px;
-    justify-content: flex-start; 
-    align-items: center; 
-    flex-direction: column; 
-    border-radius: 15px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
 .bigContainer
 {
-    background: #FFFFFF; 
-    border-top: 2px solid #051eff;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    background: #FFFFFF;
     display: flex;
-    width: 1010px;
-    height: 500px;
-    align-items: center; 
-    flex-direction: row;
-    margin: 0 auto;
-    margin-top: 150px;
-    border-radius: 15px;
-}
-.chatcontainer
-{
-    display: flex;
-    width: 475px;
-    height: 375px ;
-    margin: 5px;
     flex-direction: column; 
-    background: #FFFFFF;
-    border: #051eff solid 1px;
+    align-items: center;
+    border-radius: 7px;
+    width: 1100px;
+    height: 575px;
+    margin: 0 auto; 
+    margin-top: 150px;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 575px;
 }
-.sendFooter
+.cab
 {
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 550px;
+}
+.hText
+{
+    font-weight: bold;
+    font-size: 35px;
+    position: relative;
+    left: 470px;
+    top: 95px;
+}
+.side
+{
+    position: relative;
+    left: 1530px;
+    top: 108px;
+}
+.sText
+{
+    padding: 2px;
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 1px;
+}
+.sTextH
+{
+    display: block;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+.midle
+{
+    position: relative;
     display: flex;
-    width: 475px;
-    height: 30px;
-    background-color: #FFFFFF;
+    justify-content: center;
+}
+.left
+{
+    position: relative;
+    left: 420px;
+    bottom: 140px;
+}
+.right
+{
+    position: relative;
+    left: 1380px;
+    bottom: 225px;
+}
+.activesText
+{
+    border-left: 2px solid #E63946 ;
+}
+.problemtext
+{
+    display: block;
+    padding: 4px;
+    border: #000000 solid 1px;
+    border-radius: 7px;
+    margin-top: 25px;
+    width: 650px;
+    height: auto;
+}
+.backbutton
+{
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    background: #E63946;
+    display: flex;
+    justify-content: center; 
     align-items: center; 
-    flex-direction: row;
-    border-radius: 5px;
-    border: #051eff solid 1px;
+    flex-direction: row; 
+    box-shadow: 4px 4px 10px #E63946;
+    height: 50px;
+    width: 100px;
+    position: relative;
+    right: 225px;
 }
-.aText
-{   
-    width: 445px;
-    display: flex;
-    background: #FFFFFF;
-    color: black;
-    border: #051eff 1px solid;
-    border-radius: 3px; 
-    margin-left: 5px;
-}
-.aSend
+.boldText
 {
-    display: flex;
-    background: #FFFFFF;
-    color: black;
-    border: #051eff 1px solid;
-    border-radius: 3px;
-    margin: 4px;
+    font-weight: bold;
+    font-size: 18px;
 }
-.user-message 
+.Applicationh
 {
-    background-color: blue;
-    color: white;
-    text-align: right;
-    align-self: flex-end;
+    font-weight: bold;
+    font-size: 25px;
 }
-.other-message 
+.ApplecationText
 {
-    background-color: lightgray;
-    color: black;
-    text-align: left;
-    align-self: flex-start;
+    font-size: 20px;
+}
+.shorttext
+{
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 35px;
+
+}
+.sbigText
+{
+    outline: none;
+    font-size: 16px;
+    width: 740px;
+    height: 170px;
+    resize: none;
 }

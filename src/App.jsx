@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Router } from 'react-router-dom';
 
 import './App.css'
 import Authorizationpage from './components/Authorizationpage.jsx'
@@ -11,6 +11,8 @@ import Watchpage from './components/Watchpage.jsx';
 import ApplicationPage from './components/ApplicationPage.jsx';
 import Cabinetpagedocuments from './components/Cabinetpagedocuments.jsx';
 import Cabinetpagework from './components/Cabinetpagework.jsx';
+import ApplicationPageEnd from  './components/ApplicationPageEnd.jsx';
+import ApplicationPageChat from "./components/ApplicationPageChat.jsx"
 
 const users = [
   { username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
@@ -158,6 +160,18 @@ function App()
           isAuthentificated ?
           <ApplicationPage 
           workername = {currentUser.workername}
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
+        <Route path="/watch/:id/end"
+        element={
+          isAuthentificated ?
+          <ApplicationPageEnd
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
+        <Route path="/watch/:id/chat"
+        element={
+          isAuthentificated ?
+          <ApplicationPageChat
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       </Routes>

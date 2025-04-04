@@ -4,10 +4,9 @@ import './Applicationpage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const ApplicationPage = ({workername}) => {
+const ApplicationPageEnd = ({}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
-
 
     const [message, setMessage] = useState(null);
     
@@ -50,14 +49,14 @@ const ApplicationPage = ({workername}) => {
         navigate(`/watch/${message.id}/end`);
       };
     const goback = () => {
-    if(message.status === "Выполнена")
-    {
-        navigate("/history")
-    }
-    else
-    {
-        navigate("/watch")
-    }
+        if(message.status === "Выполнена")
+        {
+            navigate("/history")
+        }
+        else
+        {
+            navigate("/watch")
+        }
     };
     if (!message) {
         return <div>Загрузка...</div>; // пока сообщение не будет найдено
@@ -65,6 +64,9 @@ const ApplicationPage = ({workername}) => {
     const goToChat = (id) => {
         navigate(`/watch/${message.id}/chat`);
       };
+    const goToApplication = () => {
+        navigate(`/watch/${message.id}`);
+    };
     return (
         <div>
             <div>
@@ -72,9 +74,9 @@ const ApplicationPage = ({workername}) => {
                     <span className="hText">Общая информация о заявке</span>
                     <div className="side">
                                     <span className="sTextH">Управление заявкой</span><br/>
-                                    <span className="sText activesText">Общая информация</span><br/>
-                                    <span className="sText" onClick={() => goToChat(message.id)}>Чат</span><br/>
-                                    <span className="sText" onClick={() => goToEnd(message.id)} >Вывод</span><br/>
+                                    <span className="sText" onClick={goToApplication}>Общая информация</span><br/>
+                                    <span className="sText" onClick={() => goToChat(message.id)} >Чат</span><br/>
+                                    <span className="sText activesText" >Вывод</span><br/>
                                     <div className='goback midle'>
                                         <button onClick={goback} className='backbutton'>К заявкам</button> 
                                     </div>
@@ -95,11 +97,12 @@ const ApplicationPage = ({workername}) => {
                      <span>{message.shortpage}</span>
                 </div>
                 <div className='problemtext midle'>
-                    <span className='ApplecationText'>{message.text}</span>
+                    <span>Сделайте отсчет о проделанной работе</span><br/>
+                    <textarea className="" id="bigText" name="bigText" rows="10" cols="50"  ></textarea>
                 </div>
             </div>
         </div>
     );
 };
 
-export default ApplicationPage;
+export default ApplicationPageEnd;

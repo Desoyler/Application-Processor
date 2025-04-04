@@ -4,7 +4,7 @@ import './Applicationpage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const ApplicationPage = ({workername}) => {
+const ApplicationPageChat = ({}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
 
@@ -49,7 +49,7 @@ const ApplicationPage = ({workername}) => {
     const goToEnd = (id) => {
         navigate(`/watch/${message.id}/end`);
       };
-    const goback = () => {
+      const goback = () => {
     if(message.status === "Выполнена")
     {
         navigate("/history")
@@ -62,9 +62,9 @@ const ApplicationPage = ({workername}) => {
     if (!message) {
         return <div>Загрузка...</div>; // пока сообщение не будет найдено
     }
-    const goToChat = (id) => {
-        navigate(`/watch/${message.id}/chat`);
-      };
+    const goToApplication = () => {
+        navigate(`/watch/${message.id}`);
+    };
     return (
         <div>
             <div>
@@ -72,8 +72,8 @@ const ApplicationPage = ({workername}) => {
                     <span className="hText">Общая информация о заявке</span>
                     <div className="side">
                                     <span className="sTextH">Управление заявкой</span><br/>
-                                    <span className="sText activesText">Общая информация</span><br/>
-                                    <span className="sText" onClick={() => goToChat(message.id)}>Чат</span><br/>
+                                    <span className="sText" onClick={goToApplication}>Общая информация</span><br/>
+                                    <span className="sText activesText" >Чат</span><br/>
                                     <span className="sText" onClick={() => goToEnd(message.id)} >Вывод</span><br/>
                                     <div className='goback midle'>
                                         <button onClick={goback} className='backbutton'>К заявкам</button> 
@@ -102,4 +102,23 @@ const ApplicationPage = ({workername}) => {
     );
 };
 
-export default ApplicationPage;
+export default ApplicationPageChat;
+
+
+/* <div className='bcontainer'>
+                    <h2>Чат</h2>
+                    <div className="chatcontainer">
+                        {message.chat.map((msg, index) => (
+                            <div 
+                                key={index} 
+                                className={`message-container ${msg.sender === workername ? "user-message" : "other-message"}`}
+                            >
+                                <strong>{msg.sender}:</strong> {msg.text}
+                            </div>
+                        ))}
+                    </div>
+                    <div className='sendFooter'>
+                        <input type="Text" placeholder="Введите сообщение" className="aText"></input>
+                        <button className='aSend'>Отправить</button>
+                    </div>
+                </div> */
