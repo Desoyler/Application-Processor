@@ -54,7 +54,7 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
             </div>
             <div className={styles.bigtextconteiner}>
                 <span className={styles.ssText}>Опишите вашу проблему детально в поле ниже:</span><br/>
-                <textarea className={styles.sbigText} id="bigText" name="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
+                <textarea className={styles.sbigText} id="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
             </div>
             <div className={classNames(styles.shortconteiner, styles.scheight)}>
                 <select className={classNames(styles.list, styles.bottomborder)} id="Location" defaultValue="">
@@ -74,11 +74,9 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
                 </select>
             </div>
             <div className={styles.shortconteiner}>
-                <span className={styles.ssText}>Отправьте изображение при необходимости:</span><br/>
-                <input type="file" className={styles.imageUpload} id="imageUpload" name="image" accept="image/*" onChange={handleImageChange} />
             </div>
             <div className={styles.shortconteiner}>
-            <button className={styles.ssendbutton} onClick={handleSubmit}>Отправить</button>
+            <button className={styles.ssendbutton} onClick={handleSubmit}><span className={styles.ssendbuttonText}>Отправить</span></button>
             </div>
         </div>
         </div>

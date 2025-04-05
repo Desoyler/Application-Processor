@@ -3,6 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './Applicationpage.css';
 
 import Siteheader from './Siteheader.jsx';
+import check from './assets/badge-alert.svg';
+import x from './assets/badge-x.svg';
+import done from './assets/badge-check.svg';
 
 const ApplicationPageEnd = ({}) => {
     const { id } = useParams(); // Получаем параметр id из URL
@@ -17,14 +20,14 @@ const ApplicationPageEnd = ({}) => {
               id: 1,
               shortpage: "Вышел из строя рабочий компьютер",
               text: "Мой компьютер неожиданно перестал включаться после очередного рабочего дня. При нажатии на кнопку питания не загораются индикаторы, и вентиляторы не издают никаких звуков. Я проверил кабель питания и подключение к розетке, но это не дало никакого результата. Пробовал заменить блок питания, но ситуация осталась прежней. Возможно, проблема связана с материнской платой или перегревом процессора, который мог повредить ключевые компоненты. За день до поломки компьютер начал сильно тормозить и зависать, что могло быть первым сигналом неисправности. Теперь без профессиональной диагностики точно не разобраться, так что придется обращаться в сервисный центр.",
-              sender: "Иван",
+              sender: "Иван Иванов Иванович",
               location: "Цех 1",
               type: "Поломка оборудования",
               status: "Выполнена",
               chat: [
-                { sender: "Иван", text: "Компьютер не включается", timestamp: 1 },
+                { sender: "Иван Иванов Иванович", text: "Компьютер не включается", timestamp: 1 },
                 { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
-                { sender: "Иван", text: "Да, но не помогает", timestamp: 3 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 3 },
               ],
             },
             {
@@ -71,7 +74,7 @@ const ApplicationPageEnd = ({}) => {
         <div>
             <div>
                 <div className="cab">
-                    <span className="hText">Общая информация о заявке</span>
+                    <span className="hText">Отсчет о проделанной работе</span>
                     <div className="side">
                                     <span className="sTextH">Управление заявкой</span><br/>
                                     <span className="sText" onClick={goToApplication}>Общая информация</span><br/>
@@ -82,7 +85,7 @@ const ApplicationPageEnd = ({}) => {
                                     </div>
                     </div>
                     <div className='left'>
-                        <span className='boldText'>От:</span><span className='ApplecationText'>{message.sender}</span><br/>
+                        <span className='boldText'>От: </span><span className='ApplecationText'>{message.sender}</span><br/>
                         <span className='boldText'>Местоположение:</span> <span className='ApplecationText'>{message.location}</span><br/>
                         <span className='boldText'>Тип:</span> <span className='ApplecationText'>{message.type}</span><br/>
                         <span className='boldText'>Статус:</span> <span className='ApplecationText'>{message.status}</span><br/>
@@ -96,9 +99,34 @@ const ApplicationPageEnd = ({}) => {
                 <div className='shorttext midle'>
                      <span>{message.shortpage}</span>
                 </div>
-                <div className='problemtext midle'>
-                    <span>Сделайте отсчет о проделанной работе</span><br/>
-                    <textarea className="" id="bigText" name="bigText" rows="10" cols="50"  ></textarea>
+                <div className='problemtextend midle'>
+                    <span className='shortendtext'>Сделайте отсчет о проделанной работе в поле ниже:</span><br/>
+                    <textarea className="endBigText" id="bigText"  rows="10" cols="50"  ></textarea>
+                    <span className='boldText'>Статус заявки:</span>
+                    <div className='EndSolution'>
+                        <div >
+                            <picture className='endimg'>
+                            <img src={done} height="25px" width="25px"/>
+                            </picture>
+                            <input type="checkbox" className="check"></input>
+                            <span className="boldText">Выполненна</span>
+                        </div>
+                        <div>
+                            <picture className='endimg'>
+                            <img src={check} height="25px" width="25px"/>
+                            </picture>
+                            <input type="checkbox" className="check"></input>
+                            <span className="boldText">Нужны дополнительные решения</span>
+                        </div>
+                        <div>
+                            <picture className='endimg'>
+                            <img src={x} height="25px" width="25px"/>
+                            </picture>
+                            <input type="checkbox" className="check"></input>
+                            <span className="boldText">Не выполненна</span>
+                        </div>
+                    </div>
+                    <button className='ssendbutton'>Отправить отсчет</button>
                 </div>
             </div>
         </div>

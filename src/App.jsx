@@ -172,6 +172,7 @@ function App()
         element={
           isAuthentificated ?
           <ApplicationPageChat
+          workername = {currentUser.workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       </Routes>

@@ -18,14 +18,14 @@ const ApplicationPage = ({workername}) => {
               id: 1,
               shortpage: "Вышел из строя рабочий компьютер",
               text: "Мой компьютер неожиданно перестал включаться после очередного рабочего дня. При нажатии на кнопку питания не загораются индикаторы, и вентиляторы не издают никаких звуков. Я проверил кабель питания и подключение к розетке, но это не дало никакого результата. Пробовал заменить блок питания, но ситуация осталась прежней. Возможно, проблема связана с материнской платой или перегревом процессора, который мог повредить ключевые компоненты. За день до поломки компьютер начал сильно тормозить и зависать, что могло быть первым сигналом неисправности. Теперь без профессиональной диагностики точно не разобраться, так что придется обращаться в сервисный центр.",
-              sender: "Иван",
+              sender: "Иван Иванов Иванович",
               location: "Цех 1",
               type: "Поломка оборудования",
               status: "Выполнена",
               chat: [
-                { sender: "Иван", text: "Компьютер не включается", timestamp: 1 },
+                { sender: "Иван Иванов Иванович", text: "Компьютер не включаетсявыфвфывфывфывфывфывфывфывфы", timestamp: 1 },
                 { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
-                { sender: "Иван", text: "Да, но не помогает", timestamp: 3 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 3 },
               ],
             },
             {
@@ -80,7 +80,7 @@ const ApplicationPage = ({workername}) => {
                                     </div>
                     </div>
                     <div className='left'>
-                        <span className='boldText'>От:</span><span className='ApplecationText'>{message.sender}</span><br/>
+                        <span className='boldText'>От: </span><span className='ApplecationText'>{message.sender}</span><br/>
                         <span className='boldText'>Местоположение:</span> <span className='ApplecationText'>{message.location}</span><br/>
                         <span className='boldText'>Тип:</span> <span className='ApplecationText'>{message.type}</span><br/>
                         <span className='boldText'>Статус:</span> <span className='ApplecationText'>{message.status}</span><br/>

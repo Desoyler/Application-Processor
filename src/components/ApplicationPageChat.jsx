@@ -4,7 +4,7 @@ import './Applicationpage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const ApplicationPageChat = ({}) => {
+const ApplicationPageChat = ({workername}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
 
@@ -18,14 +18,14 @@ const ApplicationPageChat = ({}) => {
               id: 1,
               shortpage: "Вышел из строя рабочий компьютер",
               text: "Мой компьютер неожиданно перестал включаться после очередного рабочего дня. При нажатии на кнопку питания не загораются индикаторы, и вентиляторы не издают никаких звуков. Я проверил кабель питания и подключение к розетке, но это не дало никакого результата. Пробовал заменить блок питания, но ситуация осталась прежней. Возможно, проблема связана с материнской платой или перегревом процессора, который мог повредить ключевые компоненты. За день до поломки компьютер начал сильно тормозить и зависать, что могло быть первым сигналом неисправности. Теперь без профессиональной диагностики точно не разобраться, так что придется обращаться в сервисный центр.",
-              sender: "Иван",
+              sender: "Иван Иванов Иванович",
               location: "Цех 1",
               type: "Поломка оборудования",
               status: "Выполнена",
               chat: [
-                { sender: "Иван", text: "Компьютер не включается", timestamp: 1 },
+                { sender: "Иван Иванов Иванович", text: "Компьютер не включаетсявыфвфывфывфывфывфывфывфывфы", timestamp: 1 },
                 { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
-                { sender: "Иван", text: "Да, но не помогает", timestamp: 3 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 3 },
               ],
             },
             {
@@ -69,7 +69,7 @@ const ApplicationPageChat = ({}) => {
         <div>
             <div>
                 <div className="cab">
-                    <span className="hText">Общая информация о заявке</span>
+                    <span className="hText">Чат с отправителем</span>
                     <div className="side">
                                     <span className="sTextH">Управление заявкой</span><br/>
                                     <span className="sText" onClick={goToApplication}>Общая информация</span><br/>
@@ -80,7 +80,7 @@ const ApplicationPageChat = ({}) => {
                                     </div>
                     </div>
                     <div className='left'>
-                        <span className='boldText'>От:</span><span className='ApplecationText'>{message.sender}</span><br/>
+                        <span className='boldText'>От: </span><span className='ApplecationText'>{message.sender}</span><br/>
                         <span className='boldText'>Местоположение:</span> <span className='ApplecationText'>{message.location}</span><br/>
                         <span className='boldText'>Тип:</span> <span className='ApplecationText'>{message.type}</span><br/>
                         <span className='boldText'>Статус:</span> <span className='ApplecationText'>{message.status}</span><br/>
@@ -91,13 +91,22 @@ const ApplicationPageChat = ({}) => {
                 </div>
             </div>
             <div className='bigContainer'>
-                <div className='shorttext midle'>
-                     <span>{message.shortpage}</span>
+                <h2>Чат</h2>
+                <div className="chatconteiner">
+                    {message.chat.map((msg, index) => (
+                        <div 
+                            key={index} 
+                            className={`message-container ${msg.sender === workername ? "user-message" : "other-message"}`}
+                        >
+                            <strong>{msg.sender}</strong><br/> {msg.text}
+                        </div>
+                        ))}
+                    </div>
+                <div className='sendFooter'>
+                    <input type="Text" placeholder="Введите сообщение" className="aText"></input>
+                    <button className='aSend'>Отправить</button>
                 </div>
-                <div className='problemtext midle'>
-                    <span className='ApplecationText'>{message.text}</span>
-                </div>
-            </div>
+            </div> 
         </div>
     );
 };
