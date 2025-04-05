@@ -1,0 +1,13 @@
+.Adminconteiner
+{
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column; 
+    border-radius: 7px;
+    width: 1100px;
+    height: 575px;
+    margin: 0 auto; 
+    margin-top: 150px;
+    gap: 10px;
+}

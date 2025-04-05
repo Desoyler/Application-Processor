@@ -13,6 +13,7 @@ import Cabinetpagedocuments from './components/Cabinetpagedocuments.jsx';
 import Cabinetpagework from './components/Cabinetpagework.jsx';
 import ApplicationPageEnd from  './components/ApplicationPageEnd.jsx';
 import ApplicationPageChat from "./components/ApplicationPageChat.jsx"
+import AdminPage from "./components/AdminPage.jsx"
 
 const users = [
   { username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
@@ -172,6 +173,13 @@ function App()
         element={
           isAuthentificated ?
           <ApplicationPageChat
+          workername = {currentUser.workername}
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
+        <Route path="/admin"
+        element={
+          isAuthentificated ?
+          <AdminPage
           workername = {currentUser.workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />

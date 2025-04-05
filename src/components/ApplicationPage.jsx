@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './Applicationpage.css';
+import styles from './Applicationpage.module.css';
+import classNames from 'classnames';
 
 import Siteheader from './Siteheader.jsx';
 
@@ -65,37 +66,41 @@ const ApplicationPage = ({workername}) => {
     const goToChat = (id) => {
         navigate(`/watch/${message.id}/chat`);
       };
+
     return (
         <div>
             <div>
-                <div className="cab">
-                    <span className="hText">Общая информация о заявке</span>
-                    <div className="side">
-                                    <span className="sTextH">Управление заявкой</span><br/>
-                                    <span className="sText activesText">Общая информация</span><br/>
-                                    <span className="sText" onClick={() => goToChat(message.id)}>Чат</span><br/>
-                                    <span className="sText" onClick={() => goToEnd(message.id)} >Вывод</span><br/>
-                                    <div className='goback midle'>
-                                        <button onClick={goback} className='backbutton'>К заявкам</button> 
+                <div className={styles.cab}>
+                    <span className={styles.hText}>Общая информация о заявке</span>
+                    <div className={styles.side}>
+                                    <span className={styles.sTextH}>Управление заявкой</span><br/>
+                                    <span className={classNames(styles.sText, styles.activesText)}>Общая информация</span><br/>
+                                    <span className={styles.sText} onClick={() => goToChat(message.id)}>Чат</span><br/>
+                                    <span className={styles.sText} onClick={() => goToEnd(message.id)} >Вывод</span><br/>
+                                    <div className={classNames(styles.goback, styles.midle)}>
+                                        <button onClick={goback} className={styles.backbutton}>К заявкам</button> 
                                     </div>
                     </div>
-                    <div className='left'>
-                        <span className='boldText'>От: </span><span className='ApplecationText'>{message.sender}</span><br/>
-                        <span className='boldText'>Местоположение:</span> <span className='ApplecationText'>{message.location}</span><br/>
-                        <span className='boldText'>Тип:</span> <span className='ApplecationText'>{message.type}</span><br/>
-                        <span className='boldText'>Статус:</span> <span className='ApplecationText'>{message.status}</span><br/>
+                    <div className={styles.left}>
+                        <span className={styles.boldText}>От: </span><span className={styles.ApplecationText}>{message.sender}</span><br/>
+                        <span className={styles.boldText}>Местоположение:</span> <span className={styles.ApplecationText}>{message.location}</span><br/>
+                        <span className={styles.boldText}>Тип:</span> <span className={styles.ApplecationText}>{message.type}</span><br/>
+                        <span className={styles.boldText}>Статус:</span> <span className={styles.ApplecationText}>{message.status}</span><br/>
                     </div>
-                    <div class="haText right">
-                        <span className="Applicationh">Заявка {message.id}</span>
+                    <div class={classNames(styles.haText, styles.right)}>
+                        <span className={styles.Applicationh}>Заявка {message.id}</span>
                     </div>
                 </div>
             </div>
-            <div className='bigContainer'>
-                <div className='shorttext midle'>
+            <div className={styles.bigContainer}>
+                <div className={classNames(styles.shorttext, styles.midle)}>
                      <span>{message.shortpage}</span>
                 </div>
-                <div className='problemtext midle'>
-                    <span className='ApplecationText'>{message.text}</span>
+                <div className={classNames(styles.problemtext, styles.midle)}>
+                    <span className={styles.ApplecationText}>{message.text}</span>
+                </div>
+                <div className={styles.midle}>
+                    <hr className={styles.hr}></hr>
                 </div>
             </div>
         </div>

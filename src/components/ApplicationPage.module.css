@@ -4,15 +4,25 @@
     background: #FFFFFF;
     display: flex;
     flex-direction: column; 
+    justify-content: center;
     align-items: center;
     border-radius: 7px;
     width: 1100px;
-    height: 575px;
+    height: 732px;
+    max-height: 732px;
     margin: 0 auto; 
-    margin-top: 150px;
+    margin-top: 100px;
     gap: 10px;
     overflow-y: auto;
-    max-height: 575px;
+}
+.hr 
+{
+    display: block;
+    width: 200px;
+    height: 2px;
+    background-color: #000; 
+    border: none;
+    margin: 20px 0; 
 }
 .cab
 {
@@ -27,13 +37,13 @@
     font-size: 35px;
     position: relative;
     left: 470px;
-    top: 95px;
+    top: 55px;
 }
 .side
 {
     position: relative;
     left: 1530px;
-    top: 108px;
+    top: 58px;
 }
 .sText
 {
@@ -60,13 +70,13 @@
 {
     position: relative;
     left: 420px;
-    bottom: 140px;
+    bottom: 190px;
 }
 .right
 {
     position: relative;
     left: 1380px;
-    bottom: 225px;
+    bottom: 275px;
 }
 .activesText
 {
@@ -76,8 +86,6 @@
 {
     display: block;
     padding: 4px;
-    border: #000000 solid 1px;
-    border-radius: 7px;
     margin-top: 25px;
     width: 650px;
     height: auto;
@@ -143,7 +151,6 @@
     align-items:center;
     flex-direction: column;
     padding: 4px;
-    border: #000000 solid 1px;
     border-radius: 7px;
     margin-top: 25px;
     width: 850px;
@@ -190,7 +197,7 @@
     gap: 15px;
     position: relative;
     width: 550px;
-    height: 420px;
+    height: 720px;
     overflow-y: auto;
     overflow-x: hidden;
     border: #000000 solid 1px;
@@ -252,4 +259,9 @@
     background-color: #f5f5f7;
     border: none;
     outline: none;
+}
+.haText
+{
+    display: block;
+    width: 100px;
 }

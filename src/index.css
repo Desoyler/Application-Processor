@@ -28,3 +28,25 @@ html, body
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent; 
 }
+
+
+::-webkit-scrollbar 
+{
+  width: 8px; 
+  height: 8px;
+}
+*::-webkit-scrollbar-track 
+{
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 10px;
+}
+::-webkit-scrollbar-thumb 
+{
+  background: #E63946; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover 
+{
+  background: #E63946; 
+}

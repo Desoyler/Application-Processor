@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './Applicationpage.css';
+import styles from './Applicationpage.module.css';
 
 import Siteheader from './Siteheader.jsx';
 import check from './assets/badge-alert.svg';

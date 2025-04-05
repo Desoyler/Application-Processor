@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 
-import './Siteheader.css';
+import styles from './Siteheader.module.css';
 
 import logo from './assets/icon2.svg';
 import fileclock from './assets/file-clock.svg';
@@ -34,26 +34,26 @@ const Siteheader = ({handleLogout}) =>
         };
         
     return(
-        <div className="headerconteiner">
-            <picture className='logo' >
+        <div className={styles.headerconteiner}>
+            <picture className={styles.logo} >
             <img src={logo} width="200px" height="200px"></img>
             </picture>
-            <picture className='headerbutton' onClick={goToCabinet}>
+            <picture className={styles.headerbutton} onClick={goToCabinet}>
             <img src={user} width="50px" height="50px"></img>
             </picture>
-            <picture className='headerbutton' onClick={goToHistory}>
+            <picture className={styles.headerbutton} onClick={goToHistory}>
             <img src={fileclock} width="50px" height="50px"></img>
             </picture>
-            <picture className='headerbutton' onClick={goToWatch}>
+            <picture className={styles.headerbutton} onClick={goToWatch}>
             <img src={file} width="50px" height="50px"></img>
             </picture>
-            <picture className='headerbutton' onClick={goToSend}>
+            <picture className={styles.headerbutton} onClick={goToSend}>
             <img src={fileplus} width="50px" height="50px"></img>
             </picture>
-            <picture className='adminbutton' onClick={goToAdmin}>
+            <picture className={styles.adminbutton} onClick={goToAdmin}>
             <img src={cog} width="50px" height="50px"></img>
             </picture>
-            <picture className='logoutbutton' onClick={handleLogout}>
+            <picture className={styles.logoutbutton} onClick={handleLogout}>
             <img src={logout} width="50px" height="50px"></img>
             </picture>
         </div>
