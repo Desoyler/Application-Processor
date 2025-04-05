@@ -6,6 +6,7 @@ import Siteheader from './Siteheader.jsx';
 import check from './assets/badge-alert.svg';
 import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
+import classNames from 'classnames';
 
 const ApplicationPageEnd = ({}) => {
     const { id } = useParams(); // Получаем параметр id из URL
@@ -78,60 +79,60 @@ const ApplicationPageEnd = ({}) => {
     return (
         <div>
             <div>
-                <div className="cab">
-                    <span className="hText">Отсчет о проделанной работе</span>
-                    <div className="side">
-                                    <span className="sTextH">Управление заявкой</span><br/>
-                                    <span className="sText" onClick={goToApplication}>Общая информация</span><br/>
-                                    <span className="sText" onClick={() => goToChat(message.id)} >Чат</span><br/>
-                                    <span className="sText activesText" >Вывод</span><br/>
-                                    <div className='goback midle'>
-                                        <button onClick={goback} className='backbutton'>К заявкам</button> 
+                <div className={styles.cab}>
+                    <span className={styles.hText}>Отсчет о проделанной работе</span>
+                    <div className={styles.side}>
+                                    <span className={styles.sTextH}>Управление заявкой</span><br/>
+                                    <span className={styles.sText} onClick={goToApplication}>Общая информация</span><br/>
+                                    <span className={styles.sText} onClick={() => goToChat(message.id)} >Чат</span><br/>
+                                    <span className={classNames(styles.sText, styles.activesText)} >Вывод</span><br/>
+                                    <div className={classNames(styles.goback, styles.midle)}>
+                                        <button onClick={goback} className={styles.backbutton}>К заявкам</button> 
                                     </div>
                     </div>
-                    <div className='left'>
-                        <span className='boldText'>От: </span><span className='ApplecationText'>{message.sender}</span><br/>
-                        <span className='boldText'>Местоположение:</span> <span className='ApplecationText'>{message.location}</span><br/>
-                        <span className='boldText'>Тип:</span> <span className='ApplecationText'>{message.type}</span><br/>
-                        <span className='boldText'>Статус:</span> <span className='ApplecationText'>{message.status}</span><br/>
+                    <div className={styles.left}>
+                        <span className={styles.boldText}>От: </span><span className={styles.ApplecationText}>{message.sender}</span><br/>
+                        <span className={styles.boldText}>Местоположение:</span> <span className={styles.ApplecationText}>{message.location}</span><br/>
+                        <span className={styles.boldText}>Тип:</span> <span className={styles.ApplecationText}>{message.type}</span><br/>
+                        <span className={styles.boldText}>Статус:</span> <span className={styles.ApplecationText}>{message.status}</span><br/>
                     </div>
-                    <div class="haText right">
-                        <span className="Applicationh">Заявка {message.id}</span>
+                    <div class={classNames(styles.haText, styles.right)}>
+                        <span className={styles.Applicationh}>Заявка {message.id}</span>
                     </div>
                 </div>
             </div>
-            <div className='bigContainer'>
-                <div className='shorttext midle'>
+            <div className={styles.bigContainer}>
+                <div className={classNames(styles.shorttext, styles.midle)}>
                      <span>{message.shortpage}</span>
                 </div>
-                <div className='problemtextend midle'>
-                    <span className='shortendtext'>Сделайте отсчет о проделанной работе в поле ниже:</span><br/>
-                    <textarea className="endBigText" id="bigText" placeholder="Напишите отсчет в этом поле"  rows="10" cols="50"  ></textarea>
-                    <span className='boldText'>Статус заявки:</span>
-                    <div className='EndSolution'>
+                <div className={classNames(styles.problemtextend, styles.midle)}>
+                    <span className={styles.shortendtext}>Сделайте отсчет о проделанной работе в поле ниже:</span><br/>
+                    <textarea className={styles.endBigText} id="bigText" placeholder="Напишите отсчет в этом поле"  rows="10" cols="50"  ></textarea>
+                    <span className={styles.boldText}>Статус заявки:</span>
+                    <div className={styles.EndSolution}>
                         <div >
-                            <picture className='endimg'>
+                            <picture className={styles.endimg}>
                             <img src={done} height="25px" width="25px"/>
                             </picture>
-                            <input type="checkbox" className="check"></input>
-                            <span className="boldText">Выполненна</span>
+                            <input type="checkbox" className={styles.check}></input>
+                            <span className={styles.boldText}>Выполненна</span>
                         </div>
                         <div>
-                            <picture className='endimg'>
+                            <picture className={styles.endimg}>
                             <img src={check} height="25px" width="25px"/>
                             </picture>
-                            <input type="checkbox" className="check"></input>
-                            <span className="boldText">Нужны дополнительные решения</span>
+                            <input type="checkbox" className={styles.check}></input>
+                            <span className={styles.boldText}>Нужны дополнительные решения</span>
                         </div>
                         <div>
-                            <picture className='endimg'>
+                            <picture className={styles.endimg}>
                             <img src={x} height="25px" width="25px"/>
                             </picture>
-                            <input type="checkbox" className="check"></input>
-                            <span className="boldText">Не выполненна</span>
+                            <input type="checkbox" className={styles.check}></input>
+                            <span className={styles.boldText}>Не выполненна</span>
                         </div>
                     </div>
-                    <button className='ssendbutton'>Отправить отсчет</button>
+                    <button className={styles.ssendbutton}>Отправить отсчет</button>
                 </div>
             </div>
         </div>

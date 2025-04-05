@@ -204,7 +204,7 @@
     border-radius: 7px;
     padding: 10px;
 }
-.user-message 
+.usermessage 
 {
     align-self: flex-end;
     max-width: 70%;
@@ -214,7 +214,7 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-.other-message 
+.othermessage 
 {
     align-self: flex-start;
     max-width: 70%;
