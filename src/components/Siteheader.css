@@ -20,7 +20,12 @@
 .logoutbutton
 {
     position: relative;
-    left: 1350px;
+    left: 1300px;
+}
+.adminbutton
+{
+    position: relative;
+    left: 75px;
 }
 .logo
 {

@@ -28,6 +28,11 @@ const ApplicationPageEnd = ({}) => {
                 { sender: "Иван Иванов Иванович", text: "Компьютер не включается", timestamp: 1 },
                 { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
                 { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 3 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 4 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 5 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 6 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 7 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 8 },
               ],
             },
             {
@@ -101,7 +106,7 @@ const ApplicationPageEnd = ({}) => {
                 </div>
                 <div className='problemtextend midle'>
                     <span className='shortendtext'>Сделайте отсчет о проделанной работе в поле ниже:</span><br/>
-                    <textarea className="endBigText" id="bigText"  rows="10" cols="50"  ></textarea>
+                    <textarea className="endBigText" id="bigText" placeholder="Напишите отсчет в этом поле"  rows="10" cols="50"  ></textarea>
                     <span className='boldText'>Статус заявки:</span>
                     <div className='EndSolution'>
                         <div >

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './Applicationpage.css';
 
 import Siteheader from './Siteheader.jsx';
+import arrow from './assets/arrow-big-right.svg';
 
 const ApplicationPageChat = ({workername}) => {
     const { id } = useParams(); // Получаем параметр id из URL
@@ -26,6 +27,11 @@ const ApplicationPageChat = ({workername}) => {
                 { sender: "Иван Иванов Иванович", text: "Компьютер не включаетсявыфвфывфывфывфывфывфывфывфы", timestamp: 1 },
                 { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
                 { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 3 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 4 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 5 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 6 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 7 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 8 },
               ],
             },
             {
@@ -104,7 +110,11 @@ const ApplicationPageChat = ({workername}) => {
                     </div>
                 <div className='sendFooter'>
                     <input type="Text" placeholder="Введите сообщение" className="aText"></input>
-                    <button className='aSend'>Отправить</button>
+                    <button className='aSend'>
+                        <picture>
+                            <img className="arrow" src={arrow} height="22px" width="25px"/>
+                        </picture>
+                    </button>
                 </div>
             </div> 
         </div>
@@ -112,22 +122,3 @@ const ApplicationPageChat = ({workername}) => {
 };
 
 export default ApplicationPageChat;
-
-
-/* <div className='bcontainer'>
-                    <h2>Чат</h2>
-                    <div className="chatcontainer">
-                        {message.chat.map((msg, index) => (
-                            <div 
-                                key={index} 
-                                className={`message-container ${msg.sender === workername ? "user-message" : "other-message"}`}
-                            >
-                                <strong>{msg.sender}:</strong> {msg.text}
-                            </div>
-                        ))}
-                    </div>
-                    <div className='sendFooter'>
-                        <input type="Text" placeholder="Введите сообщение" className="aText"></input>
-                        <button className='aSend'>Отправить</button>
-                    </div>
-                </div> */

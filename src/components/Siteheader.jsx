@@ -9,7 +9,7 @@ import fileplus from './assets/file-plus-2.svg';
 import logout from './assets/log-out.svg';
 import user from './assets/user.svg';
 import file from './assets/file.svg';
-
+import cog from './assets/cog.svg';
 
 const Siteheader = ({handleLogout}) =>
     {
@@ -29,6 +29,9 @@ const Siteheader = ({handleLogout}) =>
         const goToWatch = () => {
             navigate("/watch");
         };
+        const goToAdmin = () => {
+            navigate("/admin");
+        };
         
     return(
         <div className="headerconteiner">
@@ -46,6 +49,9 @@ const Siteheader = ({handleLogout}) =>
             </picture>
             <picture className='headerbutton' onClick={goToSend}>
             <img src={fileplus} width="50px" height="50px"></img>
+            </picture>
+            <picture className='adminbutton' onClick={goToAdmin}>
+            <img src={cog} width="50px" height="50px"></img>
             </picture>
             <picture className='logoutbutton' onClick={handleLogout}>
             <img src={logout} width="50px" height="50px"></img>
