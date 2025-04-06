@@ -4,13 +4,9 @@ import './AdminPage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const AdminPage = ({}) =>{
+const AdminPageEdit = ({}) =>{
     const navigate = useNavigate();
-
-    const goToEdit = () => 
-        {
-            navigate("/admin/edit");
-        };
+    
     const goToAdd = () => 
         {
             navigate("/admin");
@@ -19,20 +15,33 @@ const AdminPage = ({}) =>{
         {
             navigate("/admin/search");
         };    
+
 return(
     <div>
         <div className="cab">
             <span className="hText">Добавление пользователя</span>
                 <div className="side">
                     <span className="sTextH">Возможности администратора</span><br/>
-                    <span className="sText activesText">Добавление пользователя</span><br/>
-                    <span className="sText" onClick={goToEdit}>Изменение данных пользователя</span><br/>
+                    <span className="sText " onClick={goToAdd}>Добавление пользователя</span><br/>
+                    <span className="sText activesText" onClick="">Изменение данных пользователя</span><br/>
                     <span className="sText" onClick={goToSearch}>Поиск пользователей в базе</span><br/>
                     <span className="sText" onClick="">Отредактировать состояние заявки</span><br/>
                     <span className="sText" onClick="">Запросы в поддержку</span><br/>
                 </div>
         </div>
         <div className='Adminconteiner'>
+            <div className='bigConteiner textConteiner'>
+                <div className='smallTextConteiner midle'>
+                    <span className='sectText'>Найти пользователя </span>
+                </div>
+            </div>
+            <div className='bigConteiner '>
+                <div className='smallTextConteiner'>
+                    <span className='Text'>Введите айди пользователя</span><br/>
+                    <input placeholder='id' className='UserInput'></input>
+                    <button className='send first'>Найти</button>
+                </div>
+            </div>
             <div className='bigConteiner textConteiner'>
                 <div className='smallTextConteiner midle'>
                     <span className='sectText'>Данные рабочего акаунта </span>
@@ -131,11 +140,11 @@ return(
                 </div>
             </div>
             <div className='bigConteiner textConteiner midle'>  
-                <button className='send'>Создать</button>
+                <button className='send'>Изменить</button>
             </div>
         </div>
 </div>
 );
 };
 
-export default AdminPage;
+export default AdminPageEdit;

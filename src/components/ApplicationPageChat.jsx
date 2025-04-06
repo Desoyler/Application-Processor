@@ -33,6 +33,9 @@ const ApplicationPageChat = ({workername}) => {
                 { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 6 },
                 { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 7 },
                 { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 8 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 9 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 10 },
+                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 11 },
               ],
             },
             {

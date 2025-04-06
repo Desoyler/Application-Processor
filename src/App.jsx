@@ -14,11 +14,13 @@ import Cabinetpagework from './components/Cabinetpagework.jsx';
 import ApplicationPageEnd from  './components/ApplicationPageEnd.jsx';
 import ApplicationPageChat from "./components/ApplicationPageChat.jsx"
 import AdminPage from "./components/AdminPage.jsx"
+import AdminPageEdit from "./components/AdminPageEdit.jsx"
+import AdminPageSearch from './components/AdminPageSearch.jsx';
 
 const users = [
   { username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
-  { username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Иван Иванов Иванович'},
-  { username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Иван Иванов Иванович'},
+  { username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Василий Васильевич Васильев'},
+  { username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Артем Артемович Артемов'},
 ];
 
 function App() 
@@ -180,6 +182,20 @@ function App()
         element={
           isAuthentificated ?
           <AdminPage
+          workername = {currentUser.workername}
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
+        <Route path="/admin/edit"
+        element={
+          isAuthentificated ?
+          <AdminPageEdit
+          workername = {currentUser.workername}
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
+        <Route path="/admin/search"
+        element={
+          isAuthentificated ?
+          <AdminPageSearch
           workername = {currentUser.workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />

@@ -11,7 +11,7 @@ const Cabinetpage = ({workername, profession, handleLogout}) =>{
     const navigate = useNavigate();
 
         const goToDock = () => 
-            {
+        {
             navigate("/cabinet/dockuments");
         };
         const goToCabinet = () => 
