@@ -40,7 +40,7 @@
     padding: 2px;
     display: block;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 1px;
 }
 .sTextH
@@ -185,4 +185,53 @@
 {
     width: 70px;
     height: 50px;
+}
+.shtText
+{
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.scheck
+{
+    position: relative;
+    bottom: 7px;
+}
+.shText
+{
+    display: block;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+.filterConteiner
+{
+    position: relative;
+    left: 500px;
+}
+.filterConteiner
+{
+    position: relative;
+    width: 520px;
+}
+.filtersmallconteiner
+{
+    display: flex;
+    flex-direction: row;
+}
+.filterimg
+{
+    position: relative;
+    bottom: 7px;
+}
+.filterimgr
+{
+    position: relative;
+    top: 3px;
+}
+.filterText
+{
+    position: relative;
+    bottom: 7px;
 }

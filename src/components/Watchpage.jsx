@@ -7,6 +7,7 @@ import hammer from './assets/hammer.svg';
 import computer from './assets/binary.svg';
 import zap from './assets/zap-off.svg';
 import cable from './assets/cable.svg';
+import filter from './assets/list-filter.svg';
 
 const Watchpage = ({goToAplication}) => {
   const messages = [
@@ -152,7 +153,7 @@ const Watchpage = ({goToAplication}) => {
             <div className={styles.cab}>
               <span className={styles.hText}>Просмотр активных заявок</span>
               <div className={styles.side}>
-                <span className={styles.shText}>Фильтр</span>
+                <span className={styles.shText}><img src={filter} className={styles.filterimgr} width="25px" height="25px"/>Фильтр</span>
                 <span className={styles.shtText}>По поломке</span>
                   <div>
                     <picture>

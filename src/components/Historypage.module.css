@@ -133,3 +133,8 @@
     font-size: 15px;
     font-weight: bold;
 }
+.filterimgr
+{
+    position: relative;
+    top: 3px;
+}

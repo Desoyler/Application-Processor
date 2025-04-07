@@ -10,6 +10,7 @@ import cable from './assets/cable.svg';
 import check from './assets/badge-alert.svg';
 import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
+import filter from './assets/list-filter.svg';
 
 
 const Historypage = ({goToAplication}) =>{
@@ -55,7 +56,7 @@ const Historypage = ({goToAplication}) =>{
                       <div className={styles.cab}>
                         <span className={styles.hText}>История заявок</span>
                         <div className={styles.side}>
-                          <span className={styles.shText}>Фильтр</span>
+                          <span className={styles.shText}><img src={filter} className={styles.filterimgr} width="25px" height="25px"/>Фильтр</span>
                           <span className={styles.shtText}>По поломке</span>
                             <div>
                               <picture>

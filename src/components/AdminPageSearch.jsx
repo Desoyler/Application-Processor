@@ -5,7 +5,7 @@ import './AdminPage.css';
 import Siteheader from './Siteheader.jsx';
 import useradd from './assets/user-plus.svg';
 
-const AdminPageSearch = ({goToEdit}) =>{
+const AdminPageSearch = ({goToEdit, goToAdminAplication}) =>{
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -48,7 +48,7 @@ return(
                 <div className="side">
                     <span className="sTextH">Возможности администратора</span><br/>
                     <span className="sText activesText" onClick="">Работа с данными пользователей</span><br/>
-                    <span className="sText" onClick="">Работа с заявками</span><br/>
+                    <span className="sText" onClick={goToAdminAplication}>Работа с заявками</span><br/>
                     <span className="sText" onClick="">Запросы в поддержку</span><br/>
                 </div>
         </div>
