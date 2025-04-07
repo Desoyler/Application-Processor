@@ -50,6 +50,9 @@ function App()
   const goToAplication = (id) => {
     navigate(`/watch/${id}`);
   };
+  const goToEdit = (id) => {
+    navigate(`admin/edit/${id}`);
+  };
 
   const handleLogout = () => 
     {
@@ -178,14 +181,14 @@ function App()
           workername = {currentUser.workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
-        <Route path="/admin"
+        <Route path="/admin/add"
         element={
           isAuthentificated ?
           <AdminPage
           workername = {currentUser.workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
-        <Route path="/admin/edit"
+        <Route path="/admin/edit/:id"
         element={
           isAuthentificated ?
           <AdminPageEdit
@@ -197,6 +200,7 @@ function App()
           isAuthentificated ?
           <AdminPageSearch
           workername = {currentUser.workername}
+          goToEdit = {goToEdit}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       </Routes>

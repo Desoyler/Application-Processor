@@ -49,9 +49,6 @@ const Cabinetpagework = ({workername, profession, handleLogout}) =>{
                 </div>
                 <div className={classNames(styles.infoconteiner3 )}>
                     <div className={styles.smallconteiner}>
-                    <button className={styles.supportbutton}> <img src={calendar} className={styles.supportimg}/>Рабочий календарь</button>
-                    </div>
-                    <div className={styles.smallconteiner}>
                     </div>
                     </div>
                     <div className={classNames(styles.infoconteiner3)}>

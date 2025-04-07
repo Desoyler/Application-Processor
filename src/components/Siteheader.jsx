@@ -30,7 +30,7 @@ const Siteheader = ({handleLogout}) =>
             navigate("/watch");
         };
         const goToAdmin = () => {
-            navigate("/admin");
+            navigate("/admin/search");
         };
         
     return(

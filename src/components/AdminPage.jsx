@@ -13,7 +13,7 @@ const AdminPage = ({}) =>{
         };
     const goToAdd = () => 
         {
-            navigate("/admin");
+            navigate("/admin/add");
         };
     const goToSearch = () => 
         {
@@ -25,10 +25,8 @@ return(
             <span className="hText">Добавление пользователя</span>
                 <div className="side">
                     <span className="sTextH">Возможности администратора</span><br/>
-                    <span className="sText activesText">Добавление пользователя</span><br/>
-                    <span className="sText" onClick={goToEdit}>Изменение данных пользователя</span><br/>
-                    <span className="sText" onClick={goToSearch}>Поиск пользователей в базе</span><br/>
-                    <span className="sText" onClick="">Отредактировать состояние заявки</span><br/>
+                    <span className="sText" onClick={goToSearch}>Работа с данными пользователей</span><br/>
+                    <span className="sText" onClick="">Работа с заявками</span><br/>
                     <span className="sText" onClick="">Запросы в поддержку</span><br/>
                 </div>
         </div>

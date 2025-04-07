@@ -9,7 +9,7 @@ const AdminPageEdit = ({}) =>{
     
     const goToAdd = () => 
         {
-            navigate("/admin");
+            navigate("/admin/add");
         };
     const goToSearch = () => 
         {
@@ -19,29 +19,15 @@ const AdminPageEdit = ({}) =>{
 return(
     <div>
         <div className="cab">
-            <span className="hText">Добавление пользователя</span>
+            <span className="hText">Изменение данных пользователя</span>
                 <div className="side">
                     <span className="sTextH">Возможности администратора</span><br/>
-                    <span className="sText " onClick={goToAdd}>Добавление пользователя</span><br/>
-                    <span className="sText activesText" onClick="">Изменение данных пользователя</span><br/>
-                    <span className="sText" onClick={goToSearch}>Поиск пользователей в базе</span><br/>
-                    <span className="sText" onClick="">Отредактировать состояние заявки</span><br/>
+                    <span className="sText" onClick={goToSearch}>Работа с данными пользователей</span><br/>
+                    <span className="sText" onClick="">Работа с заявками</span><br/>
                     <span className="sText" onClick="">Запросы в поддержку</span><br/>
                 </div>
         </div>
         <div className='Adminconteiner'>
-            <div className='bigConteiner textConteiner'>
-                <div className='smallTextConteiner midle'>
-                    <span className='sectText'>Найти пользователя </span>
-                </div>
-            </div>
-            <div className='bigConteiner '>
-                <div className='smallTextConteiner'>
-                    <span className='Text'>Введите айди пользователя</span><br/>
-                    <input placeholder='id' className='UserInput'></input>
-                    <button className='send first'>Найти</button>
-                </div>
-            </div>
             <div className='bigConteiner textConteiner'>
                 <div className='smallTextConteiner midle'>
                     <span className='sectText'>Данные рабочего акаунта </span>
