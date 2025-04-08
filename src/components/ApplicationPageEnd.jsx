@@ -8,7 +8,7 @@ import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import classNames from 'classnames';
 
-const ApplicationPageEnd = ({messages, goToApplication, goToChat}) => {
+const ApplicationPageEnd = ({messages, goToApplication, goToChat, goback}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
 
@@ -19,17 +19,6 @@ const ApplicationPageEnd = ({messages, goToApplication, goToChat}) => {
         setMessage(foundMessage);
     }, [id]); // Каждый раз когда id меняется
     
-    
-    const goback = () => {
-        if(message.status === "Выполнена")
-        {
-            navigate("/history")
-        }
-        else
-        {
-            navigate("/watch")
-        }
-    };
     if (!message) {
         return <div>Загрузка...</div>; // пока сообщение не будет найдено
     }
@@ -40,11 +29,11 @@ const ApplicationPageEnd = ({messages, goToApplication, goToChat}) => {
                     <span className={styles.hText}>Отсчет о проделанной работе</span>
                     <div className={styles.side}>
                                     <span className={styles.sTextH}>Управление заявкой</span><br/>
-                                    <span className={styles.sText} onClick={goToApplication}>Общая информация</span><br/>
+                                    <span className={styles.sText} onClick={() => goToApplication(message.id)}>Общая информация</span><br/>
                                     <span className={styles.sText} onClick={() => goToChat(message.id)} >Чат</span><br/>
                                     <span className={classNames(styles.sText, styles.activesText)} >Вывод</span><br/>
                                     <div className={classNames(styles.goback, styles.midle)}>
-                                        <button onClick={goback} className={styles.backbutton}>К заявкам</button> 
+                                        <button onClick={() => goback( message.status)} className={styles.backbutton}>К заявкам</button> 
                                     </div>
                     </div>
                     <div className={styles.left}>

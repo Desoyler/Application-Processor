@@ -6,7 +6,7 @@ import Siteheader from './Siteheader.jsx';
 import arrow from './assets/arrow-big-right.svg';
 import classNames from 'classnames';
 
-const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd}) => {
+const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd, users, goback}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
 
@@ -20,18 +20,9 @@ const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd}) =
     }, [id]); // Каждый раз когда id меняется
     
 
-    const goback = () => {
-    if(message.status === "Выполнена")
-    {
-        navigate("/history")
-    }
-    else
-    {
-        navigate("/watch")
-    }
-    };
+    const selectedId = messages.id;
+    const selectedMessages = messages.find(message => message.id === selectedId);
 
-    
     if (!message) {
         return <div>Загрузка...</div>; // пока сообщение не будет найдено
     }
@@ -42,11 +33,11 @@ const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd}) =
                     <span className={styles.hText}>Чат с отправителем</span>
                     <div className={styles.side}>
                                     <span className={styles.sTextH}>Управление заявкой</span><br/>
-                                    <span className={styles.sText} onClick={goToApplication}>Общая информация</span><br/>
+                                    <span className={styles.sText} onClick={() => goToApplication(message.id)}>Общая информация</span><br/>
                                     <span className={classNames(styles.sText, styles.activesText)} >Чат</span><br/>
                                     <span className={styles.sText} onClick={() => goToEnd(message.id)} >Вывод</span><br/>
                                     <div className={classNames(styles.goback, styles.midle)}>
-                                        <button onClick={goback} className={styles.backbutton}>К заявкам</button> 
+                                        <button onClick={() => goback(message.status)} className={styles.backbutton}>К заявкам</button> 
                                     </div>
                     </div>
                     <div className={styles.left}>
@@ -63,15 +54,15 @@ const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd}) =
             <div className={styles.bigContainer}>
                 <h2>Чат</h2>
                 <div className={styles.chatconteiner}>
-                    {message.chat.map((msg, index) => (
-                        <div 
-                            key={index} 
-                            className={`${styles.messageContainer} ${msg.sender === workername ? styles.usermessage : styles.othermessage}`}
+                    {message.chat.map((msg) => (
+                        <div
+                        key={`${message.id}-${msg.id}`}
+                        className={`${styles.messageContainer} ${msg.sender === workername ? styles.usermessage : styles.othermessage}`}
                         >
-                            <strong>{msg.sender}</strong><br/> {msg.text}
+                        <strong>{msg.sender}</strong><br /> {msg.message}
                         </div>
                         ))}
-                    </div>
+                </div>
                 <div className={styles.sendFooter}>
                     <input type="Text" placeholder="Введите сообщение" className={styles.aText}></input>
                     <button className={styles.aSend}>

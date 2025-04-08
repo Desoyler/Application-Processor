@@ -24,9 +24,12 @@ const users = [
 ];
 
 const messages = [
-  {id: 1, shorttext: "Поломка компьютера", type: "", status: "Не выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов",  
-    chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "" }
-    ]} 
+  {id: 1, shortpage: "Поломка компьютера", type: "Сломано", status: "Не выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+    chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Вова" }
+    ]}, 
+    {id: 2, shortpage: "Поломка компьютера", type: "Сломано", status: "Не выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+      chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
+      ]} 
 ];
 
 function App() 
@@ -47,75 +50,110 @@ function App()
   // useState для состояния заявки
   const [status, setStatus] = useState('')
 
-  const navigate = useNavigate(); // Хук для навигации
 
 
-
-  //Кабинет goToDock goToCabinet goToWork
+// Функции нафигации
+const navigate = useNavigate(); 
+ 
 const goToDock = () => 
 {
     navigate("/cabinet/dockuments");
 };
+
 const goToCabinet = () => 
 {
     navigate("/cabinet/");
 };
+
 const goToWork = () => 
 {
     navigate("/cabinet/work");
 };
-  //Хэдер
+
 const goToHistory = () => 
 {
     navigate("/history");
 };
+
 const goToSend = () => 
 {
     navigate("/send");
 };
+
 const goToWatch = () => 
 {
     navigate("/watch");
 };
+
 const goToAdmin = () => 
 {
     navigate("/admin/search");
 };
-const goToEnd = (id) => 
+
+const goToSearch = () => 
 {
-  navigate(`/watch/${message.id}/end`);
-};
-//dasdasdasdasdsadasdasddsadas
-const goToApplication = () => 
+  navigate("/admin/search");
+};    
+
+const goToAdminAplication = () => 
 {
-  navigate(`/watch/${message.id}`);
+  navigate(`admin/application`);
 };
 
-  //Админка
-  const goToAplication = (id) => {
-    navigate(`/watch/${id}`);
-  };
-  const goToEdit = (id) => {
-    navigate(`admin/edit/${id}`);
-  };
-  const goToAdminAplication = (id) => {
-    navigate(`admin/application`);
-  };
-  const goToEditApplicarion = (id) => {
-    navigate(`/admin/application/${id}`)
+const goToAdd = () => 
+{
+  navigate("/admin/add");
+};
+
+
+//Фукции нафигации с айдишником от массива
+const goToEnd = (id) => 
+{
+  navigate(`/watch/${id}/end`);
+};
+
+const goToApplication = (id) => 
+{
+  navigate(`/watch/${id}`);
+};
+
+const goToAplication = (id) => 
+{
+  navigate(`/watch/${id}`);
+};
+const goToEdit = (id) => 
+{
+  navigate(`admin/edit/${id}`);
+};
+
+const goToEditApplicarion = (id) => 
+{
+  navigate(`/admin/application/${id}`)
+}
+const goToChat = (id) => 
+{
+  navigate(`/watch/${id}/chat`);
+};
+const goToChatAp = (id) => 
+{
+  navigate(`/watch/${id}/chat`);
+};
+
+
+//Функции навигации с проверками
+const goback = (status) => {
+  if(status === "Выполнена")
+  {
+      navigate("/history")
   }
-  const goToChat = (id) => 
+  else
   {
-    navigate(`/watch/${message.id}/chat`);
-  };
-  const goToChatAp = (id) => {
-    navigate(`/watch/${message.id}/chat`);
-  };
-  const goToAdd = () => 
-  {
-    navigate("/admin/add");
-  };
+      navigate("/watch")
+  }
+}
   
+
+//ФУНКЦИИ
   const handleLogout = () => 
     {
     setIsAutheticated(false); //не авторизован
@@ -254,6 +292,7 @@ const goToApplication = () =>
           workername = {currentUser.workername}
           users={users} 
           messages={messages}
+          goback={goback}
 
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
@@ -265,6 +304,7 @@ const goToApplication = () =>
           messages={messages}
           goToApplication = {goToApplication}
           goToChat = {goToChat}
+          goback={goback}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/watch/:id/chat"
@@ -276,6 +316,7 @@ const goToApplication = () =>
           workername = {currentUser.workername}
           goToApplication={goToApplication} 
           goToEnd = {goToEnd}
+          goback = {goback}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/admin/add"
@@ -291,6 +332,7 @@ const goToApplication = () =>
         element={
           isAuthentificated ?
           <AdminPageEdit
+          goToSearch={goToSearch}
           users={users} 
           messages={messages}
           workername = {currentUser.workername}
@@ -318,6 +360,7 @@ const goToApplication = () =>
           goToEdit = {goToEdit}
           goToEditApplicarion = {goToEditApplicarion}
           goToAdminAplication = {goToAdminAplication}
+          goToSearch = {goToSearch}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/admin/application/:id"

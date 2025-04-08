@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import './AdminPage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const AdminPageEdit = ({messages}) =>{
-    const navigate = useNavigate();
+const AdminPageEdit = ({messages, goToSearch}) =>{
     
-    const goToAdd = () => 
-        {
-            navigate("/admin/add");
-        };
-    const goToSearch = () => 
-        {
-            navigate("/admin/search");
-        };    
 
 return(
     <div>

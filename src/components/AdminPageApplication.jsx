@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import './AdminPage.css';
 
 import Siteheader from './Siteheader.jsx';
@@ -12,15 +11,9 @@ import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import filter from './assets/list-filter.svg';
 
-const AdminPageApplication = ({goToEdit, goToAdminAplication, goToEditApplicarion, messages}) =>{
-    const navigate = useNavigate();
+const AdminPageApplication = ({goToEdit, goToAdminAplication, goToEditApplicarion, messages, goToSearch}) =>{
     const [searchTerm, setSearchTerm] = useState("");
 
-    
-    const goToSearch = () => 
-    {
-        navigate("/admin/search");
-    };
 
 return(
     <div>

@@ -4,21 +4,7 @@ import './AdminPage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const AdminPage = ({messages}) =>{
-    const navigate = useNavigate();
-
-    const goToEdit = () => 
-        {
-            navigate("/admin/edit");
-        };
-    const goToAdd = () => 
-        {
-            navigate("/admin/add");
-        };
-    const goToSearch = () => 
-        {
-            navigate("/admin/search");
-        };    
+const AdminPage = ({messages, goToSearch}) =>{
 return(
     <div>
         <div className="cab">
