@@ -20,9 +20,13 @@ import AdminPageApplication from './components/AdminPageApplication.jsx';
 import AdminPageApplicationEdit from './components/AdminPageApplicationEdit.jsx';
 
 const users = [
-  { username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
-  { username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Василий Васильевич Васильев'},
-  { username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Артем Артемович Артемов'},
+  { id: 1, username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович', email: 'xxxxxxxx@mail.ru', phone: '+7949XXXXXXXX', birthdaydate: 22, pol: 'M', passport: 243454, inn: 332131, snils: 3213213, oms: 231321312, driver: 32131, zarplata: 60500, days: 5 },
+];
+
+const messages = [
+  {id: 1, shorttext: "Поломка компьютера", type: "", status: "Не выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов",  
+    chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "" }
+    ]} 
 ];
 
 function App() 
@@ -47,8 +51,47 @@ function App()
 
 
 
-  
-  
+  //Кабинет goToDock goToCabinet goToWork
+const goToDock = () => 
+{
+    navigate("/cabinet/dockuments");
+};
+const goToCabinet = () => 
+{
+    navigate("/cabinet/");
+};
+const goToWork = () => 
+{
+    navigate("/cabinet/work");
+};
+  //Хэдер
+const goToHistory = () => 
+{
+    navigate("/history");
+};
+const goToSend = () => 
+{
+    navigate("/send");
+};
+const goToWatch = () => 
+{
+    navigate("/watch");
+};
+const goToAdmin = () => 
+{
+    navigate("/admin/search");
+};
+const goToEnd = (id) => 
+{
+  navigate(`/watch/${message.id}/end`);
+};
+//dasdasdasdasdsadasdasddsadas
+const goToApplication = () => 
+{
+  navigate(`/watch/${message.id}`);
+};
+
+  //Админка
   const goToAplication = (id) => {
     navigate(`/watch/${id}`);
   };
@@ -61,7 +104,18 @@ function App()
   const goToEditApplicarion = (id) => {
     navigate(`/admin/application/${id}`)
   }
-
+  const goToChat = (id) => 
+  {
+    navigate(`/watch/${message.id}/chat`);
+  };
+  const goToChatAp = (id) => {
+    navigate(`/watch/${message.id}/chat`);
+  };
+  const goToAdd = () => 
+  {
+    navigate("/admin/add");
+  };
+  
   const handleLogout = () => 
     {
     setIsAutheticated(false); //не авторизован
@@ -91,7 +145,7 @@ function App()
 
   return (
     <div className="mainconteiner">
-        <Siteheader handleLogout={handleLogout}/>
+        <Siteheader handleLogout={handleLogout} goToCabinet={goToCabinet} goToHistory={goToHistory} goToSend={goToSend} goToWatch={goToWatch} goToAdmin={goToAdmin}/>
         <Routes>
         <Route
           path="/"
@@ -105,6 +159,8 @@ function App()
               setPassword={setPassword}
               setProfession={setProfession}
               handleLogin={handleLogin}
+              users={users}
+              messages={messages}
             />
           }
         />
@@ -115,6 +171,11 @@ function App()
               handleLogout={handleLogout}
               workername={currentUser.workername} 
               profession={currentUser.profession} 
+              users={users} 
+              messages={messages}
+              goToDock={goToDock} 
+              goToCabinet={goToCabinet} 
+              goToWork={goToWork}
             /> : <Authorizationpage handleLogin={handleLogin} />}
         />
         <Route path="/cabinet/dockuments"
@@ -124,6 +185,11 @@ function App()
               handleLogout={handleLogout}
               workername={currentUser.workername} 
               profession={currentUser.profession} 
+              users={users} 
+              messages={messages}
+              goToDock={goToDock} 
+              goToCabinet={goToCabinet} 
+              goToWork={goToWork}
             /> : <Authorizationpage handleLogin={handleLogin} />}
         />
         <Route path="/cabinet/work"
@@ -133,6 +199,11 @@ function App()
               handleLogout={handleLogout}
               workername={currentUser.workername} 
               profession={currentUser.profession} 
+              users={users} 
+              messages={messages}
+              goToDock={goToDock} 
+              goToCabinet={goToCabinet} 
+              goToWork={goToWork}
             /> : <Authorizationpage handleLogin={handleLogin} />}
         />
         <Route path="/send" 
@@ -150,6 +221,8 @@ function App()
              setSender={setSender}
              status={status}
              setStatus={setStatus}
+             users={users} 
+             messages={messages}
 
             /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
@@ -159,6 +232,8 @@ function App()
         <Watchpage 
           text={text}
           goToAplication={goToAplication}
+          users={users} 
+          messages={messages}
         /> : <Authorizationpage handleLogin={handleLogin}/>}
       />
       <Route path="/history"
@@ -167,26 +242,40 @@ function App()
           <Historypage 
             text={text} 
             goToAplication={goToAplication}  
+            users={users} 
+            messages={messages}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
        <Route path="/watch/:id"
         element={
           isAuthentificated ?
           <ApplicationPage 
+          goToChatAp = {goToChatAp}
           workername = {currentUser.workername}
+          users={users} 
+          messages={messages}
+
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/watch/:id/end"
         element={
           isAuthentificated ?
           <ApplicationPageEnd
+          users={users} 
+          messages={messages}
+          goToApplication = {goToApplication}
+          goToChat = {goToChat}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/watch/:id/chat"
         element={
           isAuthentificated ?
           <ApplicationPageChat
+          users={users}
+          messages={messages}
           workername = {currentUser.workername}
+          goToApplication={goToApplication} 
+          goToEnd = {goToEnd}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/admin/add"
@@ -194,12 +283,16 @@ function App()
           isAuthentificated ?
           <AdminPage
           workername = {currentUser.workername}
+          users={users} 
+          messages={messages}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/admin/edit/:id"
         element={
           isAuthentificated ?
           <AdminPageEdit
+          users={users} 
+          messages={messages}
           workername = {currentUser.workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
@@ -207,6 +300,9 @@ function App()
         element={
           isAuthentificated ?
           <AdminPageSearch
+          goToAdd = {goToAdd}
+          users={users} 
+          messages={messages}
           workername = {currentUser.workername}
           goToAdminAplication = {goToAdminAplication}
           goToEdit = {goToEdit}
@@ -216,6 +312,8 @@ function App()
         element={
           isAuthentificated ?
           <AdminPageApplication
+          users={users} 
+          messages={messages}
           workername = {currentUser.workername}
           goToEdit = {goToEdit}
           goToEditApplicarion = {goToEditApplicarion}
@@ -226,6 +324,8 @@ function App()
         element={
           isAuthentificated ?
           <AdminPageApplicationEdit
+          users={users} 
+          messages={messages}
           workername = {currentUser.workername}
           goToEdit = {goToEdit}
           goToAdminAplication = {goToAdminAplication}

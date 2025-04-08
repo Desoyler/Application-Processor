@@ -4,7 +4,7 @@ import './AdminPage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const AdminPageEdit = ({}) =>{
+const AdminPageEdit = ({messages}) =>{
     const navigate = useNavigate();
     
     const goToAdd = () => 

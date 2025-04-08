@@ -5,35 +5,9 @@ import './AdminPage.css';
 import Siteheader from './Siteheader.jsx';
 import useradd from './assets/user-plus.svg';
 
-const AdminPageSearch = ({goToEdit, goToAdminAplication}) =>{
+const AdminPageSearch = ({goToEdit, goToAdminAplication, messages, users, goToAdd}) =>{
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
-
-    const users = [
-        { id:1, username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
-        { id:2, username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Василий Васильевич Васильев'},
-        { id:3, username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Артем Артемович Артемов'},
-        { id:4, username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
-        { id:5, username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Василий Васильевич Васильев'},
-        { id:6, username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Артем Артемович Артемов'},
-        { id:7, username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
-        { id:8, username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Василий Васильевич Васильев'},
-        { id:9, username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Артем Артемович Артемов'},
-        { id:10, username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
-        { id:11, username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Василий Васильевич Васильев'},
-        { id:12, username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Артем Артемович Артемов'},
-        { id:13, username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
-        { id:14, username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Василий Васильевич Васильев'},
-        { id:15, username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Артем Артемович Артемов'},
-        { id:16, username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
-        { id:17, username: 'user2', password: 'pass2', profession: 'Рабочий', workername: 'Василий Васильевич Васильев'},
-        { id:18, username: 'user3', password: 'pass3', profession: 'Администратор', workername: 'Артем Артемович Артемов'},
-      ];
-    
-    const goToAdd = () => 
-        {
-            navigate("/admin/add");
-        };
     
 
 

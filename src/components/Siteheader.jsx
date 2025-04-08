@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 
 import styles from './Siteheader.module.css';
 
@@ -11,28 +10,8 @@ import user from './assets/user.svg';
 import file from './assets/file.svg';
 import cog from './assets/cog.svg';
 
-const Siteheader = ({handleLogout}) =>
+const Siteheader = ({handleLogout, goToCabinet, goToHistory, goToSend, goToWatch, goToAdmin, messages}) =>
     {
-        const navigate = useNavigate();
-
-        const goToCabinet = () => {
-            navigate("/cabinet");
-        };
-        const goToHistory = () => {
-            navigate("/history");
-        };
-    
-        const goToSend = () => {
-            navigate("/send");
-        };
-    
-        const goToWatch = () => {
-            navigate("/watch");
-        };
-        const goToAdmin = () => {
-            navigate("/admin/search");
-        };
-        
     return(
         <div className={styles.headerconteiner}>
             <picture className={styles.logo} >

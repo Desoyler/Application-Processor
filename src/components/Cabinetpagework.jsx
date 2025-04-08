@@ -2,27 +2,13 @@ import React from 'react';
 import styles from './Cabinetpage.module.css';
 import classNames from 'classnames';
 import Siteheader from './Siteheader.jsx';
-import { useNavigate } from "react-router-dom";
 
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 import calendar from "./assets/calendar.svg"
 
-const Cabinetpagework = ({workername, profession, handleLogout}) =>{
-    const navigate = useNavigate();
-
-        const goToDock = () => 
-            {
-            navigate("/cabinet/dockuments");
-        };
-        const goToCabinet = () => 
-        {
-            navigate("/cabinet");
-        };
-        const goToWork = () => 
-        {
-            navigate("/cabinet/work");
-        };
+const Cabinetpagework = ({workername, profession, handleLogout, messages, goToDock, goToCabinet, goToWork}) => {
+        
     return(
         <div>
             <div className={styles.cab}>

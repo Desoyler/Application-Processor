@@ -4,7 +4,7 @@ import './AdminPage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const AdminPage = ({}) =>{
+const AdminPage = ({messages}) =>{
     const navigate = useNavigate();
 
     const goToEdit = () => 

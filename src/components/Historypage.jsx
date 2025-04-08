@@ -13,44 +13,7 @@ import done from './assets/badge-check.svg';
 import filter from './assets/list-filter.svg';
 
 
-const Historypage = ({goToAplication}) =>{
-
-    const navigate = useNavigate();
-
-    const messages = [
-        {
-          id: 1,
-          shortpage: "Вышел из строя рабочий компьютер",
-          text: "Привет!",
-          sender: "Иван",
-          location: "Цех 1",
-          type: "Поломка оборудования",
-          status: "Выполнена",
-          chat: [
-            { sender: "Иван", text: "Компьютер не включается", timestamp: 1 },
-            { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
-            { sender: "Иван", text: "Да, но не помогает", timestamp: 3 },
-          ],
-        },
-        {
-          id: 2,
-          shortpage: "Принтер не печатает",
-          text: "Привет!",
-          sender: "Alice",
-          location: "Цех 1",
-          type: "Поломка оборудования",
-          status: "Выполнена",
-          chat: [
-            { sender: "Alice", text: "Когда сможете починить?", timestamp: 1 },
-            { sender: "Техподдержка", text: "Завтра утром", timestamp: 2 },
-          ],
-        },
-    ];
-
-        const goback = () => {
-            navigate("/cabinet");
-        };
-
+const Historypage = ({goToAplication, messages}) =>{
     return(
           <div className={styles.wpage}>
                       <div className={styles.cab}>

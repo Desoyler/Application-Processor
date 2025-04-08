@@ -5,15 +5,8 @@ import styles from './Sendpage.module.css';
 import classNames from 'classnames';
 import Siteheader from './Siteheader.jsx';
 
-const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus}) =>
+const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus, messages}) =>
     {
-
-    const navigate = useNavigate();
-
-    const goback = () => 
-    {
-        navigate("/cabinet");
-    };
 
     const handleTextChange = (event) =>
     {

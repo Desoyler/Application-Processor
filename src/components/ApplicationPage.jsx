@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import Siteheader from './Siteheader.jsx';
 
-const ApplicationPage = ({workername}) => {
+const ApplicationPage = ({workername, messages, goToChatAp}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
 
@@ -13,43 +13,15 @@ const ApplicationPage = ({workername}) => {
     const [message, setMessage] = useState(null);
     
     useEffect(() => {
-        
-        const messages = [
-            {
-              id: 1,
-              shortpage: "Вышел из строя рабочий компьютер",
-              text: "Мой компьютер неожиданно перестал включаться после очередного рабочего дня. При нажатии на кнопку питания не загораются индикаторы, и вентиляторы не издают никаких звуков. Я проверил кабель питания и подключение к розетке, но это не дало никакого результата. Пробовал заменить блок питания, но ситуация осталась прежней. Возможно, проблема связана с материнской платой или перегревом процессора, который мог повредить ключевые компоненты. За день до поломки компьютер начал сильно тормозить и зависать, что могло быть первым сигналом неисправности. Теперь без профессиональной диагностики точно не разобраться, так что придется обращаться в сервисный центр.",
-              sender: "Иван Иванов Иванович",
-              location: "Цех 1",
-              type: "Поломка оборудования",
-              status: "Выполнена",
-              chat: [
-                { sender: "Иван Иванов Иванович", text: "Компьютер не включаетсявыфвфывфывфывфывфывфывфывфы", timestamp: 1 },
-                { sender: "Техподдержка", text: "Вы пробовали перезагрузить?", timestamp: 2 },
-                { sender: "Иван Иванов Иванович", text: "Да, но не помогает", timestamp: 3 },
-              ],
-            },
-            {
-              id: 2,
-              shortpage: "ВАЗАААААААП",
-              text: "Привет!",
-              sender: "Иван Иванов Иванович",
-              location: "Цех 1",
-              type: "Поломка оборудования",
-              status: "Не выполнена",
-              chat: [
-                { sender: "Иван Иванов Иванович", text: "Когда сможете починить?", timestamp: 1 },
-                { sender: "Техподдержка", text: "Завтра утром", timestamp: 2 },
-              ],
-            },
-        ];
-
+    
         const foundMessage = messages.find(msg => msg.id === parseInt(id)); // Ищем сообщение по id
         setMessage(foundMessage);
     }, [id]); // Каждый раз когда id меняется
     const goToEnd = (id) => {
         navigate(`/watch/${message.id}/end`);
       };
+
+
     const goback = () => {
     if(message.status === "Выполнена")
     {
@@ -63,9 +35,7 @@ const ApplicationPage = ({workername}) => {
     if (!message) {
         return <div>Загрузка...</div>; // пока сообщение не будет найдено
     }
-    const goToChat = (id) => {
-        navigate(`/watch/${message.id}/chat`);
-      };
+
 
     return (
         <div>
@@ -75,7 +45,7 @@ const ApplicationPage = ({workername}) => {
                     <div className={styles.side}>
                                     <span className={styles.sTextH}>Управление заявкой</span><br/>
                                     <span className={classNames(styles.sText, styles.activesText)}>Общая информация</span><br/>
-                                    <span className={styles.sText} onClick={() => goToChat(message.id)}>Чат</span><br/>
+                                    <span className={styles.sText} onClick={() => goToChatAp(message.id)}>Чат</span><br/>
                                     <span className={styles.sText} onClick={() => goToEnd(message.id)} >Вывод</span><br/>
                                     <div className={classNames(styles.goback, styles.midle)}>
                                         <button onClick={goback} className={styles.backbutton}>К заявкам</button> 
