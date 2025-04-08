@@ -6,9 +6,8 @@ import Siteheader from './Siteheader.jsx';
 import arrow from './assets/arrow-big-right.svg';
 import classNames from 'classnames';
 
-const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd, users, goback}) => {
+const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd, goback}) => {
     const { id } = useParams(); // Получаем параметр id из URL
-    const navigate = useNavigate(); 
 
 
     const [message, setMessage] = useState(null);

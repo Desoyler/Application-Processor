@@ -13,7 +13,7 @@ import done from './assets/badge-check.svg';
 import filter from './assets/list-filter.svg';
 
 
-const Historypage = ({goToAplication, messages}) =>{
+const Historypage = ({goToApplication, messages}) =>{
     return(
           <div className={styles.wpage}>
                       <div className={styles.cab}>
@@ -94,7 +94,7 @@ const Historypage = ({goToAplication, messages}) =>{
                                   <p><strong>Отправитель: {msg.sender}</strong></p>
                                   </div>
                                   <div className={styles.wgo}>
-                                  <button className={styles.goToApplication} onClick = {() => goToAplication(msg.id)}>Перейти к заявке</button>
+                                  <button className={styles.goToApplication} onClick = {() => goToApplication(msg.id)}>Перейти к заявке</button>
                                   </div>
                               </div>
                           ))}

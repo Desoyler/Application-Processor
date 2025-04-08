@@ -5,7 +5,7 @@ import styles from './Sendpage.module.css';
 import classNames from 'classnames';
 import Siteheader from './Siteheader.jsx';
 
-const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, setImage, Sender, setSender,status, setStatus, messages}) =>
+const Sendpage = ({setText, setshorttext, setStatus, }) =>
     {
 
     const handleTextChange = (event) =>
@@ -20,14 +20,7 @@ const Sendpage = ({workername, text, setText, shorttext, setshorttext, image, se
         setshorttext(element.value); 
     };
 
-    const handleImageChange = (event) =>
-    {
-        const file = event.target.files[0]; 
-        if (file) 
-        {
-        setImage(file); 
-        };
-    }
+    
 
     const handleSubmit = (event) =>
     {

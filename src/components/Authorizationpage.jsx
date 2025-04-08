@@ -4,15 +4,9 @@ import styles from './Authorizationpage.module.css'
 import Siteheader from './Siteheader.jsx';
 
 const Authorizationpage = ({
-    setIsAutheticated, 
-    username, 
-    password, 
-    profession,
     setPassword, 
     setUsername, 
-    setProfession,
-    handleLogin, 
-    handleLogout 
+    handleLogin
     })=>{
     return(
         <div>

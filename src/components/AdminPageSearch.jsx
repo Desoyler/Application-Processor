@@ -5,8 +5,7 @@ import './AdminPage.css';
 import Siteheader from './Siteheader.jsx';
 import useradd from './assets/user-plus.svg';
 
-const AdminPageSearch = ({goToEdit, goToAdminAplication, messages, users, goToAdd}) =>{
-    const navigate = useNavigate();
+const AdminPageSearch = ({goToEdit, goToAdminAplication, users, goToAdd}) =>{
     const [searchTerm, setSearchTerm] = useState("");
     
 

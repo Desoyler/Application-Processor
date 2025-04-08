@@ -11,9 +11,9 @@ import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import filter from './assets/list-filter.svg';
 
-const AdminPageApplicationEdit = ({goToEdit, goToAdminAplication, messages, goToSearch }) =>{
+const AdminPageApplicationEdit = ({ goToAdminAplication,  goToSearch }) =>{
     
-    const [searchTerm, setSearchTerm] = useState("");
+    
 
 return(
     <div>

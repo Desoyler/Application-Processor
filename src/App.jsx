@@ -44,7 +44,6 @@ function App()
   // useState для sendPage
   const [text, setText] = useState('');
   const [shorttext, setshorttext] = useState('');
-  const [image, setImage] = useState(null);
   const [Sender, setSender] = useState();
 
   // useState для состояния заявки
@@ -57,7 +56,7 @@ const navigate = useNavigate();
  
 const goToDock = () => 
 {
-    navigate("/cabinet/dockuments");
+    navigate("/cabinet/documents");
 };
 
 const goToCabinet = () => 
@@ -117,16 +116,12 @@ const goToApplication = (id) =>
   navigate(`/watch/${id}`);
 };
 
-const goToAplication = (id) => 
-{
-  navigate(`/watch/${id}`);
-};
 const goToEdit = (id) => 
 {
   navigate(`admin/edit/${id}`);
 };
 
-const goToEditApplicarion = (id) => 
+const goToEditApplication = (id) => 
 {
   navigate(`/admin/application/${id}`)
 }
@@ -189,43 +184,24 @@ const goback = (status) => {
           path="/"
           element={
             <Authorizationpage
-              setIsAutheticated={setIsAutheticated}
-              username={username}
-              password={password}
-              profession={profession}
               setUsername={setUsername}
               setPassword={setPassword}
-              setProfession={setProfession}
               handleLogin={handleLogin}
-              users={users}
-              messages={messages}
             />
           }
         />
         <Route path="/cabinet"
           element={
             isAuthentificated ? 
-            <Cabinetpage 
-              handleLogout={handleLogout}
-              workername={currentUser.workername} 
-              profession={currentUser.profession} 
-              users={users} 
-              messages={messages}
+            <Cabinetpage  
               goToDock={goToDock} 
-              goToCabinet={goToCabinet} 
               goToWork={goToWork}
             /> : <Authorizationpage handleLogin={handleLogin} />}
         />
-        <Route path="/cabinet/dockuments"
+        <Route path="/cabinet/documents"
           element={
             isAuthentificated ? 
             <Cabinetpagedocuments 
-              handleLogout={handleLogout}
-              workername={currentUser.workername} 
-              profession={currentUser.profession} 
-              users={users} 
-              messages={messages}
-              goToDock={goToDock} 
               goToCabinet={goToCabinet} 
               goToWork={goToWork}
             /> : <Authorizationpage handleLogin={handleLogin} />}
@@ -234,43 +210,24 @@ const goback = (status) => {
           element={
             isAuthentificated ? 
             <Cabinetpagework 
-              handleLogout={handleLogout}
-              workername={currentUser.workername} 
-              profession={currentUser.profession} 
-              users={users} 
-              messages={messages}
               goToDock={goToDock} 
               goToCabinet={goToCabinet} 
-              goToWork={goToWork}
             /> : <Authorizationpage handleLogin={handleLogin} />}
         />
         <Route path="/send" 
         element={
           isAuthentificated ? 
             <Sendpage 
-             workername={currentUser.workername} 
-             text = {text} 
              setText = {setText}
-             shorttext = {shorttext}
              setshorttext = {setshorttext}
-             image = {image}
-             setImage = {setImage}
-             Sender={Sender} 
-             setSender={setSender}
-             status={status}
              setStatus={setStatus}
-             users={users} 
-             messages={messages}
-
             /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       <Route path="/watch"
        element={
         isAuthentificated ? 
         <Watchpage 
-          text={text}
-          goToAplication={goToAplication}
-          users={users} 
+          goToApplication={goToApplication} 
           messages={messages}
         /> : <Authorizationpage handleLogin={handleLogin}/>}
       />
@@ -278,9 +235,7 @@ const goback = (status) => {
         element={
           isAuthentificated ? 
           <Historypage 
-            text={text} 
-            goToAplication={goToAplication}  
-            users={users} 
+            goToApplication={goToApplication}  
             messages={messages}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
@@ -289,7 +244,6 @@ const goback = (status) => {
           isAuthentificated ?
           <ApplicationPage 
           goToChatAp = {goToChatAp}
-          workername = {currentUser.workername}
           users={users} 
           messages={messages}
           goback={goback}
@@ -300,7 +254,6 @@ const goback = (status) => {
         element={
           isAuthentificated ?
           <ApplicationPageEnd
-          users={users} 
           messages={messages}
           goToApplication = {goToApplication}
           goToChat = {goToChat}
@@ -311,7 +264,6 @@ const goback = (status) => {
         element={
           isAuthentificated ?
           <ApplicationPageChat
-          users={users}
           messages={messages}
           workername = {currentUser.workername}
           goToApplication={goToApplication} 
@@ -323,9 +275,7 @@ const goback = (status) => {
         element={
           isAuthentificated ?
           <AdminPage
-          workername = {currentUser.workername}
-          users={users} 
-          messages={messages}
+          goToSearch={goToSearch}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/admin/edit/:id"
@@ -333,9 +283,6 @@ const goback = (status) => {
           isAuthentificated ?
           <AdminPageEdit
           goToSearch={goToSearch}
-          users={users} 
-          messages={messages}
-          workername = {currentUser.workername}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/admin/search"
@@ -356,10 +303,7 @@ const goback = (status) => {
           <AdminPageApplication
           users={users} 
           messages={messages}
-          workername = {currentUser.workername}
-          goToEdit = {goToEdit}
-          goToEditApplicarion = {goToEditApplicarion}
-          goToAdminAplication = {goToAdminAplication}
+          goToEditApplication = {goToEditApplication}
           goToSearch = {goToSearch}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
@@ -367,10 +311,6 @@ const goback = (status) => {
         element={
           isAuthentificated ?
           <AdminPageApplicationEdit
-          users={users} 
-          messages={messages}
-          workername = {currentUser.workername}
-          goToEdit = {goToEdit}
           goToAdminAplication = {goToAdminAplication}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />

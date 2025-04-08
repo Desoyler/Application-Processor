@@ -3,7 +3,7 @@ import './AdminPage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const AdminPageEdit = ({messages, goToSearch}) =>{
+const AdminPageEdit = ({ goToSearch}) =>{
     
 
 return(

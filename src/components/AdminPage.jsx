@@ -4,7 +4,7 @@ import './AdminPage.css';
 
 import Siteheader from './Siteheader.jsx';
 
-const AdminPage = ({messages, goToSearch}) =>{
+const AdminPage = ({goToSearch}) =>{
 return(
     <div>
         <div className="cab">

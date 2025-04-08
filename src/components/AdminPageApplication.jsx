@@ -11,7 +11,7 @@ import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import filter from './assets/list-filter.svg';
 
-const AdminPageApplication = ({goToEdit, goToAdminAplication, goToEditApplicarion, messages, goToSearch}) =>{
+const AdminPageApplication = ({ goToEditApplication, messages, goToSearch}) =>{
     const [searchTerm, setSearchTerm] = useState("");
 
 
@@ -92,7 +92,7 @@ return(
             </div>
             <div className="searchbaseconteiner conteinersearch" >
                 {messages.map((msg) => (
-                    <div key={msg.id} className="userCard" onClick={() => goToEditApplicarion(msg.id)}>
+                    <div key={msg.id} className="userCard" onClick={() => goToEditApplication(msg.id)}>
                     <span>{msg.shortpage}</span><br/>
                     <span>Тип: {msg.type}</span><br/>
                     <span>Статус: {msg.status}</span><br/>

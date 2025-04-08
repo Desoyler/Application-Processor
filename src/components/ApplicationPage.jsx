@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import Siteheader from './Siteheader.jsx';
 
-const ApplicationPage = ({ workername, messages, goToChatAp, goback }) => {
+const ApplicationPage = ({ messages, goToChatAp, goback }) => {
   const { id } = useParams(); // Получаем параметр id из URL
   const navigate = useNavigate();
 

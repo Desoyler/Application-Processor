@@ -6,7 +6,7 @@ import Siteheader from './Siteheader.jsx';
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 
-const Cabinetpagedocuments = ({workername, profession, handleLogout, messages, goToDock, goToCabinet, goToWork}) =>{
+const Cabinetpagedocuments = ({ goToCabinet, goToWork}) =>{
     return(
         <div>
             <div className={styles.cab}>

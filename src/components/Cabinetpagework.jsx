@@ -7,7 +7,7 @@ import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 import calendar from "./assets/calendar.svg"
 
-const Cabinetpagework = ({workername, profession, handleLogout, messages, goToDock, goToCabinet, goToWork}) => {
+const Cabinetpagework = ({goToDock, goToCabinet}) => {
         
     return(
         <div>
