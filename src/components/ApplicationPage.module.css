@@ -89,6 +89,7 @@
     margin-top: 25px;
     width: 650px;
     height: auto;
+    gap: 10px;
 }
 .backbutton
 {
@@ -117,6 +118,8 @@
 {
     font-weight: bold;
     font-size: 25px;
+    display: block;
+    width: 150px;
 }
 .ApplecationText
 {
@@ -127,6 +130,7 @@
     font-size: 22px;
     font-weight: bold;
     margin-top: 35px;
+    
 }
 .sbigText
 {
@@ -158,6 +162,7 @@
 }
 .EndSolution
 {
+    margin-top: 10px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -264,4 +269,8 @@
 {
     display: block;
     width: 100px;
+}
+.checkconteiner
+{
+    width: 400px;
 }

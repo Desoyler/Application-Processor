@@ -13,7 +13,7 @@ html, body
 {
   overflow-y: auto; 
 }
-/* Chrome, Safari */
+/*скролл*/
 .wconteiner::-webkit-scrollbar 
 {
   width: 8px; 
@@ -23,13 +23,10 @@ html, body
   background-color: #ccc; 
   border-radius: 4px;
 }
-/* Firefox */
 .wconteiner {
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent; 
 }
-
-
 ::-webkit-scrollbar 
 {
   width: 8px; 
@@ -49,4 +46,25 @@ html, body
 ::-webkit-scrollbar-thumb:hover 
 {
   background: #E63946; 
+}
+/* шрифт */
+body 
+{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400; /* Regular */
+}
+h1, h2, h3 
+{
+  font-family: 'Lato', sans-serif;
+  font-weight: 700; /* Bold */
+}
+table 
+{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+.button 
+{
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
 }

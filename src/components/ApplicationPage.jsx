@@ -55,7 +55,7 @@ const ApplicationPage = ({ messages, goToChatAp, goback }) => {
         <div className={classNames(styles.shorttext, styles.midle)}>
           <span>{message.shortpage}</span>
         </div>
-        <div className={classNames(styles.problemtext, styles.midle)}>
+        <div className={classNames(styles.problemtext)}>
           <span className={styles.ApplecationText}>{message.text}</span>
         </div>
         <div className={styles.midle}>

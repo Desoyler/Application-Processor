@@ -54,23 +54,23 @@ const ApplicationPageEnd = ({messages, goToApplication, goToChat, goback}) => {
                 <div className={classNames(styles.problemtextend, styles.midle)}>
                     <span className={styles.shortendtext}>Сделайте отсчет о проделанной работе в поле ниже:</span><br/>
                     <textarea className={styles.endBigText} id="bigText" placeholder="Напишите отсчет в этом поле"  rows="10" cols="50"  ></textarea>
-                    <span className={styles.boldText}>Статус заявки:</span>
+                    
                     <div className={styles.EndSolution}>
-                        <div >
+                        <div className={styles.checkconteiner}>
                             <picture className={styles.endimg}>
                             <img src={done} height="25px" width="25px"/>
                             </picture>
                             <input type="checkbox" className={styles.check}></input>
                             <span className={styles.boldText}>Выполненна</span>
                         </div>
-                        <div>
+                        <div className={styles.checkconteiner}>
                             <picture className={styles.endimg}>
                             <img src={check} height="25px" width="25px"/>
                             </picture>
                             <input type="checkbox" className={styles.check}></input>
-                            <span className={styles.boldText}>Нужны дополнительные решения</span>
+                            <span className={styles.boldText}>Доп.решение</span>
                         </div>
-                        <div>
+                        <div className={styles.checkconteiner}>
                             <picture className={styles.endimg}>
                             <img src={x} height="25px" width="25px"/>
                             </picture>
