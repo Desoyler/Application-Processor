@@ -235,3 +235,13 @@
     position: relative;
     bottom: 7px;
 }
+.deletebutton
+{
+    position: relative;
+    left: 30px;
+    bottom: 200px;
+}
+.apeditmargin
+{
+    margin: 10px;
+}

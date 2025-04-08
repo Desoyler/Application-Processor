@@ -128,6 +128,9 @@ return(
             <div className='bigConteiner textConteiner midle'>  
                 <button className='send'>Изменить</button>
             </div>
+            <div className='bigConteiner textConteiner deletebutton '>  
+                <button className='send'>Удалить пользователя</button>
+            </div>
         </div>
 </div>
 );

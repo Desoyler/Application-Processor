@@ -17,6 +17,7 @@ import AdminPage from "./components/AdminPage.jsx"
 import AdminPageEdit from "./components/AdminPageEdit.jsx"
 import AdminPageSearch from './components/AdminPageSearch.jsx';
 import AdminPageApplication from './components/AdminPageApplication.jsx';
+import AdminPageApplicationEdit from './components/AdminPageApplicationEdit.jsx';
 
 const users = [
   { username: 'user1', password: 'pass1', profession: 'Глава финансов', workername: 'Иван Иванов Иванович'},
@@ -57,6 +58,9 @@ function App()
   const goToAdminAplication = (id) => {
     navigate(`admin/application`);
   };
+  const goToEditApplicarion = (id) => {
+    navigate(`/admin/application/${id}`)
+  }
 
   const handleLogout = () => 
     {
@@ -212,6 +216,16 @@ function App()
         element={
           isAuthentificated ?
           <AdminPageApplication
+          workername = {currentUser.workername}
+          goToEdit = {goToEdit}
+          goToEditApplicarion = {goToEditApplicarion}
+          goToAdminAplication = {goToAdminAplication}
+          /> : <Authorizationpage handleLogin={handleLogin}/>}
+        />
+        <Route path="/admin/application/:id"
+        element={
+          isAuthentificated ?
+          <AdminPageApplicationEdit
           workername = {currentUser.workername}
           goToEdit = {goToEdit}
           goToAdminAplication = {goToAdminAplication}
