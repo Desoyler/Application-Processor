@@ -11,31 +11,31 @@ import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import filter from './assets/list-filter.svg';
 
-const AdminPageApplicationEdit = ({ goToAdminAplication,  goToSearch }) =>{
+const AdminPageApplicationEdit = ({ goToAdminAplication,  goToUsers }) =>{
     
     
 
 return(
     <div>
-        <div className="cab">
-            <span className="hText">Работа с данными пользователей</span>
+        <div className="zero">
+            <span className="zeroHText">Работа с данными пользователей</span>
                 <div className="side">
-                    <span className="sTextH">Возможности администратора</span><br/>
-                    <span className="sText" onClick={goToSearch}>Работа с данными пользователей</span><br/>
-                    <span className="sText" onClick={goToAdminAplication}>Работа с заявками</span><br/>
-                    <span className="sText" onClick="">Запросы в поддержку</span><br/>
+                    <span className="sideHText">Возможности администратора</span><br/>
+                    <span className="sideText" onClick={goToUsers}>Работа с данными пользователей</span><br/>
+                    <span className="sideText" onClick={goToAdminAplication}>Работа с заявками</span><br/>
+                    <span className="sideText" onClick="">Запросы в поддержку</span><br/>
                 </div>   
         </div>
-        <div className='Adminconteiner midle'>
-            <div className='smallTextConteiner apeditmargin'>
+        <div className='conteiner midle'>
+            <div className='sectionConteiner apeditmargin'>
                 <span>Изменить заголовок заявки</span><br/>
-                <input Type='Text' className='UserInput'></input>
+                <input Type='infoText' className='userInput'></input>
             </div>
-            <div className='smallTextConteiner apeditmargin'>
+            <div className='sectionConteiner apeditmargin'>
                 <span>Изменить текст заявки</span><br/>
-                <input Type='Text' className='UserInput'></input>
+                <input Type='infoText' className='userInput'></input>
             </div>
-            <div className='smallTextConteiner apeditmargin'>
+            <div className='sectionConteiner apeditmargin'>
                 <span>Изменить тип заявки</span><br/>
                 <select classNames="list bottomborder"id="problemType " defaultValue="">
                     <option value="" disabled hidden>Выбирите тип поломки</option>
@@ -44,23 +44,23 @@ return(
                     <option value="3">Поломка рабочего оборудования</option>
                 </select>
             </div>
-            <div className='smallTextConteiner apeditmargin'>
+            <div className='sectionConteiner apeditmargin'>
                 <span>Изменить статус заявки</span><br/>
-                <select className="list, styles.bottomborder" id="problemType " defaultValue="">
+                <select className="list, bottomborder" id="problemType " defaultValue="">
                     <option value="" disabled hidden>Выбирите состояние заявки</option>
                     <option value="1">Выполнена</option>
                     <option value="2">Нужны дополнительные решения</option>
                     <option value="3">Не выполненна</option>
                 </select>
             </div>
-            <div className='smallTextConteiner apeditmargin'>
+            <div className='sectionConteiner apeditmargin'>
                 <span className="">Опишите вашу проблему детально в поле ниже:</span><br/>
                 <textarea className="" id="bigText" rows="10" cols="50" onChange="" ></textarea>
             </div>
-            <div className='smallTextConteiner apeditmargin'>
+            <div className='sectionConteiner apeditmargin'>
                 <button>Удалить заявку</button><br/>
             </div>
-            <div className='smallTextConteiner apeditmargin'>
+            <div className='sectionConteiner apeditmargin'>
                 <button>Применить изменения</button>
             </div>
         </div>

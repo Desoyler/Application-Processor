@@ -10,7 +10,7 @@ import user from './assets/user.svg';
 import file from './assets/file.svg';
 import cog from './assets/cog.svg';
 
-const Siteheader = ({handleLogout, goToCabinet, goToHistory, goToSend, goToWatch, goToAdmin, messages}) =>
+const Siteheader = ({handleLogout, goToCabinet, goToHistory, goToSend, goToWatch, goToSearch, messages}) =>
     {
     return(
         <div className={styles.headerConteiner}>
@@ -29,7 +29,7 @@ const Siteheader = ({handleLogout, goToCabinet, goToHistory, goToSend, goToWatch
             <picture className={styles.headerButtons} onClick={goToSend}>
             <img src={fileplus} width="50px" height="50px"></img>
             </picture>
-            <picture className={styles.headerButtons} onClick={goToAdmin}>
+            <picture className={styles.headerButtons} onClick={goToSearch}>
             <img src={cog} width="50px" height="50px"></img>
             </picture>
             <picture className={styles.logoutButton} onClick={handleLogout}>

@@ -11,76 +11,76 @@ import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import filter from './assets/list-filter.svg';
 
-const AdminPageApplication = ({ goToEditApplication, messages, goToSearch}) =>{
+const AdminPageApplication = ({ goToEditApplication, messages, goToUsers}) =>{
     const [searchTerm, setSearchTerm] = useState("");
 
 
 return(
     <div>
-        <div className="cab">
-            <span className="hText">Работа с данными пользователей</span>
+        <div className="zero">
+            <span className="zeroHText">Работа с данными пользователей</span>
                 <div className="side">
-                    <span className="sTextH">Возможности администратора</span><br/>
-                    <span className="sText" onClick={goToSearch}>Работа с данными пользователей</span><br/>
-                    <span className="sText activesText" onClick="">Работа с заявками</span><br/>
-                    <span className="sText" onClick="">Запросы в поддержку</span><br/>
+                    <span className="sideHText">Возможности администратора</span><br/>
+                    <span className="sideText" onClick={goToUsers}>Работа с данными пользователей</span><br/>
+                    <span className="sideText activeText" onClick="">Работа с заявками</span><br/>
+                    <span className="sideText" onClick="">Запросы в поддержку</span><br/>
                 </div>
                 <div className='filterConteiner'>
-                <span className="shText filterText"><img src={filter} className='filterimgr' width="25px" height="25px"/>Фильтр</span>
-                <span className="shtText filterText">По поломке</span>
-                  <div className='filtersmallconteiner'>
+                <span className="hText filterText"><img src={filter} className='filterimgr' width="25px" height="25px"/>Фильтр</span>
+                <span className="sideHText filterText">По поломке</span>
+                  <div className='filterSmallConteiner'>
                     <picture className='filterimg'>
                     <img src={hammer} height="25px" width="25px"/>
                     </picture>
-                    <input type="checkbox" className="scheck"></input>
-                    <span className="sText filterText">Ошибка в работе программы/системы</span>
+                    <input type="checkbox" className="checkbox"></input>
+                    <span className="filterText">Ошибка в работе программы/системы</span>
                   </div>
-                 <div className='filtersmallconteiner' >
-                     <picture className='filterimg'>
+                 <div className='filterSmallConteiner' >
+                     <picture className='filterImage'>
                      <img src={computer} height="25px" width="25px"/>
                      </picture>
-                     <input type="checkbox" className="scheck"></input>
-                     <span className="sText filterText">Поломка компьютерного оборудования</span>
+                     <input type="checkbox" className="checkbox"></input>
+                     <span className="filterText">Поломка компьютерного оборудования</span>
                  </div>
-                 <div className='filtersmallconteiner'>
-                     <picture className='filterimg'>
+                 <div className='filterSmallConteiner'>
+                     <picture className='filterImage'>
                      <img src={zap} height="25px" width="25px"/>
                      </picture>
-                     <input type="checkbox" className="scheck"></input>
-                     <span className="sText filterText">Перепад электроэнергии</span>
+                     <input type="checkbox" className="checkbox"></input>
+                     <span className="filterText">Перепад электроэнергии</span>
                  </div>
-                <div className='filtersmallconteiner'> 
-                    <picture className='filterimg'>
+                <div className='filterSmallConteiner'> 
+                    <picture className='filterImage'>
                     <img src={cable} height="25px" width="25px"/>
                     </picture>
-                    <input type="checkbox" className="scheck"></input>
-                    <span className="sText filterText">Поломка рабочего компьютера</span>
+                    <input type="checkbox" className="checkbox"></input>
+                    <span className="filterText">Поломка рабочего компьютера</span>
                 </div>
-                <span className="shtText">Статус</span>
-                <div className='filtersmallconteiner'>
-                      <picture className='filterimg'>
+                <span className="filterHText">Статус</span>
+                <div className='filterSmallConteiner'>
+                      <picture className='filterImage'>
                       <img src={done} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className="scheck"></input>
-                      <span className="sText filterText">Выполненна</span>
+                      <input type="checkbox" className="checkbox"></input>
+                      <span className="filterText">Выполненна</span>
                   </div>
-                  <div className='filtersmallconteiner'>
-                      <picture className='filterimg'>
+                  <div className='filterSmallConteiner'>
+                      <picture className='filterImage'>
                       <img src={check} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className="scheck"></input>
-                      <span className="sText filterText">Необходимо дополнительное решение</span>
+                      <input type="checkbox" className="checkbox"></input>
+                      <span className="filterText">Необходимо дополнительное решение</span>
                   </div>
-                  <div className='filtersmallconteiner'>
-                      <picture className='filterimg'>
+                  <div className='filterSmallConteiner'>
+                      <picture className='filterImage'>
                       <img src={x} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className="scheck"></input>
-                      <span className="sText filterText">Не выполненна</span>
+                      <input type="checkbox" className="checkbox"></input>
+                      <span className="filterText">Не выполненна</span>
                   </div>
                 </div>
         </div>
-        <div className='Adminconteiner '>
+        <div className='conteiner'>
             <div className='searchbar'>
             <input
                 type="text"
@@ -90,7 +90,7 @@ return(
                 className="searchInput"
             />
             </div>
-            <div className="searchbaseconteiner conteinersearch" >
+            <div className="searchBaseContainer conteinerSearch" >
                 {messages.map((msg) => (
                     <div key={msg.id} className="userCard" onClick={() => goToEditApplication(msg.id)}>
                     <span>{msg.shortpage}</span><br/>

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import Siteheader from './Siteheader.jsx';
 
-const ApplicationPage = ({ messages, goToChatAp, goback }) => {
+const ApplicationPage = ({ messages, goToChat, goback, goToEnd }) => {
   const { id } = useParams(); // Получаем параметр id из URL
   const navigate = useNavigate();
 
@@ -22,10 +22,6 @@ const ApplicationPage = ({ messages, goToChatAp, goback }) => {
     return <div>Загрузка...</div>; // пока сообщение не будет найдено
   }
 
-  const goToEnd = (id) => {
-    navigate(`/watch/${message.id}/end`);
-  };
-
   return (
     <div>
       <div>
@@ -34,7 +30,7 @@ const ApplicationPage = ({ messages, goToChatAp, goback }) => {
           <div className={styles.side}>
             <span className={styles.sideHText}>Управление заявкой</span><br />
             <span className={classNames(styles.sideText, styles.activeText)}>Общая информация</span><br />
-            <span className={styles.sideText} onClick={() => goToChatAp(message.id)}>Чат</span><br />
+            <span className={styles.sideText} onClick={() => goToChat(message.id)}>Чат</span><br />
             <span className={styles.sideText} onClick={() => goToEnd(message.id)} >Отчет</span><br />
             <div className={styles.midle}>
               <button onClick={() => goback(message.status)} className={styles.backbutton}>К заявкам</button>

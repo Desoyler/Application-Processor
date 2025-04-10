@@ -13,9 +13,9 @@ import Cabinetpagedocuments from './components/Cabinetpagedocuments.jsx';
 import Cabinetpagework from './components/Cabinetpagework.jsx';
 import ApplicationPageEnd from  './components/ApplicationPageEnd.jsx';
 import ApplicationPageChat from "./components/ApplicationPageChat.jsx"
-import AdminPage from "./components/AdminPage.jsx"
-import AdminPageEdit from "./components/AdminPageEdit.jsx"
-import AdminPageSearch from './components/AdminPageSearch.jsx';
+import AdminPageUserAdd from "./components/AdminPageUserAdd.jsx"
+import AdminPageUserEdit from "./components/AdminPageUserEdit.jsx"
+import AdminPageUsers from './components/AdminPageUsers.jsx';
 import AdminPageApplication from './components/AdminPageApplication.jsx';
 import AdminPageApplicationEdit from './components/AdminPageApplicationEdit.jsx';
 
@@ -54,7 +54,7 @@ function App()
 
 
 
-// Функции нафигации
+// Функции навигации
 const navigate = useNavigate(); 
  
 const goToDock = () => 
@@ -87,14 +87,9 @@ const goToWatch = () =>
     navigate("/watch");
 };
 
-const goToAdmin = () => 
+const goToUsers = () => 
 {
-    navigate("/admin/search");
-};
-
-const goToSearch = () => 
-{
-  navigate("/admin/search");
+  navigate("/admin/users");
 };    
 
 const goToAdminAplication = () => 
@@ -104,7 +99,7 @@ const goToAdminAplication = () =>
 
 const goToAdd = () => 
 {
-  navigate("/admin/add");
+  navigate("/admin/users/add");
 };
 
 
@@ -121,21 +116,18 @@ const goToApplication = (id) =>
 
 const goToEdit = (id) => 
 {
-  navigate(`admin/edit/${id}`);
+  navigate(`admin/users/edit/${id}`);
 };
 
 const goToEditApplication = (id) => 
 {
-  navigate(`/admin/application/${id}`)
+  navigate(`/admin/application/edit/${id}`)
 }
 const goToChat = (id) => 
 {
   navigate(`/watch/${id}/chat`);
 };
-const goToChatAp = (id) => 
-{
-  navigate(`/watch/${id}/chat`);
-};
+
 
 
 //Функции навигации с проверками
@@ -181,7 +173,7 @@ const goback = (status) => {
 
   return (
     <div className="mainconteiner">
-        <Siteheader handleLogout={handleLogout} goToCabinet={goToCabinet} goToHistory={goToHistory} goToSend={goToSend} goToWatch={goToWatch} goToAdmin={goToAdmin}/>
+        <Siteheader handleLogout={handleLogout} goToCabinet={goToCabinet} goToHistory={goToHistory} goToSend={goToSend} goToWatch={goToWatch} goToSearch={goToUsers}/>
         <Routes>
         <Route
           path="/"
@@ -246,10 +238,11 @@ const goback = (status) => {
         element={
           isAuthentificated ?
           <ApplicationPage 
-          goToChatAp = {goToChatAp}
+          goToChat = {goToChat}
           users={users} 
           messages={messages}
           goback={goback}
+          goToEnd = {goToEnd}
 
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
@@ -274,24 +267,26 @@ const goback = (status) => {
           goback = {goback}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
-        <Route path="/admin/add"
+        <Route path="/admin/users/add"
         element={
           isAuthentificated ?
-          <AdminPage
-          goToSearch={goToSearch}
+          <AdminPageUserAdd
+          goToUsers={goToUsers}
+          goToAdminAplication={goToAdminAplication}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
-        <Route path="/admin/edit/:id"
+        <Route path="/admin/users/edit/:id"
         element={
           isAuthentificated ?
-          <AdminPageEdit
-          goToSearch={goToSearch}
+          <AdminPageUserEdit
+          goToUsers={goToUsers}
+          goToAdminAplication={goToAdminAplication}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
-        <Route path="/admin/search"
+        <Route path="/admin/users"
         element={
           isAuthentificated ?
-          <AdminPageSearch
+          <AdminPageUsers
           goToAdd = {goToAdd}
           users={users} 
           messages={messages}
@@ -307,13 +302,14 @@ const goback = (status) => {
           users={users} 
           messages={messages}
           goToEditApplication = {goToEditApplication}
-          goToSearch = {goToSearch}
+          goToUsers={goToUsers}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
-        <Route path="/admin/application/:id"
+        <Route path="/admin/application/edit/:id"
         element={
           isAuthentificated ?
           <AdminPageApplicationEdit
+          goToUsers={goToUsers}
           goToAdminAplication = {goToAdminAplication}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />

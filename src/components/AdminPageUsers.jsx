@@ -5,7 +5,7 @@ import './AdminPage.css';
 import Siteheader from './Siteheader.jsx';
 import useradd from './assets/user-plus.svg';
 
-const AdminPageSearch = ({goToEdit, goToAdminAplication, users, goToAdd}) =>{
+const AdminPageUsers = ({goToEdit, goToAdminAplication, users, goToAdd}) =>{
     const [searchTerm, setSearchTerm] = useState("");
     
 
@@ -16,16 +16,16 @@ const AdminPageSearch = ({goToEdit, goToAdminAplication, users, goToAdd}) =>{
 
 return(
     <div>
-        <div className="cab">
-            <span className="hText">Работа с данными пользователей</span>
+        <div className="zero">
+            <span className="zeroHText">Работа с данными пользователей</span>
                 <div className="side">
-                    <span className="sTextH">Возможности администратора</span><br/>
-                    <span className="sText activesText" onClick="">Работа с данными пользователей</span><br/>
-                    <span className="sText" onClick={goToAdminAplication}>Работа с заявками</span><br/>
-                    <span className="sText" onClick="">Запросы в поддержку</span><br/>
+                    <span className="sideHText">Возможности администратора</span><br/>
+                    <span className="sideText activeText" onClick="">Работа с данными пользователей</span><br/>
+                    <span className="sideText" onClick={goToAdminAplication}>Работа с заявками</span><br/>
+                    <span className="sideText" onClick="">Запросы в поддержку</span><br/>
                 </div>
         </div>
-        <div className='Adminconteiner '>
+        <div className='conteiner'>
             <div className='searchbar'>
             <input
                 type="text"
@@ -35,7 +35,7 @@ return(
                 className="searchInput"
             />
             </div>
-            <div className="searchbaseconteiner conteinersearch">
+            <div className="searchBaseContainer">
                 {filteredUsers.length > 0 ? (
                 filteredUsers.map((user) => (
                 <div key={user.id} className="userCard" onClick={() => goToEdit(user.id)}>
@@ -44,7 +44,7 @@ return(
                 </div>
                 ))) : (<span>Ничего не найдено</span>)}
             </div>
-            <div className=''>
+            <div >
                 <button className='addbutton' onClick={goToAdd}><img src={useradd} className='addimg'/></button>
             </div>
         </div>
@@ -52,4 +52,4 @@ return(
 );
 };
 
-export default AdminPageSearch;
+export default AdminPageUsers;

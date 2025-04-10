@@ -1,4 +1,4 @@
-.Adminconteiner
+.conteiner
 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background: #FFFFFF;
@@ -14,14 +14,14 @@
     overflow-x: hidden;
     gap: 30px;
 }
-.cab
+.zero
 {
     display: block;
     position: relative;
     height: 1px;
     width: 850px;
 }
-.hText
+.zeroHText
 {
     font-weight: bold;
     font-size: 35px;
@@ -35,7 +35,7 @@
     left: 1530px;
     top: 58px;
 }
-.sText
+.sideText
 {
     padding: 2px;
     display: block;
@@ -43,7 +43,7 @@
     font-size: 20px;
     margin-bottom: 1px;
 }
-.sTextH
+.sideHText
 {
     display: block;
     font-weight: bold;
@@ -59,7 +59,7 @@
     height: 85px;
     margin-left: 10px;
 }
-.textConteiner
+.sectionConteiner
 {
     margin-left: 10px;
     margin-top: 50px;
@@ -73,7 +73,7 @@
     width: 1100px;
     height: 200px;
 }
-.UserInput
+.userInput
 {
     border: none;
     border-bottom: #000000 solid 1px;
@@ -82,17 +82,21 @@
     width: 300px;
     outline: none;
 }
+.inputText
+{
+    font-size: 18px;
+}
 .midle
 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.activesText
+.activeText
 {
     border-left: 2px solid #E63946 ;
 }
-.sectText
+.sectionText
 {
     font-weight: bold;
     font-size: 25px;
@@ -107,7 +111,7 @@
     height: 55px;
     margin-left: 10px;
 }
-.send
+.bottomButtons
 {
     position: relative;
     color: #FFFFFF;
@@ -124,17 +128,14 @@
     bottom: 60px;
     left: 420px;
 }
-.searchbaseconteiner
+.searchBaseContainer
 {
     width: 550px;
-    height: 650px;
+    height: 489px;
     font-size: 20px;
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 100%;
-}
-.conteinersearch
-{
     position: relative;
     left: 490px;
     bottom: 60px;
@@ -172,7 +173,7 @@
 {
     position: relative;
     left: 200px;
-    bottom: 450px;
+    bottom: 420px;
     color: #FFFFFF;
     font-weight: bold;
     border: none;
@@ -181,24 +182,28 @@
     background: #E63946;
     width: 150px;
 }
+.buttonsContainerGap
+{
+    gap: 300px;
+}
 .addimg
 {
     width: 70px;
     height: 50px;
 }
-.shtText
+.filterHText
 {
     display: block;
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 10px;
 }
-.scheck
+.checkbox
 {
     position: relative;
     bottom: 7px;
 }
-.shText
+.hText
 {
     display: block;
     font-weight: bold;
@@ -208,19 +213,15 @@
 .filterConteiner
 {
     position: relative;
-    left: 500px;
-}
-.filterConteiner
-{
-    position: relative;
+    left: 430px;
     width: 520px;
 }
-.filtersmallconteiner
+.filterSmallConteiner
 {
     display: flex;
     flex-direction: row;
 }
-.filterimg
+.filterImage
 {
     position: relative;
     bottom: 7px;
@@ -232,14 +233,13 @@
 }
 .filterText
 {
+    padding: 2px;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 1px;
     position: relative;
     bottom: 7px;
-}
-.deletebutton
-{
-    position: relative;
-    left: 30px;
-    bottom: 200px;
 }
 .apeditmargin
 {
