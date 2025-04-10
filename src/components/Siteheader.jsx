@@ -13,26 +13,26 @@ import cog from './assets/cog.svg';
 const Siteheader = ({handleLogout, goToCabinet, goToHistory, goToSend, goToWatch, goToAdmin, messages}) =>
     {
     return(
-        <div className={styles.headerconteiner}>
-            <picture className={styles.logo} >
+        <div className={styles.headerConteiner}>
+            <picture className={styles.rusalLogo} >
             <img src={logo} width="200px" height="200px"></img>
             </picture>
-            <picture className={styles.headerbutton} onClick={goToCabinet}>
+            <picture className={styles.headerButtons} onClick={goToCabinet}>
             <img src={user} width="50px" height="50px"></img>
             </picture>
-            <picture className={styles.headerbutton} onClick={goToHistory}>
+            <picture className={styles.headerButtons} onClick={goToHistory}>
             <img src={fileclock} width="50px" height="50px"></img>
             </picture>
-            <picture className={styles.headerbutton} onClick={goToWatch}>
+            <picture className={styles.headerButtons} onClick={goToWatch}>
             <img src={file} width="50px" height="50px"></img>
             </picture>
-            <picture className={styles.headerbutton} onClick={goToSend}>
+            <picture className={styles.headerButtons} onClick={goToSend}>
             <img src={fileplus} width="50px" height="50px"></img>
             </picture>
-            <picture className={styles.adminbutton} onClick={goToAdmin}>
+            <picture className={styles.headerButtons} onClick={goToAdmin}>
             <img src={cog} width="50px" height="50px"></img>
             </picture>
-            <picture className={styles.logoutbutton} onClick={handleLogout}>
+            <picture className={styles.logoutButton} onClick={handleLogout}>
             <img src={logout} width="50px" height="50px"></img>
             </picture>
         </div>

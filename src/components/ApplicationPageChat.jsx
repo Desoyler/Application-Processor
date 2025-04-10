@@ -28,43 +28,43 @@ const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd, go
     return (
         <div>
             <div>
-                <div className={styles.cab}>
-                    <span className={styles.hText}>Чат с отправителем</span>
+                <div className={styles.zero}>
+                    <span className={styles.zeroHText}>Чат с отправителем</span>
                     <div className={styles.side}>
-                                    <span className={styles.sTextH}>Управление заявкой</span><br/>
-                                    <span className={styles.sText} onClick={() => goToApplication(message.id)}>Общая информация</span><br/>
-                                    <span className={classNames(styles.sText, styles.activesText)} >Чат</span><br/>
-                                    <span className={styles.sText} onClick={() => goToEnd(message.id)} >Вывод</span><br/>
-                                    <div className={classNames(styles.goback, styles.midle)}>
+                                    <span className={styles.sideHText}>Управление заявкой</span><br/>
+                                    <span className={styles.sideText} onClick={() => goToApplication(message.id)}>Общая информация</span><br/>
+                                    <span className={classNames(styles.sideText, styles.activeText)} >Чат</span><br/>
+                                    <span className={styles.sideText} onClick={() => goToEnd(message.id)} >Отчет</span><br/>
+                                    <div className={styles.midle}>
                                         <button onClick={() => goback(message.status)} className={styles.backbutton}>К заявкам</button> 
                                     </div>
                     </div>
-                    <div className={styles.left}>
-                        <span className={styles.boldText}>От: </span><span className={styles.ApplecationText}>{message.sender}</span><br/>
-                        <span className={styles.boldText}>Местоположение:</span> <span className={styles.ApplecationText}>{message.location}</span><br/>
-                        <span className={styles.boldText}>Тип:</span> <span className={styles.ApplecationText}>{message.type}</span><br/>
-                        <span className={styles.boldText}>Статус:</span> <span className={styles.ApplecationText}>{message.status}</span><br/>
+                    <div className={styles.leftApplicationText}>
+                        <span className={styles.boldText}>От: </span><span className={styles.ApplicationText}>{message.sender}</span><br/>
+                        <span className={styles.boldText}>Местоположение:</span> <span className={styles.ApplicationText}>{message.location}</span><br/>
+                        <span className={styles.boldText}>Тип:</span> <span className={styles.ApplicationText}>{message.type}</span><br/>
+                        <span className={styles.boldText}>Статус:</span> <span className={styles.ApplicationText}>{message.status}</span><br/>
                     </div>
-                    <div class={classNames(styles.haText, styles.right)}>
-                        <span className={styles.Applicationh}>Заявка {message.id}</span>
+                    <div class={classNames(styles.blockText, styles.rightApplicationText)}>
+                        <span className={styles.ApplicationNumber}>Заявка {message.id}</span>
                     </div>
                 </div>
             </div>
-            <div className={styles.bigContainer}>
+            <div className={styles.container}>
                 <h2>Чат</h2>
-                <div className={styles.chatconteiner}>
+                <div className={styles.chatConteiner}>
                     {message.chat.map((msg) => (
                         <div
                         key={`${message.id}-${msg.id}`}
-                        className={`${styles.messageContainer} ${msg.sender === workername ? styles.usermessage : styles.othermessage}`}
+                        className={`${styles.messageContainer} ${msg.sender === workername ? styles.userMessage : styles.otherMessage}`}
                         >
                         <strong>{msg.sender}</strong><br /> {msg.message}
                         </div>
                         ))}
                 </div>
-                <div className={styles.sendFooter}>
-                    <input type="Text" placeholder="Введите сообщение" className={styles.aText}></input>
-                    <button className={styles.aSend}>
+                <div className={styles.sendMessageContainer}>
+                    <input type="Text" placeholder="Введите сообщение" className={styles.sendMessageInput}></input>
+                    <button className={styles.sendMessageButton}>
                         <picture>
                             <img className={styles.arrow} src={arrow} height="22px" width="25px"/>
                         </picture>

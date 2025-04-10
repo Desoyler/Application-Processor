@@ -1,4 +1,4 @@
-.headerconteiner
+.headerConteiner
 {
     background: #FFFFFF;
     border-bottom: 2px solid #E63946; 
@@ -10,24 +10,19 @@
     flex-direction: row; 
     margin: 0 auto; 
 }
-.headerbutton
+.headerButtons
 {
     position: relative;
     left: 70px;
     margin-left: 2px;
     margin-right: 20px;
 }
-.logoutbutton
+.logoutButton
 {
     position: relative;
     left: 1300px;
 }
-.adminbutton
-{
-    position: relative;
-    left: 75px;
-}
-.logo
+.rusalLogo
 {
     position: relative;
 }

@@ -15,86 +15,86 @@ import filter from './assets/list-filter.svg';
 
 const Historypage = ({goToApplication, messages}) =>{
     return(
-          <div className={styles.wpage}>
-                      <div className={styles.cab}>
-                        <span className={styles.hText}>История заявок</span>
-                        <div className={styles.side}>
-                          <span className={styles.shText}><img src={filter} className={styles.filterimgr} width="25px" height="25px"/>Фильтр</span>
-                          <span className={styles.shtText}>По поломке</span>
+          <div className={styles.historypage}>
+                      <div className={styles.zero}>
+                        <span className={styles.zeroHText}>История заявок</span>
+                        <div className={styles.sidePage}>
+                          <span className={styles.sideHText}><img src={filter} className={styles.filterImage} width="25px" height="25px"/>Фильтр</span>
+                          <span className={styles.sideMText}>По поломке</span>
                             <div>
                               <picture>
                                 <img src={hammer} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className={styles.scheck}></input>
-                                <span className={styles.sText}>Ошибка в работе программы/системы</span>
+                                <input type="checkbox" className={styles.sideCheckBox}></input>
+                                <span className={styles.sideText}>Ошибка в работе программы/системы</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={computer} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className={styles.scheck}></input>
-                                <span className={styles.sText}>Поломка компьютерного оборудования</span>
+                                <input type="checkbox" className={styles.sideCheckBox}></input>
+                                <span className={styles.sideText}>Поломка компьютерного оборудования</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={zap} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className={styles.scheck}></input>
-                                <span className={styles.sText}>Перепад электроэнергии</span>
+                                <input type="checkbox" className={styles.sideCheckBox}></input>
+                                <span className={styles.sideText}>Перепад электроэнергии</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={cable} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className={styles.scheck}></input>
-                                <span className={styles.sText}>Поломка рабочего компьютера</span>
+                                <input type="checkbox" className={styles.sideCheckBox}></input>
+                                <span className={styles.sideText}>Поломка рабочего компьютера</span>
                             </div>
-                          <span className={styles.shtText}>Статус</span>
+                          <span className={styles.sideMText}>Статус</span>
                           <div>
                                 <picture>
                                 <img src={done} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className={styles.scheck}></input>
-                                <span className={styles.sText}>Выполненна</span>
+                                <input type="checkbox" className={styles.sideCheckBox}></input>
+                                <span className={styles.sideText}>Выполненна</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={check} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className={styles.scheck}></input>
-                                <span className={styles.sText}>Необходимо дополнительное решение</span>
+                                <input type="checkbox" className={styles.sideCheckBox}></input>
+                                <span className={styles.sideText}>Необходимо дополнительное решение</span>
                             </div>
                             <div>
                                 <picture>
                                 <img src={x} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className={styles.scheck}></input>
-                                <span className={styles.sText}>Не выполненна</span>
+                                <input type="checkbox" className={styles.sideCheckBox}></input>
+                                <span className={styles.sideText}>Не выполненна</span>
                             </div>
                         </div>
                       </div>
                       <div className={styles.wconteiner}> 
                           {messages.length === 0 ? (
-                             <div className={styles.nomessages}>
+                             <div className={styles.noApplications}>
                               Ошибка: заявок нет
                             </div>
                           ) :
                           messages
                           .filter(msg => msg.status === "Выполнена")
                           .map((msg, index) => (
-                              <div key={index} className={styles.message}>
-                                  <div className={styles.wShortPage}>
-                                  <h3 className={styles.wShortPageText}>{msg.shortpage}</h3>
+                              <div key={index} className={styles.ApplicationConteiner}>
+                                  <div className={styles.shortTextConteiner}>
+                                  <h3 className={styles.shortText}>{msg.shortpage}</h3>
                                   </div>
-                                  <div className={styles.lists}>
-                                  <span className={styles.wType}>Тип поломки: {msg.type} </span> <br/>
-                                  <span className={styles.wtLocation}>Место проишествия: {msg.location} </span>
+                                  <div>
+                                  <span className={styles.type}>Тип поломки: {msg.type} </span> <br/>
+                                  <span className={styles.location}>Место проишествия: {msg.location} </span>
                                   </div>
-                                  <div className={styles.wsender}>
+                                  <div className={styles.sender}>
                                   <p><strong>Отправитель: {msg.sender}</strong></p>
                                   </div>
-                                  <div className={styles.wgo}>
-                                  <button className={styles.goToApplication} onClick = {() => goToApplication(msg.id)}>Перейти к заявке</button>
+                                  <div className={styles.goToApplicationConteiner}>
+                                  <button className={styles.goToApplicationButton} onClick = {() => goToApplication(msg.id)}>Перейти к заявке</button>
                                   </div>
                               </div>
                           ))}

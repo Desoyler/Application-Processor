@@ -30,19 +30,19 @@ const Sendpage = ({setText, setshorttext, setStatus, }) =>
 
     return(
         <div>
-        <div className={styles.cab}>
-            <span className={styles.hText}>Отправка технической заявки</span>
+        <div className={styles.zero}>
+            <span className={styles.zeroHText}>Отправка технической заявки</span>
         </div>
-        <div className={styles.sconteiner}>
-            <div className={styles.shortconteiner}>
-                <span className={styles.ssText}>Опишите кратко проблему</span><br/>
-                <input type="text" className = {classNames(styles.shortTextInput, styles.bottomborder)} id="shortTextInput"  onChange={handleshortTextChange} ></input>
+        <div className={styles.conteiner}>
+            <div className={styles.smallConteiner}>
+                <span className={styles.Text}>Опишите кратко проблему</span><br/>
+                <input type="text" className = {classNames(styles.shortTextInput, styles.bottomBorder)} id="shortTextInput"  onChange={handleshortTextChange} ></input>
             </div>
-            <div className={styles.bigtextconteiner}>
-                <span className={styles.ssText}>Опишите вашу проблему детально в поле ниже:</span><br/>
-                <textarea className={styles.sbigText} id="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
+            <div className={styles.bigTextConteiner}>
+                <span className={styles.Text}>Опишите вашу проблему детально в поле ниже:</span><br/>
+                <textarea className={styles.bigText} id="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
             </div>
-            <div className={classNames(styles.shortconteiner, styles.scheight)}>
+            <div className={classNames(styles.smallConteiner, styles.height)}>
                 <select className={classNames(styles.list, styles.bottomborder)} id="Location" defaultValue="">
                     <option value=""  disabled hidden>Выбирите место где произошла поломка</option>
                     <option value="1">Цех 1</option>
@@ -51,18 +51,16 @@ const Sendpage = ({setText, setshorttext, setStatus, }) =>
                     <option value="4">Цех 4</option>
                 </select>
             </div>
-            <div className={classNames(styles.shortconteiner, styles.scheight)}>
-                <select className={classNames(styles.list, styles.bottomborder)} id="problemType " defaultValue="">
+            <div className={classNames(styles.smallConteiner, styles.height)}>
+                <select className={classNames(styles.list, styles.bottomBorder)} id="problemType " defaultValue="">
                     <option value="" disabled hidden>Выбирите тип поломки</option>
                     <option value="1">Поломка компьютерного оборудования</option>
                     <option value="2">Перебои электроэнергии</option>
                     <option value="3">Поломка рабочего оборудования</option>
                 </select>
             </div>
-            <div className={styles.shortconteiner}>
-            </div>
-            <div className={styles.shortconteiner}>
-            <button className={styles.ssendbutton} onClick={handleSubmit}><span className={styles.ssendbuttonText}>Отправить</span></button>
+            <div className={styles.smallConteiner}>
+            <button className={styles.sendbutton} onClick={handleSubmit}><span className={styles.sendButtonText}>Отправить</span></button>
             </div>
         </div>
         </div>

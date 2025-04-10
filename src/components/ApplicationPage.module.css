@@ -1,4 +1,4 @@
-.bigContainer
+.container
 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background: #FFFFFF;
@@ -24,14 +24,14 @@
     border: none;
     margin: 20px 0; 
 }
-.cab
+.zero
 {
     display: block;
     position: relative;
     height: 1px;
     width: 550px;
 }
-.hText
+.zeroHText
 {
     font-weight: bold;
     font-size: 35px;
@@ -45,7 +45,7 @@
     left: 1530px;
     top: 58px;
 }
-.sText
+.sideText
 {
     padding: 2px;
     display: block;
@@ -53,7 +53,7 @@
     font-size: 18px;
     margin-bottom: 1px;
 }
-.sTextH
+.sideHText
 {
     display: block;
     font-weight: bold;
@@ -66,23 +66,23 @@
     display: flex;
     justify-content: center;
 }
-.left
+.leftApplicationText
 {
     position: relative;
     left: 420px;
     bottom: 190px;
 }
-.right
+.rightApplicationText
 {
     position: relative;
     left: 1380px;
     bottom: 275px;
 }
-.activesText
+.activeText
 {
     border-left: 2px solid #E63946 ;
 }
-.problemtext
+.problemText
 {
     display: block;
     padding: 4px;
@@ -114,33 +114,24 @@
     font-weight: bold;
     font-size: 18px;
 }
-.Applicationh
+.ApplicationNumber
 {
     font-weight: bold;
     font-size: 25px;
     display: block;
     width: 150px;
 }
-.ApplecationText
+.ApplicationText
 {
     font-size: 20px;
 }
-.shorttext
+.shortText
 {
     font-size: 22px;
     font-weight: bold;
     margin-top: 35px;
-    
 }
-.sbigText
-{
-    outline: none;
-    font-size: 16px;
-    width: 740px;
-    height: 170px;
-    resize: none;
-}
-.endBigText
+.coutBigText
 {
     outline: none;
     font-size: 16px;
@@ -148,7 +139,7 @@
     height: 170px;
     resize: none;
 }
-.problemtextend
+.countText
 {
     display: flex;
     justify-content: start;
@@ -160,7 +151,7 @@
     width: 850px;
     height: 400px;
 }
-.EndSolution
+.coutStatusConteiner
 {
     margin-top: 10px;
     position: relative;
@@ -171,12 +162,12 @@
     height: 75px;
     gap: 20px;
 }
-.endimg
+.coutImage
 {
     position: relative;
     top: 3px;
 }
-.ssendbutton
+.sendCoutButton
 {
     position: relative;
     bottom: 10px;
@@ -188,13 +179,13 @@
     background: #E63946;
     width: 200px;
 }
-.shortendtext
+.coutShortText
 {
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px ;
 }
-.chatconteiner 
+.chatConteiner 
 {
     background-color: #f5f5f7;
     display: flex;
@@ -209,7 +200,7 @@
     border-radius: 7px;
     padding: 10px;
 }
-.usermessage 
+.userMessage 
 {
     align-self: flex-end;
     max-width: 70%;
@@ -219,7 +210,7 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-.othermessage 
+.otherMessage 
 {
     align-self: flex-start;
     max-width: 70%;
@@ -235,7 +226,7 @@
     flex-direction: column;
     width: auto;
 }
-.sendFooter
+.sendMessageContainer
 {
     display: flex;
     align-items: center;
@@ -248,7 +239,7 @@
     gap: 10px;
     border: #000000 1px solid;
 }
-.aText
+.sendMessageInput
 {
     background-color: #f5f5f7;
     border: none;
@@ -257,7 +248,7 @@
     width: 472px ;
     height: 30px;
 }
-.aSend
+.sendMessageButton
 {
     height: 30px;
     border-radius: 50%;
@@ -265,12 +256,12 @@
     border: none;
     outline: none;
 }
-.haText
+.blockText
 {
     display: block;
     width: 100px;
 }
-.checkconteiner
+.checkBoxContainer
 {
     width: 400px;
 }

@@ -1,11 +1,4 @@
-.cab
-{
-    display: block;
-    position: relative;
-    height: 1px;
-    width: 350px;
-}
-.cabinetConteiner
+.container
 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background: #FFFFFF;
@@ -18,7 +11,14 @@
     margin-top: 150px;
     gap: 10px;
 }
-.hText
+.zero
+{
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 350px;
+}
+.zeroHText
 {
     font-weight: bold;
     font-size: 35px;
@@ -26,7 +26,7 @@
     left: 470px;
     top: 95px;
 }
-.infoconteiner
+.infoConteiner1
 {
     display: flex;
     width: 780px;
@@ -38,7 +38,7 @@
     align-items: center;
     justify-content: center;
 }
-.infoconteiner2
+.infoConteiner2
 {
     display: flex;
     width: 546px;
@@ -50,7 +50,7 @@
     align-items: center;
     justify-content: center;
 }
-.infoconteiner3
+.infoConteiner3
 {
     display: flex;
     width: 318px;
@@ -72,12 +72,12 @@
     width: 200px;
     outline: none;
 }
-.Text
+.infoText
 {
     font-weight: bold;
     font-size: 18px;
 }
-.smallconteiner
+.smallConteiner
 {
     margin: 5px;
 }
@@ -87,7 +87,7 @@
     left: 1530px;
     top: 108px;
 }
-.sText
+.sideText
 {
     padding: 2px;
     display: block;
@@ -95,18 +95,18 @@
     font-size: 18px;
     margin-bottom: 1px;
 }
-.activesText
+.activeText
 {
     border-left: 2px solid #E63946 ;
 }
-.sTextH
+.sideHText
 {
     display: block;
     font-weight: bold;
     font-size: 25px;
     margin-bottom: 25px;
 }
-.smallinput
+.smallInput
 {
     border:none;
     border-bottom: #000000 1px solid;
@@ -115,7 +115,7 @@
     width: 40px;
     outline: none;
 }
-.pngworker
+.workerImage
 {
     position: relative;
     height: 250px;
@@ -123,19 +123,16 @@
     left: 1200px;
     bottom: 50px;
 }
-.Warning
+.warningContainer
 {
     height: auto;
     width: 350px;
     position: relative;
     left: 30px;
     top: 60px;
-}
-.wText
-{
     color: gray;
 }
-.Copyright
+.copyrightContainer
 {
     color: gray;
     display: block;
@@ -143,14 +140,14 @@
     top: 70px;
     left: 285px;
 }
-.support
+.supportContainer
 {
     position: relative;
     left:  800px;
     bottom: 54px;
     width:200px;
 }
-.supportbutton
+.supportButton
 {
     color: #FFFFFF;
     font-weight: bold;
@@ -166,7 +163,7 @@
     height: 50px;
     width: 230px;
 }
-.supportimg
+.supportImage
 {
     position: relative;
     right: 9px;

@@ -10,11 +10,11 @@ const Authorizationpage = ({
     })=>{
     return(
         <div>
-        <div className={styles.loginconteiner}>
-            <span className= {styles.authtext}>Авторизация</span>
-            <input type="text" placeholder="Введите логин" className={styles.login} onChange={(e) => setUsername(e.target.value)}></input>
-            <input type="password" placeholder="Введите код" className={styles.password} onChange={(e) => setPassword(e.target.value)}></input>
-            <button className={styles.send} onClick={handleLogin}>Войти</button>
+        <div className={styles.conteiner}>
+            <span className= {styles.text}>Авторизация</span>
+            <input type="text" placeholder="Введите логин" className={styles.loginInput} onChange={(e) => setUsername(e.target.value)}></input>
+            <input type="password" placeholder="Введите код" className={styles.passwordInput} onChange={(e) => setPassword(e.target.value)}></input>
+            <button className={styles.sendButton} onClick={handleLogin}>Войти</button>
         </div>
         </div>
     );
