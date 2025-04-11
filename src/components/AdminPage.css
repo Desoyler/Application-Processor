@@ -226,7 +226,7 @@
     position: relative;
     bottom: 7px;
 }
-.filterimgr
+.filterLogoImage
 {
     position: relative;
     top: 3px;
@@ -241,7 +241,78 @@
     position: relative;
     bottom: 7px;
 }
-.apeditmargin
+.applicationPageEditText
 {
-    margin: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    width: 750px;
+}
+.applicationSmallConteiner
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    height: 85px;
+    margin-left: 10px;
+}
+.applicationBigConteiner
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    height: 250px;
+    margin-left: 10px;
+}
+.list
+{
+    font-size: 18px;
+    width: 340px;
+    border:none;
+    border-bottom: #000 1px solid;
+    outline: none;
+}
+.bottomBorder
+{
+    border:none;
+    border-bottom: #000 1px solid;
+    outline: none;
+}
+.bigText
+{
+    outline: none;
+    font-size: 16px;
+    width: 840px;
+    height: 170px;
+    resize: none;
+}
+.checkBoxContainer
+{
+    width: 400px;
+}
+.coutImage
+{
+    position: relative;
+    top: 3px;
+}
+.coutStatusConteiner
+{
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 700px;
+    height: 75px;
+    gap: 20px;
+}
+.coutText
+{
+    font-weight: bold;
+    font-size: 18px;
+}
+.bottomMargin
+{
+    margin-bottom:30px ;
 }

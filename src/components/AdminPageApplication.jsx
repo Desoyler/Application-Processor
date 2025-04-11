@@ -18,7 +18,7 @@ const AdminPageApplication = ({ goToEditApplication, messages, goToUsers}) =>{
 return(
     <div>
         <div className="zero">
-            <span className="zeroHText">Работа с данными пользователей</span>
+            <span className="zeroHText">Работа с заявками</span>
                 <div className="side">
                     <span className="sideHText">Возможности администратора</span><br/>
                     <span className="sideText" onClick={goToUsers}>Работа с данными пользователей</span><br/>
@@ -26,10 +26,10 @@ return(
                     <span className="sideText" onClick="">Запросы в поддержку</span><br/>
                 </div>
                 <div className='filterConteiner'>
-                <span className="hText filterText"><img src={filter} className='filterimgr' width="25px" height="25px"/>Фильтр</span>
+                <span className="hText filterText"><img src={filter} className='filterLogoImage' width="25px" height="25px"/>Фильтр</span>
                 <span className="sideHText filterText">По поломке</span>
                   <div className='filterSmallConteiner'>
-                    <picture className='filterimg'>
+                    <picture className='filterImage'>
                     <img src={hammer} height="25px" width="25px"/>
                     </picture>
                     <input type="checkbox" className="checkbox"></input>
