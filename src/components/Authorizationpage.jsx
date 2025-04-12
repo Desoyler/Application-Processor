@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './Authorizationpage.module.css'
 
-import Siteheader from './Siteheader.jsx';
-
 const Authorizationpage = ({
     setPassword, 
     setUsername, 

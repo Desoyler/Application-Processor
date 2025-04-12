@@ -3,8 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styles from './Applicationpage.module.css';
 import classNames from 'classnames';
 
-import Siteheader from './Siteheader.jsx';
-
 const ApplicationPage = ({ messages, goToChat, goback, goToEnd }) => {
   const { id } = useParams(); // Получаем параметр id из URL
   const navigate = useNavigate();

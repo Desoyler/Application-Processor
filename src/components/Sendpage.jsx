@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
 
 import styles from './Sendpage.module.css';
 import classNames from 'classnames';
-import Siteheader from './Siteheader.jsx';
 
 const Sendpage = ({setText, setshorttext, setStatus, }) =>
     {

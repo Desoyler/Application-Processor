@@ -1,42 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import './AdminPage.css';
+import styles from './AdminPage.module.css';
 
-import Siteheader from './Siteheader.jsx';
-import hammer from './assets/hammer.svg';
-import computer from './assets/binary.svg';
-import zap from './assets/zap-off.svg';
-import cable from './assets/cable.svg';
 import check from './assets/badge-alert.svg';
 import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
-import filter from './assets/list-filter.svg';
+import classNames from 'classnames';
 
 const AdminPageApplicationEdit = ({ goToAdminAplication,  goToUsers }) =>{
-    
-    
-
 return(
     <div>
-        <div className="zero">
-            <span className="zeroHText">Изменение данных заявки</span>
-                <div className="side">
-                    <span className="sideHText">Возможности администратора</span><br/>
-                    <span className="sideText" onClick={goToUsers}>Работа с данными пользователей</span><br/>
-                    <span className="sideText" onClick={goToAdminAplication}>Работа с заявками</span><br/>
-                    <span className="sideText" onClick="">Запросы в поддержку</span><br/>
+        <div className={styles.zero}>
+            <span className={styles.zeroHText}>Изменение данных заявки</span>
+                <div className={styles.side}>
+                    <span className={styles.sideHText}>Возможности администратора</span><br/>
+                    <span className={styles.sideText} onClick={goToUsers}>Работа с данными пользователей</span><br/>
+                    <span className={styles.sideText} onClick={goToAdminAplication}>Работа с заявками</span><br/>
+                    <span className={styles.sideText} onClick="">Запросы в поддержку</span><br/>
                 </div>   
         </div>
-        <div className='conteiner'>
-            <div className='bigConteiner midle'>
-                <div className='applicationSmallConteiner'>
-                <span className="applicationPageEditText">Изменить заголовок заявки</span><br/>
-                <input Type='infoText' className='userInput'></input>
+        <div className={styles.conteiner}>
+            <div className={classNames(styles.bigConteiner , styles.midle)}>
+                <div className={styles.applicationSmallConteiner}>
+                <span className={styles.applicationPageEditText}>Изменить заголовок заявки</span><br/>
+                <input Type='Text' className={styles.userInput}></input>
                 </div>            
             </div>
-            <div className='bigConteiner midle'>
-                <div className='applicationSmallConteiner'>
-                <span className="applicationPageEditText">Изменить тип заявки</span><br/>
-                <select className="list bottomBorder" id="problemType " defaultValue="">
+            <div className={classNames(styles.bigConteiner , styles.midle)}>
+                <div className={styles.applicationSmallConteiner}>
+                <span className={styles.applicationPageEditText}>Изменить тип заявки</span><br/>
+                <select className={classNames(styles.list , styles.bottomBorder)} id="problemType " defaultValue="">
                     <option value="" disabled hidden>Изменить тип поломки</option>
                     <option value="1">Поломка компьютерного оборудования</option>
                     <option value="2">Перебои электроэнергии</option>
@@ -44,10 +36,10 @@ return(
                 </select>
                 </div>
             </div>
-            <div className='bigConteiner midle'>
-                <div className='applicationSmallConteiner'>
-                <span className="applicationPageEditText">Изменить место проишествия</span><br/>
-                <select className="list bottomBorder" id="problemType " defaultValue="">
+            <div className={classNames(styles.bigConteiner , styles.midle)}>
+                <div className={styles.applicationSmallConteiner}>
+                <span className={styles.applicationPageEditText}>Изменить место проишествия</span><br/>
+                <select className={classNames(styles.list , styles.bottomBorder)} id="problemType " defaultValue="">
                     <option value="" disabled hidden>Изменить место проишествия</option>
                     <option value="1">Цех 1</option>
                     <option value="2">Цех 2</option>
@@ -56,43 +48,43 @@ return(
                 </select>
                 </div>
             </div>
-            <div className='bigConteiner midle'>
-            <div className='applicationSmallConteiner bottomMargin'>
-                <span className="applicationPageEditText">Изменить статус заявки</span><br/>
-                <div className='coutStatusConteiner'>
-                    <div className='checkBoxContainer'>
-                        <picture className='coutImage'>
+            <div className={classNames(styles.bigConteiner , styles.midle)}>
+            <div className={classNames(styles.applicationSmallConteiner , styles.bottomMargin)}>
+                <span className={styles.applicationPageEditText}>Изменить статус заявки</span><br/>
+                <div className={styles.coutStatusConteiner}>
+                    <div className={styles.checkBoxContainer}>
+                        <picture className={styles.coutImage}>
                         <img src={done} height="25px" width="25px"/>
                         </picture>
                         <input type="checkbox"></input>
-                        <span className='coutText'>Выполненна</span>
+                        <span className={styles.coutText}>Выполненна</span>
                     </div>
-                    <div className='checkBoxContainer'>
-                        <picture className='coutImage'>
+                    <div className={styles.checkBoxContainer}>
+                        <picture className={styles.coutImage}>
                         <img src={check} height="25px" width="25px"/>
                         </picture>
                         <input type="checkbox"></input>
-                        <span className='coutText'>Доп.решение</span>
+                        <span className={styles.coutText}>Доп.решение</span>
                     </div>
-                    <div className='checkBoxContainer'>
-                        <picture className='coutImage'>
+                    <div className={styles.checkBoxContainer}>
+                        <picture className={styles.coutImage}>
                         <img src={x} height="25px" width="25px"/>
                         </picture>
                         <input type="checkbox"></input>
-                        <span className='coutText'>Не выполненна</span>
+                        <span className={styles.coutText}>Не выполненна</span>
                     </div>
                 </div>
                 </div>
             </div>
-            <div className='bigConteiner  midle'>
-                <div className='applicationBigConteiner'>
-                    <span className="applicationPageEditText">Измените текст c обьяснением проблемы в поле ниже:</span><br/>
-                    <textarea className="bigText" id="bigText" rows="10" cols="50" onChange="" ></textarea>
+            <div className={classNames(styles.bigConteiner ,  styles.midle)}>
+                <div className={styles.applicationBigConteiner}>
+                    <span className={styles.applicationPageEditText}>Измените текст c обьяснением проблемы в поле ниже:</span><br/>
+                    <textarea className={styles.bigText} id="bigText" rows="10" cols="50" onChange="" ></textarea>
                 </div>
             </div>
-            <div className='bigConteiner sectionConteiner buttonsContainerGap '>  
-                <button className='bottomButtons'>Удалить пользователя</button>
-                <button className='bottomButtons'>Изменить</button>
+            <div className={classNames(styles.bigConteiner , styles.sectionConteiner , styles.buttonsContainerGap)}>  
+                <button className={styles.bottomButtons}>Удалить пользователя</button>
+                <button className={styles.bottomButtons}>Изменить</button>
             </div>
         </div>
     </div>

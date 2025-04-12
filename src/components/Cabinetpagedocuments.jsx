@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Cabinetpage.module.css';
 import classNames from 'classnames';
-import Siteheader from './Siteheader.jsx';
 
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'

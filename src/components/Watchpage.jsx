@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
 import styles from './Watchpage.module.css';
 
-import Siteheader from './Siteheader.jsx';
 import hammer from './assets/hammer.svg';
 import computer from './assets/binary.svg';
 import zap from './assets/zap-off.svg';

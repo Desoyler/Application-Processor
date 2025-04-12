@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './Applicationpage.module.css';
 
-import Siteheader from './Siteheader.jsx';
 import check from './assets/badge-alert.svg';
 import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';

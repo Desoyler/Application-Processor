@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import styles from './Applicationpage.module.css';
 
-import Siteheader from './Siteheader.jsx';
 import arrow from './assets/arrow-big-right.svg';
 import classNames from 'classnames';
 

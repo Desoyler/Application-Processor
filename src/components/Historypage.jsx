@@ -1,8 +1,6 @@
 import React , {useState}from 'react';
-import { useNavigate } from "react-router-dom";
 import styles from './Historypage.module.css';
 
-import Siteheader from './Siteheader.jsx';
 import hammer from './assets/hammer.svg';
 import computer from './assets/binary.svg';
 import zap from './assets/zap-off.svg';
