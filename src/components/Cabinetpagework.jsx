@@ -53,7 +53,7 @@ const Cabinetpagework = ({goToDock, goToCabinet, days, salary}) => {
                         <span>Приложение разработано командой © РУСАЛ для удобной и эффективной работы с электронными заявками.</span>
                     </div>
                     <div className={styles.supportContainer}>
-                        <button className={styles.supportButton}> <img src={support} className={styles.supportImage}/>Написать в поддержку</button>
+                        <button className={styles.supportButton}> <img src={support} className={styles.supportImage}/>Мои заявки</button>
                     </div>
                 </div>
                 

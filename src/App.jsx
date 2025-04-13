@@ -18,7 +18,6 @@ import AdminPageUserEdit from "./components/AdminPageUserEdit.jsx"
 import AdminPageUsers from './components/AdminPageUsers.jsx';
 import AdminPageApplication from './components/AdminPageApplication.jsx';
 import AdminPageApplicationEdit from './components/AdminPageApplicationEdit.jsx';
-import SupportChatPage from './components/SupportChatPage.jsx';
 
 const users = [
   { id: 1, username: 'user1', password: 'pass1', profession: 'Глава финансов', firstName:"Иван", middleName: "Иванович", lastName: "Иванов", workername: 'Иван Иванов Иванович', email: 'xxxxxxxx@mail.ru', phone: '+7949XXXXXXXX', birthDay: 11, birthMonth: 6, birthYear: 1996, state: 'M', passport: 243454, inn: 332131, snils: 3213213, oms: 231321312, driverLicense: 32131, salary: 60500, days: 5,
@@ -35,12 +34,15 @@ const messages = [
   {id: 1, shortpage: "Поломка компьютера", type: "Поломка компьютерного оборудования", status: "Выполнена", text: "У рабочего неожиданно перестал работать компьютер. Он пытался перезагрузить систему, но экран так и остался чёрным. Сначала подумал, что проблема в проводах, но все было подключено правильно. Включил его в другой розетке, но это не помогло. Решил проверить блок питания, но и он работал нормально. Попробовал включить ПК в безопасном режиме, но и это не дало результата. Рабочий запаниковал и позвонил в сервис, чтобы узнать причину. Специалисты сообщили, что у него сгорела видеокарта, и потребуется заменить часть комплектующих.", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
     chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Вова" }
     ]}, 
-    {id: 2, shortpage: "Поломка компьютера", type: "Перепад электроэнергии", status: "Выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+    {id: 2, shortpage: "Поломка компьютера", type: "Перепад электроэнергии", status: "Доп.решение", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
       chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
       ]} ,
-    {id: 3, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "Выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+    {id: 3, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "Не выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
       chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
-      ]} 
+      ]},
+      {id: 4, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "В процессе выполнения", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+        chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
+        ]} 
 ];
 
 
@@ -184,7 +186,8 @@ const [shorttext, setshorttext] = useState('');
 const [Sender, setSender] = useState();
 
 // useState для состояния заявки
-const [status, setStatus] = useState('')
+const [status, setStatus] = useState('') 
+
 
 const handleLogout = () => {
   setIsAutheticated(false);       // Не авторизован
@@ -400,6 +403,7 @@ const handleLogin = () => {
           <AdminPageUserEdit
           goToUsers={goToUsers}
           goToAdminAplication={goToAdminAplication}
+          users={users}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
         <Route path="/admin/users"
@@ -430,13 +434,7 @@ const handleLogin = () => {
           <AdminPageApplicationEdit
           goToUsers={goToUsers}
           goToAdminAplication = {goToAdminAplication}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
-        />
-        <Route path="/support/chat/:id"
-        element={
-          isAuthentificated ?
-          <SupportChatPage
-          users={users}
+          messages={messages}
           /> : <Authorizationpage handleLogin={handleLogin}/>}
         />
       </Routes>

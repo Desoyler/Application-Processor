@@ -7,9 +7,17 @@ import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import classNames from 'classnames';
 
-const ApplicationPageEnd = ({messages, goToApplication, goToChat, goback}) => {
+const ApplicationPageEnd = ({messages, goToApplication, goToChat, goback, handleStatusChange}) => {
     const { id } = useParams(); // Получаем параметр id из URL
     const navigate = useNavigate(); 
+    const ApplicationDone = "Выполнена";
+    const ApplicationDop = "Доп.решение";
+    const ApplicationNotDone = "Не выполнена";
+    
+    const handleCheckboxChange = (newStatus) => {
+        // Вызываем обработчик из родителя (если нужно обновить состояние в родительском компоненте)
+        handleStatusChange({ ...message, status: newStatus });
+      }
 
     const [message, setMessage] = useState(null);
     
@@ -52,32 +60,38 @@ const ApplicationPageEnd = ({messages, goToApplication, goToChat, goback}) => {
                 </div>
                 <div className={classNames(styles.countText, styles.midle)}>
                     <span className={styles.coutShortText}>Сделайте отчет о проделанной работе в поле ниже:</span><br/>
-                    <textarea className={styles.coutBigText} id="bigText" placeholder="Напишите отчет в этом поле"  rows="10" cols="50"  ></textarea>
+                    <textarea className={styles.coutBigText} id="bigText" placeholder="Напишите отчет в этом поле"  rows="10" cols="50"  disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}></textarea>
                     
                     <div className={styles.coutStatusConteiner}>
                         <div className={styles.checkBoxContainer}>
-                            <picture className={styles.coutImage}>
-                            <img src={done} height="25px" width="25px"/>
-                            </picture>
-                            <input type="checkbox"></input>
-                            <span className={styles.boldText}>Выполненна</span>
-                        </div>
-                        <div className={styles.checkBoxContainer}>
-                            <picture className={styles.coutImage}>
+                        <picture className={styles.coutImage}>
                             <img src={check} height="25px" width="25px"/>
                             </picture>
-                            <input type="checkbox"></input>
+                            <input type="checkbox" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
+                            checked={message.status === 'Доп.решение'}
+                            onChange={() => handleCheckboxChange("Доп.решение")}></input>
                             <span className={styles.boldText}>Доп.решение</span>
+                        </div>
+                        <div className={styles.checkBoxContainer}>
+                        <picture className={styles.coutImage}>
+                            <img src={done} height="25px" width="25px"/>
+                            </picture>
+                            <input type="checkbox" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
+                            checked={message.status === 'Выполнена'}
+                            onChange={() => handleCheckboxChange("Выполнена")}></input>
+                            <span className={styles.boldText}>Выполнена</span>
                         </div>
                         <div className={styles.checkBoxContainer}>
                             <picture className={styles.coutImage}>
                             <img src={x} height="25px" width="25px"/>
                             </picture>
-                            <input type="checkbox"></input>
-                            <span className={styles.boldText}>Не выполненна</span>
+                            <input type="checkbox" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
+                            checked={message.status === 'Не выполнена'}
+                            onChange={() => handleCheckboxChange('Не выполнена')}></input>
+                            <span className={styles.boldText}>Не выполнена</span>
                         </div>
                     </div>
-                    <button className={styles.sendCoutButton}>Отправить отчет</button>
+                    <button className={styles.sendCoutButton} disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}>Отправить отчет</button>
                 </div>
             </div>
         </div>

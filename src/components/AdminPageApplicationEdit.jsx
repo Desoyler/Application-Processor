@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom'
 import styles from './AdminPage.module.css';
 
 import check from './assets/badge-alert.svg';
@@ -6,7 +7,14 @@ import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import classNames from 'classnames';
 
-const AdminPageApplicationEdit = ({ goToAdminAplication,  goToUsers }) =>{
+const AdminPageApplicationEdit = ({ goToAdminAplication,  goToUsers, messages }) =>{
+    const { id } = useParams(); // достаем id из URL
+    const user = messages.find(message => String(message.id) === String(id)); // переводим в стринг иначе не найдет пользователя
+
+
+    if (!user) {
+        return <div>Пользователь не найден</div>;
+      }
 return(
     <div>
         <div className={styles.zero}>
@@ -19,12 +27,6 @@ return(
                 </div>   
         </div>
         <div className={styles.conteiner}>
-            <div className={classNames(styles.bigConteiner , styles.midle)}>
-                <div className={styles.applicationSmallConteiner}>
-                <span className={styles.applicationPageEditText}>Изменить заголовок заявки</span><br/>
-                <input Type='Text' className={styles.userInput}></input>
-                </div>            
-            </div>
             <div className={classNames(styles.bigConteiner , styles.midle)}>
                 <div className={styles.applicationSmallConteiner}>
                 <span className={styles.applicationPageEditText}>Изменить тип заявки</span><br/>
@@ -76,14 +78,8 @@ return(
                 </div>
                 </div>
             </div>
-            <div className={classNames(styles.bigConteiner ,  styles.midle)}>
-                <div className={styles.applicationBigConteiner}>
-                    <span className={styles.applicationPageEditText}>Измените текст c обьяснением проблемы в поле ниже:</span><br/>
-                    <textarea className={styles.bigText} id="bigText" rows="10" cols="50" onChange="" ></textarea>
-                </div>
-            </div>
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner , styles.buttonsContainerGap)}>  
-                <button className={styles.bottomButtons}>Удалить пользователя</button>
+                <button className={styles.bottomButtons}>Удалить заявку</button>
                 <button className={styles.bottomButtons}>Изменить</button>
             </div>
         </div>

@@ -19,7 +19,7 @@ const Watchpage = ({goToApplication , messages}) => {
     };
 
     const filteredMessages = messages
-        .filter(msg => msg.status === "Не выполнена")
+        .filter(msg => msg.status === "В процессе выполнения")
         .filter(msg =>selectedTypes.length === 0 || selectedTypes.includes(msg.type)
     );
 
@@ -71,7 +71,7 @@ const Watchpage = ({goToApplication , messages}) => {
                   </div>
                 ) :
                 filteredMessages
-                .filter(msg => msg.status === "Не выполнена")
+                .filter(msg => msg.status === "В процессе выполнения")
                 .map((msg, index) => (
                     <div key={index} className={styles.applicationConteiner}>
                         <div className={styles.shortTextConteiner}>

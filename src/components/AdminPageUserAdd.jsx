@@ -49,6 +49,12 @@ return(
                     <input placeholder='Фамилия' className={styles.userInput}></input>
                 </div>
             </div>
+            <div className={styles.bigConteiner}>
+                <div className={styles.smallConteiner}>
+                    <span className={styles.inputText}>Полное имя работника</span><br/>
+                    <input placeholder='Полное имя работника' className={styles.userInput}></input>
+                </div>
+            </div>
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner)}>
                 <div className={classNames(styles.smallTextConteiner , styles.midle)}>
                         <span className={styles.sectionText}>Введите контактные данные </span>
@@ -71,12 +77,22 @@ return(
             </div>
             <div className={styles.bigConteiner}>
                 <div className={styles.smallConteiner}>
-                    <span className={styles.inputText}>Введите дату рождения</span><br/>
-                    <input placeholder='xx.xx.xxxx' className={styles.userInput}></input>
-                </div>
-                <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите пол</span><br/>
                     <input placeholder='Пол' className={styles.userInput}></input>
+                </div>
+            </div>
+            <div className={styles.bigConteiner}>
+                <div className={styles.smallConteiner}>
+                    <span className={styles.inputText}>Введите день рождения</span><br/>
+                    <input placeholder='' className={styles.userInput} ></input>
+                </div>
+                <div className={styles.smallConteiner}>
+                    <span className={styles.inputText}>Введите месяц рождения</span><br/>
+                    <input placeholder='' className={styles.userInput} ></input>
+                </div>
+                <div className={styles.smallConteiner}>
+                    <span className={styles.inputText}>Введите год рождения</span><br/>
+                    <input placeholder='' className={styles.userInput} ></input>
                 </div>
             </div>
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner)}>

@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from'./AdminPage.module.css';
 import classNames from 'classnames';
+import { useParams } from 'react-router-dom'
+
+const AdminPageUserEdit = ({ goToUsers, goToAdminAplication, users}) =>{
+    const { id } = useParams(); // достаем id из URL
+    const user = users.find(user => String(user.id) === String(id)); // переводим в стринг иначе не найдет пользователя
 
 
-const AdminPageUserEdit = ({ goToUsers, goToAdminAplication}) =>{
-    
-
+    if (!user) {
+        return <div>Пользователь не найден</div>;
+      }
 return(
+    
     <div>
         <div className={styles.zero}>
             <span className={styles.zeroHText}>Изменение данных пользователя</span>
@@ -26,11 +32,11 @@ return(
             <div className={styles.bigConteiner}>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите логин пользователя</span><br/>
-                    <input placeholder='Логин' className={styles.userInput}></input>
+                    <input placeholder='Логин' className={styles.userInput} value={user.username}></input>
                 </div>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите пароль пользователя</span><br/>
-                    <input placeholder='Пароль' className={styles.userInput}></input>
+                    <input placeholder='Пароль' className={styles.userInput} value={user.password}></input>
                 </div>
             </div>
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner)}>
@@ -41,15 +47,21 @@ return(
             <div className={styles.bigConteiner}>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите имя</span><br/>
-                    <input placeholder='Имя' className={styles.userInput}></input>
+                    <input placeholder='Имя' className={styles.userInput} value={user.firstName}></input>
                 </div>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите отчество</span><br/>
-                    <input placeholder='Отчество' className={styles.userInput}></input>
+                    <input placeholder='Отчество' className={styles.userInput} value={user.middleName}></input>
                 </div>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите фамилию</span><br/>
-                    <input placeholder='Фамилия' className={styles.userInput}></input>
+                    <input placeholder='Фамилия' className={styles.userInput} value={user.lastName}></input>
+                </div>
+            </div>
+            <div className={styles.bigConteiner}>
+                <div className={styles.smallConteiner}>
+                    <span className={styles.inputText}>Полное имя работника</span><br/>
+                    <input placeholder='Полное имя работника' className={styles.userInput} value={user.workername}></input>
                 </div>
             </div>
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner)}>
@@ -60,11 +72,11 @@ return(
             <div className={styles.bigConteiner}>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите e-mail</span><br/>
-                    <input placeholder='Почта' className={styles.userInput}></input>
+                    <input placeholder='Почта' className={styles.userInput} value={user.email}></input>
                 </div>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите телефон</span><br/>
-                    <input placeholder='+7' className={styles.userInput}></input>
+                    <input placeholder='+7' className={styles.userInput} value={user.phone}></input>
                 </div>
             </div>
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner)}>
@@ -74,12 +86,22 @@ return(
             </div>
             <div className={styles.bigConteiner}>
                 <div className={styles.smallConteiner}>
-                    <span className={styles.inputText}>Введите дату рождения</span><br/>
-                    <input placeholder='xx.xx.xxxx' className={styles.userInput}></input>
+                    <span className={styles.inputText}>Введите пол</span><br/>
+                    <input placeholder='Пол' className={styles.userInput} value={user.state}></input>
+                </div>
+            </div>
+            <div className={styles.bigConteiner}>
+                <div className={styles.smallConteiner}>
+                    <span className={styles.inputText}>Введите день рождения</span><br/>
+                    <input placeholder='' className={styles.userInput} value={user.birthDay}></input>
                 </div>
                 <div className={styles.smallConteiner}>
-                    <span className={styles.inputText}>Введите пол</span><br/>
-                    <input placeholder='Пол' className={styles.userInput}></input>
+                    <span className={styles.inputText}>Введите месяц рождения</span><br/>
+                    <input placeholder='' className={styles.userInput} value={user.birthMonth}></input>
+                </div>
+                <div className={styles.smallConteiner}>
+                    <span className={styles.inputText}>Введите год рождения</span><br/>
+                    <input placeholder='' className={styles.userInput} value={user.birthYear}></input>
                 </div>
             </div>
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner)}>
@@ -90,29 +112,29 @@ return(
             <div className={styles.bigConteiner}>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите паспорт</span><br/>
-                    <input placeholder='XXXX XXX' className={styles.userInput}></input>
+                    <input placeholder='XXXX XXX' className={styles.userInput} value={user.passport}></input>
                 </div>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите ИНН</span><br/>
-                    <input placeholder='ИНН' className={styles.userInput}></input>
+                    <input placeholder='ИНН' className={styles.userInput} value={user.inn}></input>
                 </div>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите СНИЛС</span><br/>
-                    <input placeholder='СНИЛС' className={styles.userInput}></input>
+                    <input placeholder='СНИЛС' className={styles.userInput} value={user.snils}></input>
                 </div>
             </div>
             <div className={styles.bigConteiner}>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите ОМС</span><br/>
-                    <input placeholder='ОМС' className={styles.userInput}></input>
+                    <input placeholder='ОМС' className={styles.userInput} value={user.oms}></input>
                 </div>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите водительское удостоверение</span><br/>
-                    <input placeholder='' className={styles.userInput}></input>
+                    <input placeholder='' className={styles.userInput} value={user.driverLicense}></input>
                 </div>
                 <div className={styles.smallConteiner}>
                     <span className={styles.inputText}>Введите зарплату</span><br/>
-                    <input placeholder='' className={styles.userInput}></input>
+                    <input placeholder='' className={styles.userInput} value={user.salary}></input>
                 </div>
             </div>
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner , styles.buttonsContainerGap)}>  

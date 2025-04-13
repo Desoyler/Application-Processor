@@ -14,7 +14,6 @@ import filter from './assets/list-filter.svg';
 const Historypage = ({goToApplication, messages}) =>{
     const [selectedTypes, setSelectedTypes] = useState([]);
     const [selectedStatuses, setSelectedStatuses] = useState([]);
-    
         const handleCheckboxChange = (typeText) => {
             setSelectedTypes(prev =>
             prev.includes(typeText)
@@ -32,7 +31,7 @@ const Historypage = ({goToApplication, messages}) =>{
     
           const filteredMessages = messages
          .filter(msg =>
-             msg.status === "Выполнена" || msg.status === "Необходимо дополнительное решение"
+             msg.status === "Выполнена" || msg.status === "Доп.решение" || msg.status === "Не выполнена"
          )
          .filter(msg =>
              (selectedTypes.length === 0 || selectedTypes.includes(msg.type)) &&
@@ -83,8 +82,8 @@ const Historypage = ({goToApplication, messages}) =>{
                                 <picture>
                                 <img src={check} height="25px" width="25px"/>
                                 </picture>
-                                <input type="checkbox" className={styles.sideCheckBox} checked={selectedStatuses.includes("Необходимо дополнительное решение")}
-                                onChange={() => handleStatusCheckboxChange("Необходимо дополнительное решение")}></input>
+                                <input type="checkbox" className={styles.sideCheckBox} checked={selectedStatuses.includes("Доп.решение")}
+                                onChange={() => handleStatusCheckboxChange("Доп.решение")}></input>
                                 <span className={styles.sideText}>Необходимо дополнительное решение</span>
                             </div>
                             <div>
@@ -94,6 +93,14 @@ const Historypage = ({goToApplication, messages}) =>{
                                 <input type="checkbox" className={styles.sideCheckBox} checked={selectedStatuses.includes("Выполнена")}
                                 onChange={() => handleStatusCheckboxChange("Выполнена")}></input>
                                 <span className={styles.sideText}>Выполненна</span>
+                            </div>
+                            <div>
+                                <picture>
+                                <img src={x} height="25px" width="25px"/>
+                                </picture>
+                                <input type="checkbox" className={styles.sideCheckBox} checked={selectedStatuses.includes("Не выполнена")}
+                                onChange={() => handleStatusCheckboxChange("Не выполнена")}></input>
+                                <span className={styles.sideText}>Не выполненна</span>
                             </div>
                         </div>
                       </div>

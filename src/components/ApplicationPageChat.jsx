@@ -62,8 +62,8 @@ const ApplicationPageChat = ({workername, messages, goToApplication, goToEnd, go
                         ))}
                 </div>
                 <div className={styles.sendMessageContainer}>
-                    <input type="Text" placeholder="Введите сообщение" className={styles.sendMessageInput}></input>
-                    <button className={styles.sendMessageButton}>
+                    <input type="Text" placeholder="Введите сообщение" className={styles.sendMessageInput} disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}></input>
+                    <button className={styles.sendMessageButton}  disabled={message.status === 'Выполнена'|| message.status === 'Доп.решение' || message.status === 'Не выполнено'}>
                         <picture>
                             <img className={styles.arrow} src={arrow} height="22px" width="25px"/>
                         </picture>
