@@ -119,6 +119,10 @@
     width: 40px;
     outline: none;
 }
+.smallInput:disabled
+{
+    background-color: #FFFFFF;
+}
 .workerImage
 {
     position: relative;

@@ -8,6 +8,21 @@ import cable from './assets/cable.svg';
 import filter from './assets/list-filter.svg';
 
 const Watchpage = ({goToApplication , messages}) => {
+    const [selectedTypes, setSelectedTypes] = useState([]);
+
+    const handleCheckboxChange = (typeText) => {
+        setSelectedTypes(prev =>
+        prev.includes(typeText)
+            ? prev.filter(t => t !== typeText)
+            : [...prev, typeText]
+        );
+    };
+
+    const filteredMessages = messages
+        .filter(msg => msg.status === "Не выполнена")
+        .filter(msg =>selectedTypes.length === 0 || selectedTypes.includes(msg.type)
+    );
+
     return (
         <div className={styles.watchPage}>
             <div className={styles.zero}>
@@ -19,39 +34,43 @@ const Watchpage = ({goToApplication , messages}) => {
                     <picture>
                       <img src={hammer} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className={styles.sideCheckbox}></input>
+                      <input type="checkbox" className={styles.sideCheckbox}checked={!!selectedTypes && selectedTypes.includes("Ошибка в работе программы/системы")}
+                      onChange={() => handleCheckboxChange("Ошибка в работе программы/системы")}></input>
                       <span className={styles.sideText}>Ошибка в работе программы/системы</span>
                   </div>
                   <div>
                       <picture>
                       <img src={computer} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className={styles.sideCheckbox}></input>
+                      <input type="checkbox" className={styles.sideCheckbox} checked={!!selectedTypes && selectedTypes.includes("Поломка компьютерного оборудования")}
+                      onChange={() => handleCheckboxChange("Поломка компьютерного оборудования")}></input>
                       <span className={styles.sideText}>Поломка компьютерного оборудования</span>
                   </div>
                   <div>
                       <picture>
                       <img src={zap} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className={styles.sideCheckbox}></input>
+                      <input type="checkbox" className={styles.sideCheckbox} checked={!!selectedTypes && selectedTypes.includes("Перепад электроэнергии")}
+                      onChange={() => handleCheckboxChange("Перепад электроэнергии")}></input>
                       <span className={styles.sideText}>Перепад электроэнергии</span>
                   </div>
                   <div>
                       <picture>
                       <img src={cable} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className={styles.sideCheckbox}></input>
+                      <input type="checkbox" className={styles.sideCheckbox} checked={!!selectedTypes && selectedTypes.includes("Поломка рабочего компьютера")}
+                      onChange={() => handleCheckboxChange("Поломка рабочего компьютера")}></input>
                       <span className={styles.sideText}>Поломка рабочего компьютера</span>
                   </div>
               </div>
             </div>
             <div className={styles.conteiner}> 
-                {messages.length === 0 ? (
+                {filteredMessages.length === 0 ? (
                    <div className={styles.noApplications}>
                     Ошибка: заявок нет
                   </div>
                 ) :
-                messages
+                filteredMessages
                 .filter(msg => msg.status === "Не выполнена")
                 .map((msg, index) => (
                     <div key={index} className={styles.applicationConteiner}>
