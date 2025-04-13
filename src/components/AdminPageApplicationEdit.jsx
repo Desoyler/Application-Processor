@@ -77,7 +77,7 @@ return(
                 </div>
                 </div>
             </div>
-            <div className={classNames(styles.bigConteiner , styles.sectionConteiner , styles.buttonsContainerGap)}>  
+            <div className={classNames(styles.buttonsContainer , styles.sectionConteiner , styles.buttonsContainerGap)}>  
                 <button className={styles.bottomButtons}>Удалить заявку</button>
                 <button className={styles.bottomButtons}>Изменить</button>
             </div>
