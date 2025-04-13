@@ -13,7 +13,34 @@ import classNames from 'classnames';
 
 const AdminPageApplication = ({ goToEditApplication, messages, goToUsers}) =>{
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedTypes, setSelectedTypes] = useState([]);
+    const [selectedStatuses, setSelectedStatuses] = useState([]);
 
+
+const filteredMessages = messages.filter((msg) => {
+   const lowerSearchTerm = searchTerm.toLowerCase();
+   const matchesSearch = (
+     msg.shortpage.toLowerCase().includes(lowerSearchTerm) ||
+     msg.type.toLowerCase().includes(lowerSearchTerm) ||
+     msg.status.toLowerCase().includes(lowerSearchTerm) ||
+     msg.sender.toLowerCase().includes(lowerSearchTerm) ||
+     msg.id.toString().includes(lowerSearchTerm)
+   );
+ 
+   const matchesType = selectedTypes.length === 0 || selectedTypes.includes(msg.type);
+   const matchesStatus = selectedStatuses.length === 0 || selectedStatuses.includes(msg.status);
+ 
+   return matchesSearch && matchesType && matchesStatus;
+ });
+ 
+const handleCheckboxChange = (value, list, setList) => {
+    if (list.includes(value)) {
+      setList(list.filter((item) => item !== value));
+    } else {
+      setList([...list, value]);
+    }
+  };
+  
 
 return(
     <div>
@@ -32,28 +59,32 @@ return(
                     <picture className={styles.filterImage}>
                     <img src={hammer} height="25px" width="25px"/>
                     </picture>
-                    <input type="checkbox" className={styles.checkbox}></input>
+                    <input type="checkbox" className={styles.checkbox} 
+                    onChange={() => handleCheckboxChange("Ошибка в работе программы/системы", selectedTypes, setSelectedTypes)}></input>
                     <span className={styles.filterText}>Ошибка в работе программы/системы</span>
                   </div>
                  <div className={styles.filterSmallConteiner} >
                      <picture className={styles.filterImage}>
                      <img src={computer} height="25px" width="25px"/>
                      </picture>
-                     <input type="checkbox" className={styles.checkbox}></input>
+                     <input type="checkbox" className={styles.checkbox}
+                     onChange={() => handleCheckboxChange("Поломка компьютерного оборудования", selectedTypes, setSelectedTypes)}></input>
                      <span className={styles.filterText}>Поломка компьютерного оборудования</span>
                  </div>
                  <div className={styles.filterSmallConteiner}>
                      <picture className={styles.filterImage}>
                      <img src={zap} height="25px" width="25px"/>
                      </picture>
-                     <input type="checkbox" className={styles.checkbox}></input>
+                     <input type="checkbox" className={styles.checkbox}
+                     onChange={() => handleCheckboxChange("Перепад электроэнергии", selectedTypes, setSelectedTypes)}></input>
                      <span className={styles.filterText}>Перепад электроэнергии</span>
                  </div>
                 <div className={styles.filterSmallConteiner}> 
                     <picture className={styles.filterImage}>
                     <img src={cable} height="25px" width="25px"/>
                     </picture>
-                    <input type="checkbox" className={styles.checkbox}></input>
+                    <input type="checkbox" className={styles.checkbox}
+                    onChange={() => handleCheckboxChange("Поломка рабочего компьютера", selectedTypes, setSelectedTypes)}></input>
                     <span className={styles.filterText}>Поломка рабочего компьютера</span>
                 </div>
                 <span className={styles.filterHText}>Статус</span>
@@ -61,22 +92,25 @@ return(
                       <picture className={styles.filterImage}>
                       <img src={done} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className={styles.checkbox}></input>
-                      <span className={styles.filterText}>Выполненна</span>
+                      <input type="checkbox" className={styles.checkbox}
+                      onChange={() => handleCheckboxChange("Выполнена", selectedStatuses, setSelectedStatuses)}></input>
+                      <span className={styles.filterText}>Выполнена</span>
                   </div>
                   <div className={styles.filterSmallConteiner}>
                       <picture className={styles.filterImage}>
                       <img src={check} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className={styles.checkbox}></input>
+                      <input type="checkbox" className={styles.checkbox}
+                      onChange={() => handleCheckboxChange("Необходимо дополнительное решение", selectedStatuses, setSelectedStatuses)}></input>
                       <span className={styles.filterText}>Необходимо дополнительное решение</span>
                   </div>
                   <div className={styles.filterSmallConteiner}>
                       <picture className={styles.filterImage}>
                       <img src={x} height="25px" width="25px"/>
                       </picture>
-                      <input type="checkbox" className={styles.checkbox}></input>
-                      <span className={styles.filterText}>Не выполненна</span>
+                      <input type="checkbox" className={styles.checkbox}
+                      onChange={() => handleCheckboxChange("Не выполнена", selectedStatuses, setSelectedStatuses)}></input>
+                      <span className={styles.filterText}>Не выполнена</span>
                   </div>
                 </div>
         </div>
@@ -91,7 +125,7 @@ return(
             />
             </div>
             <div className={classNames(styles.searchBaseContainer , styles.conteinerSearch)} >
-                {messages.map((msg) => (
+                {filteredMessages.map((msg) => (
                     <div key={msg.id} className={styles.userCard} onClick={() => goToEditApplication(msg.id)}>
                     <span>{msg.shortpage}</span><br/>
                     <span>Тип: {msg.type}</span><br/>
@@ -101,7 +135,6 @@ return(
                     </div>
                 ))}
             </div>
-            
         </div>
     </div>
 );
