@@ -245,16 +245,7 @@
 {
     font-weight: bold;
     font-size: 25px;
-    width: 750px;
-}
-.applicationSmallConteiner
-{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 850px;
-    height: 85px;
-    margin-left: 10px;
+    
 }
 .applicationBigConteiner
 {
@@ -289,7 +280,8 @@
 }
 .checkBoxContainer
 {
-    width: 400px;
+    width: 250px;
+    margin-left: 20px;
 }
 .coutImage
 {
@@ -303,7 +295,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    width: 700px;
+    width: 1100px;
     height: 75px;
     gap: 20px;
 }
@@ -323,4 +315,21 @@
     flex-direction: row;
     width: 1100px;
     height: 80px;
+}
+.statusBigConteiner
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 1100px;
+    height: 200px;
+}
+.checkBoxBigContainer
+{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    width: 1100px;
+    gap: 10px;
 }

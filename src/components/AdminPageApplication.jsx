@@ -9,6 +9,7 @@ import check from './assets/badge-alert.svg';
 import x from './assets/badge-x.svg';
 import done from './assets/badge-check.svg';
 import filter from './assets/list-filter.svg';
+import percent from "./assets/percent.svg"
 import classNames from 'classnames';
 
 const AdminPageApplication = ({ goToEditApplication, messages, goToUsers}) =>{
@@ -110,6 +111,14 @@ return(
                       <input type="checkbox" className={styles.checkbox}
                       onChange={() => handleCheckboxChange("Не выполнена", selectedStatuses, setSelectedStatuses)}></input>
                       <span className={styles.filterText}>Не выполнена</span>
+                  </div>
+                  <div className={styles.filterSmallConteiner}>
+                      <picture className={styles.filterImage}>
+                      <img src={percent} height="25px" width="25px"/>
+                      </picture>
+                      <input type="checkbox" className={styles.checkbox}
+                      onChange={() => handleCheckboxChange("В процессе выполнения", selectedStatuses, setSelectedStatuses)}></input>
+                      <span className={styles.filterText}>В процессе выполнения</span>
                   </div>
                 </div>
         </div>
