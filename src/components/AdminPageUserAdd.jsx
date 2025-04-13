@@ -15,7 +15,7 @@ return(
                 </div>
         </div>
         <div className={styles.conteiner}>
-            <div className={classNames(bigConteiner , styles.sectionConteiner)}>
+            <div className={classNames(styles.bigConteiner , styles.sectionConteiner)}>
                 <div className={classNames(styles.smallTextConteiner , styles.midle)}>
                     <span className={styles.sectionText}>Данные рабочего акаунта </span>
                 </div>
