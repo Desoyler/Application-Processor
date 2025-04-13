@@ -1,11 +1,15 @@
 import React from 'react';
 import styles from './Cabinetpage.module.css';
 import classNames from 'classnames';
+import { useParams } from 'react-router-dom'
 
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 
-const Cabinetpagedocuments = ({ goToCabinet, goToWork, passport, inn, snils, oms, driverLicense}) =>{
+const Cabinetpagedocuments = ({ goToCabinet, goToWork, passport, inn, snils, oms, driverLicense, users, goToMyApplications}) =>{
+    const { id } = useParams(); // достаем id из URL
+    const user = users.find(user => String(user.id) === String(id));
+
     return(
         <div>
             <div className={styles.zero}>
@@ -61,7 +65,7 @@ const Cabinetpagedocuments = ({ goToCabinet, goToWork, passport, inn, snils, oms
                         <span>Приложение разработано командой © РУСАЛ для удобной и эффективной работы с электронными заявками.</span>
                     </div>
                     <div className={styles.supportContainer}>
-                        <button className={styles.supportButton}> <img src={support} className={styles.supportImage}/>Мои заявки</button>
+                        <button className={styles.supportButton} onClick={() => goToMyApplications(user.id)}> <img src={support} className={styles.supportImage}/>Мои заявки</button>
                     </div>
                 </div>
                 

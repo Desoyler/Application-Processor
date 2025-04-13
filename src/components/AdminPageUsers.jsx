@@ -21,7 +21,6 @@ return(
                     <span className={styles.sideHText}>Возможности администратора</span><br/>
                     <span className={classNames(styles.sideText , styles.activeText)} onClick="">Работа с данными пользователей</span><br/>
                     <span className={styles.sideText} onClick={goToAdminAplication}>Работа с заявками</span><br/>
-                    <span className={styles.sideText} onClick="">Запросы в поддержку</span><br/>
                 </div>
         </div>
         <div className={styles.conteiner}>

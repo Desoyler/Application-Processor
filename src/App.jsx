@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, useNavigate, Router } from 'react-router-dom';
+import { Routes, Route, useNavigate, Router, Navigate } from 'react-router-dom';
 
 import './App.css'
 import Authorizationpage from './components/Authorizationpage.jsx'
@@ -18,6 +18,7 @@ import AdminPageUserEdit from "./components/AdminPageUserEdit.jsx"
 import AdminPageUsers from './components/AdminPageUsers.jsx';
 import AdminPageApplication from './components/AdminPageApplication.jsx';
 import AdminPageApplicationEdit from './components/AdminPageApplicationEdit.jsx';
+import MyApplications from './components/MyApplications.jsx';
 
 const users = [
   { id: 1, username: 'user1', password: 'pass1', profession: 'Глава финансов', firstName:"Иван", middleName: "Иванович", lastName: "Иванов", workername: 'Иван Иванов Иванович', email: 'xxxxxxxx@mail.ru', phone: '+7949XXXXXXXX', birthDay: 11, birthMonth: 6, birthYear: 1996, state: 'M', passport: 243454, inn: 332131, snils: 3213213, oms: 231321312, driverLicense: 32131, salary: 60500, days: 5,
@@ -31,16 +32,16 @@ const users = [
 ];
 
 const messages = [
-  {id: 1, shortpage: "Поломка компьютера", type: "Поломка компьютерного оборудования", status: "Выполнена", text: "У рабочего неожиданно перестал работать компьютер. Он пытался перезагрузить систему, но экран так и остался чёрным. Сначала подумал, что проблема в проводах, но все было подключено правильно. Включил его в другой розетке, но это не помогло. Решил проверить блок питания, но и он работал нормально. Попробовал включить ПК в безопасном режиме, но и это не дало результата. Рабочий запаниковал и позвонил в сервис, чтобы узнать причину. Специалисты сообщили, что у него сгорела видеокарта, и потребуется заменить часть комплектующих.", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+  {id: 1, shortpage: "Поломка компьютера", type: "Поломка компьютерного оборудования", status: "Выполнена", text: "У рабочего неожиданно перестал работать компьютер. Он пытался перезагрузить систему, но экран так и остался чёрным. Сначала подумал, что проблема в проводах, но все было подключено правильно. Включил его в другой розетке, но это не помогло. Решил проверить блок питания, но и он работал нормально. Попробовал включить ПК в безопасном режиме, но и это не дало результата. Рабочий запаниковал и позвонил в сервис, чтобы узнать причину. Специалисты сообщили, что у него сгорела видеокарта, и потребуется заменить часть комплектующих.", otschet: "", sender: "Иван Иванов Иванович", location: "цех1",  
     chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Вова" }
     ]}, 
-    {id: 2, shortpage: "Поломка компьютера", type: "Перепад электроэнергии", status: "Доп.решение", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+    {id: 2, shortpage: "Поломка компьютера", type: "Перепад электроэнергии", status: "Доп.решение", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванов Иванович", location: "цех1",  
       chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
       ]} ,
-    {id: 3, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "Не выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+    {id: 3, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "Не выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванов Иванович", location: "цех1",  
       chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
       ]},
-      {id: 4, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "В процессе выполнения", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванович Иванов", location: "цех1",  
+      {id: 4, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "В процессе выполнения", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванов Иванович", location: "цех1",  
         chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
         ]} 
 ];
@@ -83,7 +84,6 @@ const goToAdd = () =>
   navigate("/admin/users/add");
 };
 
-
 //Фукции нафигации с айдишником от массива
 
 
@@ -124,10 +124,11 @@ const goToChat = (id) =>
 {
   navigate(`/watch/${id}/chat`);
 };
-const goToSupportChat = (id) => 
-  {
-    navigate(`/support/chat/${id}`);
-  };
+const goToMyApplications = (id) =>
+{
+  navigate(`/cabinet/myapplication/${id}`)
+}
+
 
 //Функции навигации с проверками
 const goback = (status) => {
@@ -291,10 +292,12 @@ const handleLogin = () => {
             <Cabinetpage  
               goToDock={goToDock} 
               goToWork={goToWork}
+              goToMyApplications = {goToMyApplications}
 
               setUsername={setUsername}
               setPassword={setPassword}
     
+              users={users}
               firstName={firstName}
               lastName={lastName}
               middleName={middleName}
@@ -304,7 +307,7 @@ const handleLogin = () => {
               email={email}
               phone={phone}
               state={state}
-            /> : <Authorizationpage handleLogin={handleLogin} />}
+            /> : <Navigate to="/" replace />}
         />
         <Route path="/cabinet/:id/documents"
           element={
@@ -312,13 +315,15 @@ const handleLogin = () => {
             <Cabinetpagedocuments 
               goToCabinet={goToCabinet} 
               goToWork={goToWork}
+              goToMyApplications = {goToMyApplications}
 
+              users={users}
               passport={passport}
               inn={inn}
               snils={snils}
               oms={oms}
               driverLicense={driverLicense}
-            /> : <Authorizationpage handleLogin={handleLogin} />}
+            /> : <Navigate to="/" replace />}
         />
         <Route path="/cabinet/:id/work"
           element={
@@ -326,10 +331,12 @@ const handleLogin = () => {
             <Cabinetpagework 
               goToDock={goToDock} 
               goToCabinet={goToCabinet} 
+              goToMyApplications = {goToMyApplications}
 
+              users={users}
               salary={salary}
               days={days}
-            /> : <Authorizationpage handleLogin={handleLogin} />}
+            /> : <Navigate to="/" replace />}
         />
         <Route path="/send" 
         element={
@@ -338,7 +345,7 @@ const handleLogin = () => {
              setText = {setText}
              setshorttext = {setshorttext}
              setStatus={setStatus}
-            /> : <Authorizationpage handleLogin={handleLogin}/>}
+            /> : <Navigate to="/" replace />}
         />
       <Route path="/watch"
        element={
@@ -346,7 +353,7 @@ const handleLogin = () => {
         <Watchpage 
           goToApplication={goToApplication} 
           messages={messages}
-        /> : <Authorizationpage handleLogin={handleLogin}/>}
+        /> : <Navigate to="/" replace />}
       />
       <Route path="/history"
         element={
@@ -354,7 +361,7 @@ const handleLogin = () => {
           <Historypage 
             goToApplication={goToApplication}  
             messages={messages}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
         />
        <Route path="/watch/:id"
         element={
@@ -366,7 +373,7 @@ const handleLogin = () => {
           goback={goback}
           goToEnd = {goToEnd}
 
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
         />
         <Route path="/watch/:id/end"
         element={
@@ -376,7 +383,7 @@ const handleLogin = () => {
           goToApplication = {goToApplication}
           goToChat = {goToChat}
           goback={goback}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
         />
         <Route path="/watch/:id/chat"
         element={
@@ -387,7 +394,7 @@ const handleLogin = () => {
           goToApplication={goToApplication} 
           goToEnd = {goToEnd}
           goback = {goback}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
         />
         <Route path="/admin/users/add"
         element={
@@ -395,7 +402,7 @@ const handleLogin = () => {
           <AdminPageUserAdd
           goToUsers={goToUsers}
           goToAdminAplication={goToAdminAplication}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
         />
         <Route path="/admin/users/edit/:id"
         element={
@@ -404,7 +411,7 @@ const handleLogin = () => {
           goToUsers={goToUsers}
           goToAdminAplication={goToAdminAplication}
           users={users}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
         />
         <Route path="/admin/users"
         element={
@@ -416,7 +423,7 @@ const handleLogin = () => {
           workername = {currentUser.workername}
           goToAdminAplication = {goToAdminAplication}
           goToEdit = {goToEdit}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
         />
         <Route path="/admin/application"
         element={
@@ -426,7 +433,7 @@ const handleLogin = () => {
           messages={messages}
           goToEditApplication = {goToEditApplication}
           goToUsers={goToUsers}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
         />
         <Route path="/admin/application/edit/:id"
         element={
@@ -435,7 +442,16 @@ const handleLogin = () => {
           goToUsers={goToUsers}
           goToAdminAplication = {goToAdminAplication}
           messages={messages}
-          /> : <Authorizationpage handleLogin={handleLogin}/>}
+          /> : <Navigate to="/" replace />}
+        />
+        <Route path="/cabinet/myapplication/:id"
+        element={
+          isAuthentificated ?
+          <MyApplications
+          messages={messages}
+          workername={workername}
+          goToApplication={goToApplication}
+        /> : <Navigate to="/" replace />}
         />
       </Routes>
     </div>

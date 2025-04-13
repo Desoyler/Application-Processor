@@ -50,7 +50,6 @@ return(
                     <span className={styles.sideHText}>Возможности администратора</span><br/>
                     <span className={styles.sideText} onClick={goToUsers}>Работа с данными пользователей</span><br/>
                     <span className={classNames(styles.sideText , styles.activeText)} onClick="">Работа с заявками</span><br/>
-                    <span className={styles.sideText} onClick="">Запросы в поддержку</span><br/>
                 </div>
                 <div className={styles.filterConteiner}>
                 <span className={classNames(styles.hText , styles.filterText)}><img src={filter} className='filterLogoImage' width="25px" height="25px"/>Фильтр</span>
