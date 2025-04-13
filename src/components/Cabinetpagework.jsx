@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 
-const Cabinetpagework = ({goToDock, goToCabinet}) => {
+const Cabinetpagework = ({goToDock, goToCabinet, days, salary}) => {
         
     return(
         <div>
@@ -24,11 +24,11 @@ const Cabinetpagework = ({goToDock, goToCabinet}) => {
                 <div className={classNames(styles.infoConteiner2)}>
                     <div className={styles.smallConteiner}>
                         <span className={styles.infoText}>Заработная плата</span> <br/>
-                        <input type="text" className={styles.input} /> 
+                        <input type="text" className={styles.input} value={salary} disabled/> 
                     </div>
                     <div className={styles.smallConteiner}> 
                         <span className={styles.infoText}>Дней до оплачиваемого отпуска</span> <br/>
-                        <input type="text" className={styles.input} /> 
+                        <input type="text" className={styles.input} value={days} disabled /> 
                     </div>
                 </div>
                 <div className={classNames(styles.infoConteiner3 )}>

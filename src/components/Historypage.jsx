@@ -84,9 +84,9 @@ const Historypage = ({goToApplication, messages}) =>{
                                   <div className={styles.shortTextConteiner}>
                                   <h3 className={styles.shortText}>{msg.shortpage}</h3>
                                   </div>
-                                  <div>
-                                  <span className={styles.type}>Тип поломки: {msg.type} </span> <br/>
-                                  <span className={styles.location}>Место проишествия: {msg.location} </span>
+                                  <div className={styles.mainContainer}>
+                                  <span>Тип поломки: {msg.type} </span> <br/>
+                                  <span>Место проишествия: {msg.location} </span>
                                   </div>
                                   <div className={styles.sender}>
                                   <p><strong>Отправитель: {msg.sender}</strong></p>

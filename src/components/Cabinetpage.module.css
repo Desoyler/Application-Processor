@@ -72,6 +72,10 @@
     width: 200px;
     outline: none;
 }
+.input:disabled
+{
+    background-color: #FFFFFF;
+}
 .infoText
 {
     font-weight: bold;

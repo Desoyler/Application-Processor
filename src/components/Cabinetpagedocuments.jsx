@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 
-const Cabinetpagedocuments = ({ goToCabinet, goToWork}) =>{
+const Cabinetpagedocuments = ({ goToCabinet, goToWork, passport, inn, snils, oms, driverLicense}) =>{
     return(
         <div>
             <div className={styles.zero}>
@@ -22,25 +22,25 @@ const Cabinetpagedocuments = ({ goToCabinet, goToWork}) =>{
                 <div className={classNames(styles.infoConteiner1)}>
                     <div className={styles.smallConteiner}>
                     <span className={styles.infoText}>Паспорт</span><br/>
-                    <input type="text" className={styles.input} />
+                    <input type="text" className={styles.input} value={passport} disabled />
                     </div>
                     <div className={styles.smallConteiner}>
                     <span className={styles.infoText}>ИНН</span> <br/>
-                    <input type="text" className={styles.input} /> 
+                    <input type="text" className={styles.input} value={inn} disabled /> 
                     </div>
                     <div className={styles.smallConteiner}>
                     <span className={styles.infoText}>СНИЛС</span> <br/>
-                    <input type="text" className={styles.input} /> 
+                    <input type="text" className={styles.input} value={snils} disabled /> 
                     </div>
                 </div>
                 <div className={classNames(styles.infoConteiner2 )}>
                     <div className={styles.smallConteiner}>
                     <span className={styles.infoText}>Полис ОМС</span> <br/>
-                    <input type="text" className={styles.input} /> 
+                    <input type="text" className={styles.input} value={oms} disabled/> 
                     </div>
                     <div className={styles.smallConteiner}>
                     <span className={styles.infoText}>Водительские права</span> <br/>
-                    <input type="text" className={styles.input} /> 
+                    <input type="text" className={styles.input} value={driverLicense} disabled /> 
                     </div>
                 </div>
                 <div className={classNames(styles.infoConteiner3)}>

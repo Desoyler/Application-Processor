@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import workerpng from './assets/worker.png'
 import support from './assets/support.svg'
 
-const Cabinetpage = ({goToDock, goToWork }) =>{
+const Cabinetpage = ({goToDock, goToWork, firstName, lastName, middleName, birthDay, birthMonth, birthYear, email, phone, state
+}) =>{
     return(
         <div>
             <div className={styles.zero}>
@@ -22,37 +23,37 @@ const Cabinetpage = ({goToDock, goToWork }) =>{
                 <div className={classNames(styles.infoConteiner1)}>
                     <div className={styles.smallConteiner}>
                     <span className={styles.infoText}>Имя</span><br/>
-                    <input type="text" className={styles.input} />
+                    <input type="text" className={styles.input} value={firstName} disabled />
                     </div>
                     <div className={styles.smallConteiner}>
                     <span className={styles.infoText}>Отчество</span> <br/>
-                    <input type="text" className={styles.input} /> 
+                    <input type="text" className={styles.input}  value={middleName} disabled/> 
                     </div>
                     <div className={styles.smallConteiner}>
                     <span className={styles.infoText}>Фамилия</span> <br/>
-                    <input type="text" className={styles.input} /> 
+                    <input type="text" className={styles.input} value={lastName} disabled /> 
                     </div>
                 </div>
                 <div className={classNames(styles.infoConteiner2 )}>
                     <div className={styles.smallConteiner}>
                         <span className={styles.infoText}>E-mail</span> <br/>
-                        <input type="text" className={styles.input} />
+                        <input type="text" className={styles.input} value={email} disabled />
                     </div>
                     <div className={styles.smallConteiner}>
                         <span className={styles.infoText}>Телефон</span> <br/>
-                        <input type="text" className={styles.input} />
+                        <input type="text" className={styles.input} value={phone} disabled />
                     </div>
                     </div>
                     <div className={classNames(styles.infoConteiner3)}>
                     <div className={styles.smallConteiner}>
                         <span className={styles.infoText}>Дата рождения</span> <br/>
-                        <input className={styles.smallInput}></input>
-                        <input className={styles.smallInput}></input>
-                        <input className={styles.smallInput}></input>
+                        <input className={styles.smallInput}value={birthDay} disabled></input>
+                        <input className={styles.smallInput}value={birthMonth} disabled></input>
+                        <input className={styles.smallInput}value={birthYear} disabled></input>
                     </div>
                     <div className={styles.smallConteiner}>
                         <span className={styles.infoText}>Пол</span> <br/>
-                        <input className={styles.smallInput}></input>
+                        <input className={styles.smallInput} value={state} disabled></input>
                     </div>
                     </div>
                     <div className={styles.warningContainer}>
