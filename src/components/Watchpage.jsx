@@ -24,7 +24,7 @@ const Watchpage = ({goToApplication , messages}) => {
     );
 
     return (
-        <div className={styles.watchPage}>
+        <div>
             <div className={styles.zero}>
               <span className={styles.zeroHText}>Просмотр активных заявок</span>
               <div className={styles.sidePanel}>

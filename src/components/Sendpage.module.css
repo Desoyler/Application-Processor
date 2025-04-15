@@ -1,33 +1,40 @@
 .zero
 {
     display: block;
-    position: relative;
     height: 1px;
     width: 550px;
+
+    position: relative;
 }
 .zeroHText
 {
-    font-weight: bold;
-    font-size: 35px;
     position: relative;
     left: 470px;
     top: 55px;
+
+    font-weight: bold;
+    font-size: 35px;
 }
 .conteiner
 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background: #FFFFFF;
+
     display: flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center;
-    border-radius: 7px;
+    gap: 10px;
+
     width: 1100px;
     height: 732px;
     max-height: 732px;
+
+    border-radius: 7px;
+
     margin: 0 auto; 
     margin-top: 100px;
-    gap: 10px;
+
     overflow-y: auto;
 }
 .smallConteiner
@@ -36,6 +43,7 @@
     flex-direction: column; 
     align-items: center;
     justify-content: center;
+
     width: 1000px;
     height: 100px;
 }
@@ -47,38 +55,49 @@
 {
     border:none;
     border-bottom: #000 1px solid;
+
     outline: none;
 }
 .sendbutton
 {
+    background: #E63946;
+
     position: relative;
+
+    width: 150px;
+
     color: #FFFFFF;
     font-weight: bold;
     border: none;
+
     border-radius: 6px;
+
     padding: 25px;
-    background: #E63946;
-    width: 150px;
 }
 .list
 {
     font-size: 18px;
+
     border:none;
     border-bottom: #000 1px solid;
+
     outline: none;
 }
 .Text
 {
+    display: block;
+
     font-weight: bold;
     font-size: 23px;
-    display: block;
+    
     margin-bottom: 1px ;
 }
 .shortTextInput
 {
-    font-size: 18px;
     width: 470px;
     height: 40px;
+
+    font-size: 18px;
 }
 .bigTextConteiner
 {
@@ -86,16 +105,19 @@
     flex-direction: column; 
     align-items: center;
     justify-content: center;
+
     width: 1000px;
     height: 200px;
 }
 .bigText
 {
-    outline: none;
-    font-size: 16px;
     width: 740px;
     height: 170px;
+
+    font-size: 16px;
+
     resize: none;
+    outline: none;
 }
 .sendButtonText
 {

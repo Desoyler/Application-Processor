@@ -2,19 +2,23 @@
 {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background: #FFFFFF;
+
     display: flex;
     flex-direction: column; 
-    border-radius: 7px;
+    gap: 10px;
+
     width: 1100px;
     height: 575px;
+
+    border-radius: 7px;
+
     margin: 0 auto; 
     margin-top: 150px;
-    gap: 10px;
 }
 .zero
 {
     display: block;
-    position: relative;
+
     height: 1px;
     width: 350px;
 }
@@ -22,6 +26,7 @@
 {
     font-weight: bold;
     font-size: 35px;
+
     position: relative;
     left: 470px;
     top: 95px;
@@ -29,47 +34,59 @@
 .infoConteiner1
 {
     display: flex;
-    width: 780px;
-    height: 100px;
-    flex-direction: row; 
-    position: relative;
-    top: 20px;
-    margin-left: 5px ;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+
+    width: 780px;
+    height: 100px;
+    
+    position: relative;
+    top: 20px;
+
+    margin-left: 5px ;
 }
 .infoConteiner2
 {
     display: flex;
-    width: 546px;
-    height: 100px;
     flex-direction: row; 
-    position: relative;
-    top: 20px;
-    margin-left: 5px ;
     align-items: center;
     justify-content: center;
+
+    width: 546px;
+    height: 100px;
+    
+    position: relative;
+    top: 20px;
+
+    margin-left: 5px ;
 }
 .infoConteiner3
 {
     display: flex;
-    width: 318px;
-    height: 100px;
     flex-direction: row; 
-    position: relative;
-    top: 20px;
-    margin-left: 5px ;
     align-items: center;
     justify-content: center;
     gap: 15px;
+
+    width: 318px;
+    height: 100px;
+    
+    position: relative;
+    top: 20px;
+
+    margin-left: 5px ;
 }
 .input
 {
     border: none;
     border-bottom: #000000 solid 1px;
+
+    width: 200px;
+
     margin: 2px;
     padding: 15px;
-    width: 200px;
+
     outline: none;
 }
 .input:disabled
@@ -93,10 +110,12 @@
 }
 .sideText
 {
-    padding: 2px;
     display: block;
+
     font-weight: bold;
     font-size: 18px;
+
+    padding: 2px;
     margin-bottom: 1px;
 }
 .activeText
@@ -106,18 +125,22 @@
 .sideHText
 {
     display: block;
+
     font-weight: bold;
     font-size: 25px;
+
     margin-bottom: 25px;
 }
 .smallInput
 {
     border:none;
     border-bottom: #000000 1px solid;
-    margin: 2px;
-    padding: 8px;
+
     width: 40px;
     outline: none;
+
+    margin: 2px;
+    padding: 8px;
 }
 .smallInput:disabled
 {
@@ -125,9 +148,10 @@
 }
 .workerImage
 {
-    position: relative;
     height: 250px;
     width: 250px;
+
+    position: relative;
     left: 1200px;
     bottom: 50px;
 }
@@ -135,39 +159,47 @@
 {
     height: auto;
     width: 350px;
+
+    color: gray;
+
     position: relative;
     left: 30px;
     top: 60px;
-    color: gray;
 }
 .copyrightContainer
 {
-    color: gray;
     display: block;
+    
+    color: gray;
+
     position: relative;
     top: 70px;
     left: 285px;
 }
 .supportContainer
 {
+    width:200px;
+
     position: relative;
     left:  800px;
     bottom: 54px;
-    width:200px;
 }
 .supportButton
 {
-    color: #FFFFFF;
-    font-weight: bold;
-    font-size: 15px;
-    border: none;
-    border-radius: 6px;
+    box-shadow: 4px 4px 10px #E63946;
     background: #E63946;
-    display: flex;
+
     justify-content: center; 
     align-items: center; 
     flex-direction: row; 
-    box-shadow: 4px 4px 10px #E63946;
+
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 15px;
+
+    border: none;
+    border-radius: 6px;
+
     height: 50px;
     width: 230px;
 }
@@ -176,6 +208,7 @@
     position: relative;
     right: 52px;
     top: 5px;
+    
     height: 33px;
     width: 33px;
 }

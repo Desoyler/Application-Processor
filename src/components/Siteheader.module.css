@@ -1,19 +1,24 @@
 .headerConteiner
 {
     background: #FFFFFF;
-    border-bottom: 2px solid #E63946; 
+
     display: flex;
-    width: 1920px;
-    height: 75px;
     justify-content: flex-start; 
     align-items: center; 
     flex-direction: row; 
+
+    width: 1920px;
+    height: 75px;
+
+    border-bottom: 2px solid #E63946; 
+
     margin: 0 auto; 
 }
 .headerButtons
 {
     position: relative;
     left: 70px;
+    
     margin-left: 2px;
     margin-right: 20px;
 }

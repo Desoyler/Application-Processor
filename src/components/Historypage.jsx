@@ -39,7 +39,7 @@ const Historypage = ({goToApplication, messages}) =>{
          );
 
     return(
-          <div className={styles.historypage}>
+          <div>
                       <div className={styles.zero}>
                         <span className={styles.zeroHText}>История заявок</span>
                         <div className={styles.sidePage}>
