@@ -32,6 +32,7 @@ const Sendpage = ({setText, setshorttext, setStatus, }) =>
             <span className={styles.zeroHText}>Отправка технической заявки</span>
         </div>
         <div className={styles.conteiner}>
+            <form method="POST" action="#">
             <div className={styles.smallConteiner}>
                 <span className={styles.Text}>Опишите кратко проблему</span><br/>
                 <input type="text" className = {classNames(styles.shortTextInput, styles.bottomBorder)} id="shortTextInput"  onChange={handleshortTextChange} ></input>
@@ -60,6 +61,7 @@ const Sendpage = ({setText, setshorttext, setStatus, }) =>
             <div className={styles.smallConteiner}>
             <button className={styles.sendbutton} onClick={handleSubmit}><span className={styles.sendButtonText}>Отправить</span></button>
             </div>
+            </form>
         </div>
         </div>
     );

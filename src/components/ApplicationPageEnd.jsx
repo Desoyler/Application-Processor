@@ -13,11 +13,6 @@ const ApplicationPageEnd = ({messages, goToApplication, goToChat, goback, handle
     const ApplicationDone = "Выполнена";
     const ApplicationDop = "Доп.решение";
     const ApplicationNotDone = "Не выполнена";
-    
-    const handleCheckboxChange = (newStatus) => {
-        // Вызываем обработчик из родителя (если нужно обновить состояние в родительском компоненте)
-        handleStatusChange({ ...message, status: newStatus });
-      }
 
     const [message, setMessage] = useState(null);
     
@@ -67,27 +62,30 @@ const ApplicationPageEnd = ({messages, goToApplication, goToChat, goback, handle
                         <picture className={styles.coutImage}>
                             <img src={check} height="25px" width="25px"/>
                             </picture>
-                            <input type="checkbox" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
+                            <input type="radio" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
                             checked={message.status === 'Доп.решение'}
-                            onChange={() => handleCheckboxChange("Доп.решение")}></input>
+                            onChange={() => console.log(1)}
+                            ></input>
                             <span className={styles.boldText}>Доп.решение</span>
                         </div>
                         <div className={styles.checkBoxContainer}>
                         <picture className={styles.coutImage}>
                             <img src={done} height="25px" width="25px"/>
                             </picture>
-                            <input type="checkbox" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
+                            <input type="radio" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
                             checked={message.status === 'Выполнена'}
-                            onChange={() => handleCheckboxChange("Выполнена")}></input>
+                            onChange={() => console.log(2)}
+                            ></input>
                             <span className={styles.boldText}>Выполнена</span>
                         </div>
                         <div className={styles.checkBoxContainer}>
                             <picture className={styles.coutImage}>
                             <img src={x} height="25px" width="25px"/>
                             </picture>
-                            <input type="checkbox" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
+                            <input type="radio" disabled={message.status === 'Выполнена' || message.status === 'Доп.решение' || message.status === 'Не выполнено'}
                             checked={message.status === 'Не выполнена'}
-                            onChange={() => handleCheckboxChange('Не выполнена')}></input>
+                            onChange={() => console.log(3)}
+                             ></input>
                             <span className={styles.boldText}>Не выполнена</span>
                         </div>
                     </div>
