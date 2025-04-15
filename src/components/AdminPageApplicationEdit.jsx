@@ -27,6 +27,7 @@ return(
                 </div>   
         </div>
         <div className={classNames(styles.conteiner)}>
+        <form method="POST" action="#">
             <div className={classNames(styles.statusBigConteiner, styles.midle )}>
                 <span className={styles.applicationPageEditText}>Изменить тип заявки</span><br/>
                 <select className={classNames(styles.list , styles.bottomBorder)} id="problemType " defaultValue="">
@@ -83,6 +84,7 @@ return(
                 <button className={styles.bottomButtons}>Удалить заявку</button>
                 <button className={styles.bottomButtons}>Изменить</button>
             </div>
+            </form>
         </div>
     </div>
 );

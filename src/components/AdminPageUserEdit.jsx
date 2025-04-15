@@ -23,6 +23,7 @@ return(
                 </div>
         </div>
         <div className={styles.conteiner}>
+        <form method="POST" action="#">
             <div className={classNames(styles.bigConteiner , styles.sectionConteiner)}>
                 <div className={classNames(styles.smallTextConteiner, styles.midle)}>
                     <span className={styles.sectionText}>Данные рабочего акаунта </span>
@@ -140,6 +141,7 @@ return(
                 <button className={styles.bottomButtons}>Удалить пользователя</button>
                 <button className={styles.bottomButtons}>Изменить</button>
             </div>
+            </form>
         </div>
 </div>
 );
