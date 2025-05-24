@@ -1,70 +1,124 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import styles from './Sendpage.module.css';
 import classNames from 'classnames';
 
-const Sendpage = ({setText, setshorttext, setStatus, }) =>
-    {
+const Sendpage = ({ setText, setshorttext, setStatus }) => {
+  // Local state for form fields
+  const [shortpage, setShortpage] = useState('');
+  const [text, setBigText] = useState('');
+  const [location, setLocation] = useState('');
+  const [type, setType] = useState('');
+  const [sender, setSender] = useState('Иван Иванов Иванович'); // Replace with actual user if needed
 
-    const handleTextChange = (event) =>
-    {
-        const element = document.getElementById("bigText"); 
-        setText(element.value); 
+  const handleShortTextChange = (e) => {
+    setShortpage(e.target.value);
+    setshorttext(e.target.value);
+  };
+
+  const handleTextChange = (e) => {
+    setBigText(e.target.value);
+    setText(e.target.value);
+  };
+
+  const handleLocationChange = (e) => setLocation(e.target.value);
+  const handleTypeChange = (e) => setType(e.target.value);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus('Не выполнена');
+    // Prepare the data
+    const data = {
+      shortpage,
+      type,
+      status: 'Не выполнена',
+      text,
+      otschet: '',
+      sender,
+      location
     };
+    // Send POST request
+    try {
+      const response = await fetch('http://localhost:3000/api/zayavki', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!response.ok) throw new Error('Ошибка при отправке заявки');
+      alert('Заявка успешно отправлена!');
+      // Optionally, clear the form here
+      setShortpage('');
+      setBigText('');
+      setLocation('');
+      setType('');
+    } catch (err) {
+      alert('Ошибка: ' + err.message);
+    }
+  };
 
-    const handleshortTextChange = (event) =>
-    {
-        const element = document.getElementById("shortTextInput"); 
-        setshorttext(element.value); 
-    };
-
-    
-
-    const handleSubmit = (event) =>
-    {
-        setStatus('Не выполнена') // в базе данных отправить notcomplited для дальнейшей логики
-        //тут должна быть отправка данных на сервер
-    };
-
-    return(
-        <div>
-        <div className={styles.zero}>
-            <span className={styles.zeroHText}>Отправка технической заявки</span>
-        </div>
-        <div className={styles.conteiner}>
-            <form method="POST" action="#">
-            <div className={styles.smallConteiner}>
-                <span className={styles.Text}>Опишите кратко проблему</span><br/>
-                <input type="text" className = {classNames(styles.shortTextInput, styles.bottomBorder)} id="shortTextInput"  onChange={handleshortTextChange} ></input>
-            </div>
-            <div className={styles.bigTextConteiner}>
-                <span className={styles.Text}>Опишите вашу проблему детально в поле ниже:</span><br/>
-                <textarea className={styles.bigText} id="bigText" rows="10" cols="50" onChange={handleTextChange} ></textarea>
-            </div>
-            <div className={classNames(styles.smallConteiner, styles.height)}>
-                <select className={classNames(styles.list, styles.bottomborder)} id="Location" defaultValue="">
-                    <option value=""  disabled hidden>Выбирите место где произошла поломка</option>
-                    <option value="1">Цех 1</option>
-                    <option value="2">Цех 2</option>
-                    <option value="3">Цех 3</option>
-                    <option value="4">Цех 4</option>
-                </select>
-            </div>
-            <div className={classNames(styles.smallConteiner, styles.height)}>
-                <select className={classNames(styles.list, styles.bottomBorder)} id="problemType " defaultValue="">
-                    <option value="" disabled hidden>Выбирите тип поломки</option>
-                    <option value="1">Поломка компьютерного оборудования</option>
-                    <option value="2">Перебои электроэнергии</option>
-                    <option value="3">Поломка рабочего оборудования</option>
-                </select>
-            </div>
-            <div className={styles.smallConteiner}>
-            <button className={styles.sendbutton} onClick={handleSubmit}><span className={styles.sendButtonText}>Отправить</span></button>
-            </div>
-            </form>
-        </div>
-        </div>
-    );
+  return (
+    <div>
+      <div className={styles.zero}>
+        <span className={styles.zeroHText}>Отправка технической заявки</span>
+      </div>
+      <div className={styles.conteiner}>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.smallConteiner}>
+            <span className={styles.Text}>Опишите кратко проблему</span><br/>
+            <input
+              type="text"
+              className={classNames(styles.shortTextInput, styles.bottomBorder)}
+              value={shortpage}
+              onChange={handleShortTextChange}
+              required
+            />
+          </div>
+          <div className={styles.bigTextConteiner}>
+            <span className={styles.Text}>Опишите вашу проблему детально в поле ниже:</span><br/>
+            <textarea
+              className={styles.bigText}
+              rows="10"
+              cols="50"
+              value={text}
+              onChange={handleTextChange}
+              required
+            />
+          </div>
+          <div className={classNames(styles.smallConteiner, styles.height)}>
+            <select
+              className={classNames(styles.list, styles.bottomborder)}
+              value={location}
+              onChange={handleLocationChange}
+              required
+            >
+              <option value="" disabled hidden>Выбирите место где произошла поломка</option>
+              <option value="цех1">Цех 1</option>
+              <option value="цех2">Цех 2</option>
+              <option value="цех3">Цех 3</option>
+              <option value="цех4">Цех 4</option>
+            </select>
+          </div>
+          <div className={classNames(styles.smallConteiner, styles.height)}>
+            <select
+              className={classNames(styles.list, styles.bottomBorder)}
+              value={type}
+              onChange={handleTypeChange}
+              required
+            >
+              <option value="" disabled hidden>Выбирите тип поломки</option>
+              <option value="Поломка компьютерного оборудования">Поломка компьютерного оборудования</option>
+              <option value="Перепад электроэнергии">Перепад электроэнергии</option>
+              <option value="Поломка рабочего компьютера">Поломка рабочего компьютера</option>
+            </select>
+          </div>
+          <div className={styles.smallConteiner}>
+            <button className={styles.sendbutton} type="submit">
+              <span className={styles.sendButtonText}>Отправить</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default Sendpage;

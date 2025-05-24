@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Router, Navigate } from 'react-router-dom';
 
 import './App.css'
@@ -20,35 +20,96 @@ import AdminPageApplication from './components/AdminPageApplication.jsx';
 import AdminPageApplicationEdit from './components/AdminPageApplicationEdit.jsx';
 import MyApplications from './components/MyApplications.jsx';
 
-const users = [
-  { id: 1, username: 'user1', password: 'pass1', profession: 'Глава финансов', firstName:"Иван", middleName: "Иванович", lastName: "Иванов", workername: 'Иван Иванов Иванович', email: 'xxxxxxxx@mail.ru', phone: '+7949XXXXXXXX', birthDay: 11, birthMonth: 6, birthYear: 1996, state: 'M', passport: 243454, inn: 332131, snils: 3213213, oms: 231321312, driverLicense: 32131, salary: 60500, days: 5,
-    supportBanner:[{id: 1, sender: "Иван Иванович Иванов", Active: true,
-      chat:[{id:1, messages:"dsadasdas", timestamp: 1, sender: 'Подержка'}]
-    }]},
-    { id: 2, username: 'user2', password: 'pass2', profession: 'Глава финансов', firstName:"Василий", middleName: "Васильевич", lastName: "Василий", workername: 'Иван Иванов Иванович', email: 'xxxxxxxx@mail.ru', phone: '+7949XXXXXXXX', birthDay: 11, birthMonth: 6, birthYear: 1996, state: 'M', passport: 243454, inn: 332131, snils: 3213213, oms: 231321312, driverLicense: 32131, salary: 60500, days: 5,
-      supportBanner:[{id: 2, sender: "Иван Иванович Иванов", Active: true,
-        chat:[{id:1, messages:"dsadasdas", timestamp: 1, sender: 'Подержка'}]
-      }]},
-];
+const users =[];
+fetch('http://localhost:3000/api/users')
+  .then(response => response.json())
+  .then(data => {
+    // Преобразование каждого пользователя к нужной структуре
+    data.forEach(user => {
+      users.push({
+        id: user.id,
+        login: user.login,
+        password: user.password,
+        profession: user.profession,
+        firstName: user.firstName,
+        middleName: user.middleName,
+        lastName: user.lastName,
+        workername: user.workername,
+        email: user.email,
+        phone: user.phone,
+        birthDay: user.birthDay,
+        birthMonth: user.birthMonth,
+        birthYear: user.birthYear,
+        state: user.state,
+        passport: user.passport,
+        inn: user.inn,
+        snils: user.snils,
+        oms: user.oms,
+        driverLicense: user.driverLicense,
+        active: user.active // исправлено с Active на active
+      });
+    });
+    console.log(users);
+  })
+  .catch(error => {
+    console.error('Ошибка:', error);
+  });
 
-const messages = [
-  {id: 1, shortpage: "Поломка компьютера", type: "Поломка компьютерного оборудования", status: "Выполнена", text: "У рабочего неожиданно перестал работать компьютер. Он пытался перезагрузить систему, но экран так и остался чёрным. Сначала подумал, что проблема в проводах, но все было подключено правильно. Включил его в другой розетке, но это не помогло. Решил проверить блок питания, но и он работал нормально. Попробовал включить ПК в безопасном режиме, но и это не дало результата. Рабочий запаниковал и позвонил в сервис, чтобы узнать причину. Специалисты сообщили, что у него сгорела видеокарта, и потребуется заменить часть комплектующих.", otschet: "", sender: "Иван Иванов Иванович", location: "цех1",  
-    chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Вова" }
-    ]}, 
-    {id: 2, shortpage: "Поломка компьютера", type: "Перепад электроэнергии", status: "Доп.решение", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванов Иванович", location: "цех1",  
-      chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
-      ]} ,
-    {id: 3, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "Не выполнена", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванов Иванович", location: "цех1",  
-      chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
-      ]},
-      {id: 4, shortpage: "Поломка компьютера", type: "Поломка рабочего компьютера", status: "В процессе выполнения", text: "Компьютер сломан нужна замена частей", otschet: "", sender: "Иван Иванов Иванович", location: "цех1",  
-        chat:[{id: 1, message: "Здраствуйте неработает компьютер", timestamp: 1, sender: "Иван Иванов Иванович" }
-        ]} 
-];
+
+
+
 
 
 function App() 
 {
+
+ const [users, setUsers] = useState([]);
+const [messages, setMessages] = useState([]);
+useEffect(() => {
+  fetch('http://localhost:3000/api/zayavki')
+    .then(response => response.json())
+    .then(data => {
+      setMessages(data);
+      // Для отладки:
+      console.log('Заявки с чатами:', data);
+    })
+    .catch(error => {
+      console.error('Ошибка при получении заявок:', error);
+    });
+}, []);
+
+ 
+useEffect(() => {
+  fetch('http://localhost:3000/api/users')
+    .then(response => response.json())
+    .then(data => {
+      setUsers(data.map(user => ({
+        id: user.id,
+        login: user.login,
+        password: user.password,
+        profession: user.profession,
+        firstName: user.firstName,
+        middleName: user.middleName,
+        lastName: user.lastName,
+        workername: user.workername,
+        email: user.email,
+        phone: user.phone,
+        birthDay: user.birthDay,
+        birthMonth: user.birthMonth,
+        birthYear: user.birthYear,
+        state: user.state,
+        passport: user.passport,
+        inn: user.inn,
+        snils: user.snils,
+        oms: user.oms,
+        driverLicense: user.driverLicense,
+        active: user.active
+      })));
+    })
+    .catch(error => {
+      console.error('Ошибка:', error);
+    });
+}, []);
 
 // Функции навигации
 const navigate = useNavigate(); 
@@ -219,7 +280,7 @@ const handleLogout = () => {
 };
 
 const handleLogin = () => {
-  const user = users.find(u => u.username === username);
+  const user = users.find(u => u.login === username);
 
   if (!user || user.password !== password) {
     alert('Данные не корректны!');
