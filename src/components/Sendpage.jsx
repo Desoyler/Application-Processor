@@ -2,41 +2,44 @@ import React, { useState } from 'react';
 import styles from './Sendpage.module.css';
 import classNames from 'classnames';
 
-const Sendpage = ({ setText, setshorttext, setStatus }) => {
-  // Local state for form fields
+const Sendpage = ({ setText, setshorttext, setStatus, users, activeuser }) => {
+  // Выбор пользователя из массива
+  
   const [shortpage, setShortpage] = useState('');
   const [text, setBigText] = useState('');
   const [location, setLocation] = useState('');
   const [type, setType] = useState('');
-  const [sender, setSender] = useState('Иван Иванов Иванович'); // Replace with actual user if needed
+
+  // Найти выбранного пользователя по id
+ 
 
   const handleShortTextChange = (e) => {
     setShortpage(e.target.value);
-    setshorttext(e.target.value);
+    setshorttext && setshorttext(e.target.value);
   };
 
   const handleTextChange = (e) => {
     setBigText(e.target.value);
-    setText(e.target.value);
+    setText && setText(e.target.value);
   };
 
   const handleLocationChange = (e) => setLocation(e.target.value);
   const handleTypeChange = (e) => setType(e.target.value);
+  const handleUserChange = (e) => setSelectedUserId(e.target.value);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setStatus('Не выполнена');
-    // Prepare the data
+    setStatus && setStatus('Не выполнена');
+    // Формируем данные для отправки
     const data = {
       shortpage,
       type,
       status: 'Не выполнена',
       text,
       otschet: '',
-      sender,
+      sender: selectedUser ? selectedUser.workername : '',
       location
     };
-    // Send POST request
     try {
       const response = await fetch('http://localhost:3000/api/zayavki', {
         method: 'POST',
@@ -45,7 +48,6 @@ const Sendpage = ({ setText, setshorttext, setStatus }) => {
       });
       if (!response.ok) throw new Error('Ошибка при отправке заявки');
       alert('Заявка успешно отправлена!');
-      // Optionally, clear the form here
       setShortpage('');
       setBigText('');
       setLocation('');
@@ -62,6 +64,23 @@ const Sendpage = ({ setText, setshorttext, setStatus }) => {
       </div>
       <div className={styles.conteiner}>
         <form onSubmit={handleSubmit}>
+          {/* Динамический выбор пользователя */}
+          <div className={styles.smallConteiner}>
+            <span className={styles.Text}>Отправитель</span><br/>
+            <select
+              className={styles.list}
+              value={selectedUserId}
+              onChange={handleUserChange}
+              required
+              disabled
+            >
+              {users.map(user => (
+                <option key={user.id} value={user.id}>
+                  {user.workername} ({user.profession})
+                </option>
+              ))}
+            </select>
+          </div>
           <div className={styles.smallConteiner}>
             <span className={styles.Text}>Опишите кратко проблему</span><br/>
             <input
@@ -90,7 +109,7 @@ const Sendpage = ({ setText, setshorttext, setStatus }) => {
               onChange={handleLocationChange}
               required
             >
-              <option value="" disabled hidden>Выбирите место где произошла поломка</option>
+              <option value="" disabled hidden>Выберите место где произошла поломка</option>
               <option value="цех1">Цех 1</option>
               <option value="цех2">Цех 2</option>
               <option value="цех3">Цех 3</option>
@@ -104,7 +123,7 @@ const Sendpage = ({ setText, setshorttext, setStatus }) => {
               onChange={handleTypeChange}
               required
             >
-              <option value="" disabled hidden>Выбирите тип поломки</option>
+              <option value="" disabled hidden>Выберите тип поломки</option>
               <option value="Поломка компьютерного оборудования">Поломка компьютерного оборудования</option>
               <option value="Перепад электроэнергии">Перепад электроэнергии</option>
               <option value="Поломка рабочего компьютера">Поломка рабочего компьютера</option>

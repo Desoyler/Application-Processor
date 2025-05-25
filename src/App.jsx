@@ -64,14 +64,13 @@ function App()
 {
 
  const [users, setUsers] = useState([]);
-const [messages, setMessages] = useState([]);
+ const [messages, setMessages] = useState([]);
 useEffect(() => {
   fetch('http://localhost:3000/api/zayavki')
     .then(response => response.json())
     .then(data => {
-      setMessages(data);
-      // Для отладки:
-      console.log('Заявки с чатами:', data);
+      setMessages(data); // сохраняем заявки в состояние
+      console.log(data);
     })
     .catch(error => {
       console.error('Ошибка при получении заявок:', error);
@@ -406,6 +405,7 @@ const handleLogin = () => {
              setText = {setText}
              setshorttext = {setshorttext}
              setStatus={setStatus}
+             users={users}
             /> : <Navigate to="/" replace />}
         />
       <Route path="/watch"
